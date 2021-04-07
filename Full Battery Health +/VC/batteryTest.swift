@@ -302,7 +302,7 @@ class batteryTest: UIViewController {
             }
         }
         
-        for _ in 0...1050000{
+        for _ in 0...1005000{
             self.fib()
         }
     }
@@ -420,7 +420,7 @@ class batteryTest: UIViewController {
                             }
                         }
                         
-                        for _ in 0...1500000{
+                        for _ in 0...1050000{
                             self.fib()
                         }
                         

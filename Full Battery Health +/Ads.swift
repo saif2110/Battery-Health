@@ -14,9 +14,8 @@ let testIntrest = "ca-app-pub-2710347124980493/6483209140" //Mine
 private var interstitial: GADInterstitialAd?
 
 func showAds(Myself:UIViewController) {
-    
+    if !UserDefaults.standard.bool(forKey: "pro") {
     if #available(iOS 14, *) {
-        if !UserDefaults.standard.bool(forKey: "pro") {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                 let request = GADRequest()
                 GADInterstitialAd.load(withAdUnitID:testIntrest,

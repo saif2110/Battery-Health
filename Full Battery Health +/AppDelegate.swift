@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
             usersStore.deleteAll()
         }
         
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["57d3f071f8d6db7217611ddb54a5b824"]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["2c1e08f6eb84bb132117da914a0e0b7b"]
         
         let iap = InAppPurchase.default
         iap.addTransactionObserver(fallbackHandler: {_ in

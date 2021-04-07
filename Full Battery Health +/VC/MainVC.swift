@@ -367,7 +367,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                                                name: NSNotification.Name("Showinapp"),
                                                object: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             showAds(Myself: self)
         }
         

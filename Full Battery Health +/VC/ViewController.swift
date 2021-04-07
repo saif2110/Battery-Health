@@ -62,7 +62,7 @@ class ViewController: UIViewController {
                 Playsound()
             }
         }else{
-            if CGFloat(Double(UIDevice.current.batteryLevel) * 100) >= CGFloat(90) {
+            if CGFloat(Double(UIDevice.current.batteryLevel) * 100) >= CGFloat(80) {
                 Playsound()
             }
             

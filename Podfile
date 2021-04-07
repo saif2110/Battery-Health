@@ -10,4 +10,8 @@ target 'Full Battery Health' do
   pod 'Charts'
   pod 'UserDefaultsStore'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'StepIndicator'
+  pod 'lottie-ios'
+  pod 'MeterGauge'
+  pod 'InAppPurchase'
 end

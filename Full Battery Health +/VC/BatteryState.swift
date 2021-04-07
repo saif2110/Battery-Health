@@ -89,7 +89,6 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         showAds(Myself: self)
-        LoadIntrest(Myself: self)
         
         if BatteryHistory {
             label.text = "Charging history will display 30 days charging state of your phone. It may help you to learn about battery charge and battery discharge rate"
@@ -117,7 +116,6 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
         for i in 0...usersStore.objectsCount {
             let obj = usersStore.object(withId: i+1)
             let totalCharge = (obj?.lastBatteryPercentage ?? 80) - (obj?.currentBatteryPercentage ?? 20)
-            
             let timeTaken = (obj?.TimeEnded ?? 40) - (obj?.TimeStarted ?? 200)
             dataEntries.append(BarChartDataEntry(x: Double(totalCharge), y: timeTaken/60000))
         }

@@ -45,20 +45,31 @@ class MainCell4: UITableViewCell {
             })
             
         }else if sender.tag == 3 {
-            
-            if sender.isOn {
-                UserDefaults.standard.setValue("on", forKey: "dim")
+            if UserDefaults.standard.bool(forKey: "pro") {
+                
+                if sender.isOn {
+                    UserDefaults.standard.setValue("on", forKey: "dim")
+                }else{
+                    UserDefaults.standard.setValue("off", forKey: "dim")
+                }
+                
             }else{
-                UserDefaults.standard.setValue("off", forKey: "dim")
+                sender.setOn(false, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name("Showinapp"), object: nil)
             }
-            
         }
         else if sender.tag == 4 {
-            
-            if sender.isOn {
-                UserDefaults.standard.setValue("on", forKey: "hideUI")
+            if UserDefaults.standard.bool(forKey: "pro") {
+                
+                if sender.isOn {
+                    UserDefaults.standard.setValue("on", forKey: "hideUI")
+                }else{
+                    UserDefaults.standard.setValue("off", forKey: "hideUI")
+                }
+                
             }else{
-                UserDefaults.standard.setValue("off", forKey: "hideUI")
+                sender.setOn(false, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name("Showinapp"), object: nil)
             }
             
         }

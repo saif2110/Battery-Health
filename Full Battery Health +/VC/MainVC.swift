@@ -7,6 +7,7 @@
 
 import UIKit
 import MediaPlayer
+import InAppPurchase
 import AVKit
 import AppTrackingTransparency
 import SwiftySound
@@ -202,7 +203,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 
                 cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
                 cell.imageView?.image = #imageLiteral(resourceName: "dim")
-                cell.textLabel?.text = "Always Dim"
+                cell.textLabel?.text = "Always Dim  (Pro)"
                 cell.turningSwitch.tag = 3
                 
                 if UserDefaults.standard.string(forKey: "dim") != nil {
@@ -225,7 +226,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 
                 cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
                 cell.imageView?.image = #imageLiteral(resourceName: "UI")
-                cell.textLabel?.text = "Always Hide UI"
+                cell.textLabel?.text = "Always Hide UI  (Pro)"
                 cell.turningSwitch.tag = 4
                 
                 if UserDefaults.standard.string(forKey: "hideUI") != nil {
@@ -325,8 +326,18 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var setAlaram: UIButton!
     
+    @IBOutlet weak var batterytestOutlet: UIBarButtonItem!
+    
+    @IBOutlet weak var pro: UIBarButtonItem!
+    
+    @IBAction func proAction(_ sender: Any) {
+        let vc = InAppVC()
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func setAlarmAction(_ sender: Any) {
-
+        
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
         self.navigationController?.pushViewController(vc!, animated: true)
         
@@ -351,9 +362,21 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        requestIDFA()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(Showinapp),
+                                               name: NSNotification.Name("Showinapp"),
+                                               object: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            showAds(Myself: self)
+        }
+        
+        batterytestOutlet.tintColor = neonClr
+        
         if UserDefaults.standard.integer(forKey: "AppLaunch") > 5 {
-            SKStoreReviewController.requestReview()
+            DispatchQueue.main.async {
+                SKStoreReviewController.requestReview()
+            }
         }
         
         ButtonView.layer.cornerRadius = 20
@@ -387,11 +410,35 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         self.myView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100))
         
+        let iap = InAppPurchase.default
+        iap.set(shouldAddStorePaymentHandler: { (product) -> Bool in
+            return true
+        }, handler: { (result) in
+            switch result {
+            case .success( _):
+                self.PerchesedComplte()
+            case .failure( _):
+                print("error")
+            }
+        })
+        
         self.myView.delegate = self
         self.myView.dataSource = self
         self.myView.reloadData()
         
     }
+    
+    @objc func Showinapp() {
+        let vc = InAppVC()
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func PerchesedComplte(){
+        UserDefaults.standard.setValue(true , forKeyPath: "pro")
+        self.present(myAlt(titel:"Congratulations !",message:"You are a pro member now. Enjoy seamless experience without the Ads."), animated: true, completion: nil)
+    }
+    
+    
     var volumePercentage = "100%"
     @objc func Changed(_ notification: Notification) {
         detailTextArray[0][0] = getBatteyPercentage()
@@ -433,14 +480,4 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    
-    func requestIDFA() {
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-                LoadIntrest(Myself: self)
-            })
-        } else {
-            LoadIntrest(Myself: self)
-        }
-    }
 }

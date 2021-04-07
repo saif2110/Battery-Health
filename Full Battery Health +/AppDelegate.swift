@@ -8,10 +8,14 @@
 import UIKit
 import UserDefaultsStore
 import GoogleMobileAds
+import AVFoundation
+import InAppPurchase
+import SwiftySound
+import BackgroundTasks
 
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
     
     var window: UIWindow?
     
@@ -35,17 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             usersStore.deleteAll()
         }
         
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["57d3f071f8d6db7217611ddb54a5b824"]
+        
+        let iap = InAppPurchase.default
+        iap.addTransactionObserver(fallbackHandler: {_ in
+            // Handle the result of payment added by Store
+            // See also `InAppPurchase#purchase`
+            
+            print("what the hell is this")
+        })
+        
+        
         return true
     }
-    
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-//        if info.TimeStarted != 0 {
-//            exit(0)
-//        }
-    }
-    
-    
+
     func applicationWillTerminate(_ application: UIApplication) {
         info.TimeEnded = Date().timeIntervalSince1970 * 1000
         info.lastBatteryPercentage = Int(getBatteyPercentage()) ?? 10
@@ -61,7 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {

@@ -31,6 +31,25 @@ func getBattryState() -> String {
 }
 
 
+var indicator = UIActivityIndicatorView()
+
+func startIndicator(selfo:UIViewController) {
+    indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+    indicator.color = neonClr
+    indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+    indicator.center = selfo.view.center
+    selfo.view.addSubview(indicator)
+    selfo.view.bringSubviewToFront(indicator)
+    indicator.startAnimating()
+}
+
+func stopIndicator() {
+    indicator.stopAnimating()
+}
+
+
+
+
 func getBatteyPercentage() -> String {
     return String(Int(Double(UIDevice.current.batteryLevel) * 100))
 }
@@ -114,3 +133,61 @@ extension UITableView {
         self.separatorStyle = .singleLine
     }
 }
+
+
+extension UIView{
+    func rotate() {
+        let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.toValue = NSNumber(value: Double.pi * 2)
+        rotation.duration = 4
+        rotation.isCumulative = true
+        rotation.repeatCount = 100000000
+        self.layer.add(rotation, forKey: "rotationAnimation")
+    }
+    
+    func flash(numberOfFlashes: Float) {
+        let flash = CABasicAnimation(keyPath: "opacity")
+        flash.duration = 0.1
+        flash.fromValue = 1
+        flash.toValue = 0.1
+        flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        flash.autoreverses = true
+        flash.repeatCount = numberOfFlashes
+        layer.add(flash, forKey: nil)
+    }
+    
+    
+    func flashSlow(numberOfFlashes: Float) {
+        let flash = CABasicAnimation(keyPath: "opacity")
+        flash.duration = 1
+        flash.fromValue = 1
+        flash.toValue = 0.5
+        flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        flash.autoreverses = true
+        flash.repeatCount = numberOfFlashes
+        layer.add(flash, forKey: nil)
+    }
+}
+
+func myAlt(titel:String,message:String)-> UIAlertController{
+    let alert = UIAlertController(title: titel, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+        switch action.style{
+        case .default:
+            print("")
+        case .cancel:
+            print("")
+        case .destructive:
+            print("")
+        @unknown default:
+            fatalError()
+        }}))
+                 
+    return alert
+    
+}
+
+//copy paste this
+
+//self.present(myAlt(titel:"Failure",message:"Something went wrong."), animated: true, completion: nil)
+

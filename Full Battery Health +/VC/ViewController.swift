@@ -10,6 +10,7 @@ import UIKit
 import AudioToolbox
 import MBCircularProgressBar
 import SwiftySound
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -24,9 +25,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        showAds(Myself: self)
-        LoadIntrest(Myself: self)
         
         let tap = UITapGestureRecognizer()
         tap.numberOfTapsRequired = 1
@@ -51,7 +49,6 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async{
                     self.HideUI()
                 }
-                
             }
         }
         
@@ -70,7 +67,6 @@ class ViewController: UIViewController {
             }
             
         }
-        print(CGFloat(Double(UIDevice.current.batteryLevel) * 100))
     }
     
     @objc func batteryStateChanged(_ notification: Notification) {
@@ -129,6 +125,7 @@ class ViewController: UIViewController {
     }
     
     var hide = true
+    
     func HideUI() {
         if hide {
             
@@ -162,7 +159,6 @@ class ViewController: UIViewController {
             self.tabBar.isHidden = false
             self.hide = true
             self.view.layoutIfNeeded()
-            
         }
         
     }
@@ -174,7 +170,6 @@ class ViewController: UIViewController {
         }else{
             self.ChargingLabel.isHidden = true
         }
-        
     }
     
     @IBAction func UIsetting(_ sender: Any) {
@@ -182,9 +177,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func exitApp(_ sender: Any) {
+        UIScreen.main.brightness = CGFloat(0.5)
         exit(1)
     }
-    
     
     var mySound:Sound?
     func Playsound() {
@@ -193,11 +188,23 @@ class ViewController: UIViewController {
             if UserDefaults.standard.string(forKey: "ring") != nil {
                 mySound?.stop()
                 mySound = Sound(url: Bundle.main.url(forResource: UserDefaults.standard.string(forKey: "ring"), withExtension: "mp3")!)
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                }
+                catch {
+                    // report for an error
+                }
                 mySound?.play(numberOfLoops: 100000, completion: nil)
                 
             }else{
                 mySound?.stop()
                 mySound = Sound(url: Bundle.main.url(forResource: "bell", withExtension: "mp3")!)
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                }
+                catch {
+                    // report for an error
+                }
                 mySound?.play(numberOfLoops: 100000, completion: nil)
                 
                 
@@ -212,25 +219,12 @@ class ViewController: UIViewController {
             
             if UserDefaults.standard.string(forKey: "vibration") != nil {
                 if UserDefaults.standard.string(forKey: "vibration") == "on"{
-                    for _ in 1...10 {
+                    for _ in 1...5 {
                         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
                         sleep(2)
                     }
                 }
             }
         }
-        
-    }
-    
-}
-
-extension UIView{
-    func rotate() {
-        let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotation.toValue = NSNumber(value: Double.pi * 2)
-        rotation.duration = 10
-        rotation.isCumulative = true
-        rotation.repeatCount = 100000000
-        self.layer.add(rotation, forKey: "rotationAnimation")
     }
 }

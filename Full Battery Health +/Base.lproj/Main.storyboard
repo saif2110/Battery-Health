@@ -1042,7 +1042,7 @@
         <image name="dim" width="32" height="32"/>
         <image name="lightbulb.fill" catalog="system" width="113" height="128"/>
         <image name="poweroff" catalog="system" width="128" height="121"/>
-        <image name="pro1" width="24" height="21"/>
+        <image name="pro1" width="24" height="22"/>
         <image name="startRing" width="820" height="818"/>
         <image name="startStopButton" width="41" height="44"/>
         <image name="test1" width="16" height="24"/>

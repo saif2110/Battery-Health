@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftySound
+import MediaPlayer
 import AudioToolbox
 
 class MainCell2: UITableViewCell {
@@ -42,6 +43,16 @@ class MainCell2: UITableViewCell {
     
     
     func setandPlaysound(nameofSound:String) {
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
+            print("Playback OK")
+            try AVAudioSession.sharedInstance().setActive(true)
+            print("Session is Active")
+        } catch {
+            print(error)
+        }
+        
         mySound?.stop()
         mySound?.volume = 1
         mySound = Sound(url: Bundle.main.url(forResource: nameofSound, withExtension: "mp3")!)

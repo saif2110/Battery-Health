@@ -7,6 +7,7 @@
 
 
 import UIKit
+import UserDefaultsStore
 import AudioToolbox
 import MBCircularProgressBar
 import SwiftySound
@@ -176,9 +177,27 @@ class ViewController: UIViewController {
         self.HideUI()
     }
     
+    let usersStore = UserDefaultsStore<BatteryInfo>(uniqueIdentifier: "Batteryinfo")
     @IBAction func exitApp(_ sender: Any) {
         UIScreen.main.brightness = CGFloat(0.5)
-        exit(1)
+        info.TimeEnded = Date().timeIntervalSince1970 * 1000
+        info.lastBatteryPercentage = Int(getBatteyPercentage()) ?? 10
+        
+        if info.TimeStarted != 0 {
+            var mins = info.TimeEnded - info.TimeStarted
+            mins = mins/60000
+            if mins > 5 {
+                
+                info.id = usersStore.objectsCount + 1
+                try! usersStore.save(info)
+                
+            }else{
+                
+                NotificationofClosed()
+            }
+        }
+        
+        exit(0)
     }
     
     var mySound:Sound?
@@ -186,27 +205,16 @@ class ViewController: UIViewController {
         
         if UIDevice.current.batteryState == .charging {
             if UserDefaults.standard.string(forKey: "ring") != nil {
-                mySound?.stop()
+                Sound.stopAll()
                 mySound = Sound(url: Bundle.main.url(forResource: UserDefaults.standard.string(forKey: "ring"), withExtension: "mp3")!)
-                do {
-                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
-                }
-                catch {
-                    // report for an error
-                }
+                backgroundAudioPermission()
                 mySound?.play(numberOfLoops: 100000, completion: nil)
                 
             }else{
-                mySound?.stop()
+                Sound.stopAll()
                 mySound = Sound(url: Bundle.main.url(forResource: "bell", withExtension: "mp3")!)
-                do {
-                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
-                }
-                catch {
-                    // report for an error
-                }
+                backgroundAudioPermission()
                 mySound?.play(numberOfLoops: 100000, completion: nil)
-                
                 
             }
             

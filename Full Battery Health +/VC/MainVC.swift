@@ -12,10 +12,11 @@ import AVKit
 import AppTrackingTransparency
 import SwiftySound
 import StoreKit
+import CoreLocation
 
 var info = BatteryInfo(id: 1, currentBatteryPercentage: 0, lastBatteryPercentage: 0, TimeStarted: 0, TimeEnded: 0)
 
-class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLLocationManagerDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -30,7 +31,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             return 3
         }
         else if section == 4 {
-            return 3
+            return 4
         }
         return 1
     }
@@ -80,7 +81,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 cell.detailTextLabel?.font = UIFont(name: "Arial", size: 15)
                 
                 cell.imageView?.image = #imageLiteral(resourceName: "ring")
-                cell.textLabel?.text = "Select Alarm Ringtone"
+                cell.textLabel?.text = "Alarm Ringtone"
                 cell.detailTextLabel?.text = ""
                 cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
                 
@@ -239,6 +240,29 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 
                 return cell
                 
+            }else if indexPath.row == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell4", for: indexPath) as! MainCell4
+                cell.selectionStyle = .none
+                cell.backgroundColor = .secondarySystemBackground
+                cell.selectionStyle = .none
+                cell.imageView?.clipsToBounds = true
+                cell.imageView?.layer.cornerRadius = 8
+                
+                cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
+                cell.imageView?.image = #imageLiteral(resourceName: "background")
+                cell.textLabel?.text = UserDefaults.standard.string(forKey: "featureTitel") ?? "Alarm in lock  (Pro)"
+                cell.turningSwitch.tag = 6
+                
+                if UserDefaults.standard.string(forKey: "background") != nil {
+                    if UserDefaults.standard.string(forKey: "background") == "on"{
+                        cell.turningSwitch.isOn = true
+                    }else{
+                        cell.turningSwitch.isOn = false
+                    }
+                }
+                
+                return cell
+                
             }else{
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell4", for: indexPath) as! MainCell4
@@ -249,7 +273,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 cell.imageView?.layer.cornerRadius = 8
                 
                 cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-                cell.imageView?.image = #imageLiteral(resourceName: "battery")
+                cell.imageView?.image = #imageLiteral(resourceName: "percentage")
                 cell.textLabel?.text = "Change Percentage Position"
                 cell.turningSwitch.tag = 5
                 
@@ -268,7 +292,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return UITableViewCell()
     }
     
-    var ChargingAnalysis = ["Charging History","Charger Time State"]
+    var ChargingAnalysis = ["Charging History","Charging Time State"]
     
     let HeaderString = ["","Set Battery Percentage","Alarm Settings","Charging Analysis","Other Settings"]
     
@@ -333,16 +357,18 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBAction func proAction(_ sender: Any) {
         let vc = InAppVC()
         self.present(vc, animated: true, completion: nil)
-        
     }
     
     @IBAction func setAlarmAction(_ sender: Any) {
         
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if Int(getBatteyPercentage()) ?? 10 <= UserDefaults.standard.integer(forKey: "percentage") {
+            
+            startAlarm()
+            
+        }else{
+            self.present(myAlt(titel:"Something is wrong",message:"Your current battery level is greater than the selected battery percentage for alarm"), animated: true, completion: nil)
+        }
         
-        info.currentBatteryPercentage = Int(getBatteyPercentage()) ?? 10
-        info.TimeStarted = Date().timeIntervalSince1970 * 1000
     }
     
     
@@ -367,17 +393,11 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                                                name: NSNotification.Name("Showinapp"),
                                                object: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            showAds(Myself: self)
-        }
+        
+        showAds(Myself: self)
+        
         
         batterytestOutlet.tintColor = neonClr
-        
-        if UserDefaults.standard.integer(forKey: "AppLaunch") > 5 {
-            DispatchQueue.main.async {
-                SKStoreReviewController.requestReview()
-            }
-        }
         
         ButtonView.layer.cornerRadius = 20
         ButtonView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -386,13 +406,18 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let volumeView = MPVolumeView(frame: .null)
         view.addSubview(volumeView)
         
+        
+        DispatchQueue.main.async {
+            MPVolumeView.setVolume(1.0)
+            self.loadViewIfNeeded()
+        }
+        
         var detailTextLabel1 = [String]()
         detailTextLabel1.append(getBatteyPercentage())
         detailTextLabel1.append(getBattryState())
         detailTextArray.append(detailTextLabel1)
         detailTextArray.append([" "])
         detailTextArray.append([" "])
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(Changed), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
         
@@ -422,13 +447,42 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }
         })
         
+        if UserDefaults.standard.bool(forKey: "pro"){
+            self.navigationItem.leftBarButtonItem = nil
+        }
+        
         self.myView.delegate = self
         self.myView.dataSource = self
         self.myView.reloadData()
         
+        //        manager.delegate = self
+        //        manager.desiredAccuracy = kCLLocationAccuracyBest
+        //        manager.activityType = .other
+        //        manager.allowsBackgroundLocationUpdates = true
+        //        manager.requestWhenInUseAuthorization()
+        //        manager.requestAlwaysAuthorization()
+        //        manager.startUpdatingLocation()
+        //
+        //        alwaysAuthorization()
     }
     
-    @objc func Showinapp() {
+    //    func alwaysAuthorization(){
+    //        if CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+    //            manager.requestAlwaysAuthorization()
+    //        }
+    //    }
+    //
+    //    let manager = CLLocationManager()
+    //
+    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //        let location = locations.last
+    //
+    //        print("location \(location!.coordinate.latitude) and \(location!.coordinate.longitude)")
+    //    }
+    //
+    
+    @objc func Showinapp(notification:Notification) {
+        
         let vc = InAppVC()
         self.present(vc, animated: true, completion: nil)
     }
@@ -436,6 +490,23 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func PerchesedComplte(){
         UserDefaults.standard.setValue(true , forKeyPath: "pro")
         self.present(myAlt(titel:"Congratulations !",message:"You are a pro member now. Enjoy seamless experience without the Ads."), animated: true, completion: nil)
+    }
+    
+    
+    func startAlarm() {
+        
+        info.currentBatteryPercentage = Int(getBatteyPercentage()) ?? 10
+        info.TimeStarted = Date().timeIntervalSince1970 * 1000
+        
+        if UserDefaults.standard.integer(forKey: "AppLaunch") > 6 && !UserDefaults.standard.bool(forKey: "pro")  {
+            DispatchQueue.main.async {
+                SKStoreReviewController.requestReview()
+            }
+        }
+        
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
     }
     
     
@@ -474,7 +545,6 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.myView.dataSource = self
         self.myView.reloadData()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true

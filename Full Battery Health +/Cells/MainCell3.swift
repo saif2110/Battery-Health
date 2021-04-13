@@ -41,7 +41,6 @@ class MainCell3: UITableViewCell {
     
 }
 
-
 extension MPVolumeView {
     static func setVolume(_ volume: Float) {
         let volumeView = MPVolumeView()

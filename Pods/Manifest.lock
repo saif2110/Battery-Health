@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.2)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
@@ -40,10 +41,12 @@ PODS:
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
   - StepIndicator (1.0.8)
+  - SwiftyJSON (4.3.0)
   - SwiftySound (1.2.0)
   - UserDefaultsStore (2.0.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.1)
   - Charts
   - Google-Mobile-Ads-SDK
   - InAppPurchase
@@ -51,11 +54,13 @@ DEPENDENCIES:
   - MBCircularProgressBar
   - MeterGauge
   - StepIndicator
+  - SwiftyJSON (~> 4.0)
   - SwiftySound (~> 1.2)
   - UserDefaultsStore
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Charts
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
@@ -68,10 +73,12 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - StepIndicator
+    - SwiftyJSON
     - SwiftySound
     - UserDefaultsStore
 
 SPEC CHECKSUMS:
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Google-Mobile-Ads-SDK: 9509c62617e8d77e2524833eed0b73dd028f0bc6
   GoogleAppMeasurement: c542a2feaac9ab98fd074e8f1a02c3585bbfbd47
@@ -84,9 +91,10 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   StepIndicator: 748b293f671355b021253f82031ac002f153dc81
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   SwiftySound: 9eb28bb14edb601b40027e44319e0ef8383f88bf
   UserDefaultsStore: 2049df5d9096a43632c7ee2c3c2dbfe5c70d20ed
 
-PODFILE CHECKSUM: 5e49f06527fd9d3ca45abae670769a05482f0ef4
+PODFILE CHECKSUM: 8e6b4a69de0cdf0ad09a9ca7000712e1ee6ebc7a
 
 COCOAPODS: 1.10.1

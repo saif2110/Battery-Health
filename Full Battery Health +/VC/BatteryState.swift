@@ -34,7 +34,7 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let BattryEnded = obj?.lastBatteryPercentage ?? 00
         
         if BatteryHistory {
-            
+            cell.imageView?.image = #imageLiteral(resourceName: "charging")
             cell.textLabel?.text = "Charged \(BattryStart)% To \(BattryEnded)%"
             cell.detailTextLabel?.text = "Start- \(StartTime) | End- \(Ended)"
             return cell
@@ -42,7 +42,7 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
             
             var mins = (obj?.TimeEnded ?? 100) - (obj?.TimeStarted ?? 100)
             mins = mins/60000
-            
+            cell.imageView?.image = #imageLiteral(resourceName: "charging")
             cell.textLabel?.text = "Charged - \(BattryEnded - BattryStart)%"
             cell.detailTextLabel?.text = "Time taken to charge - \(Int(mins)) Mins"
             
@@ -88,6 +88,7 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         showAds(Myself: self)
         
         if BatteryHistory {
@@ -99,7 +100,6 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
         Chart.noDataText = "You need to provide data for the chart."
         updateChartWithData()
         
-        
         myView.delegate = self
         myView.dataSource = self
         myView.tableFooterView = UIView()
@@ -109,7 +109,6 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
-    
     
     func updateChartWithData() {
         var dataEntries = [BarChartDataEntry]()

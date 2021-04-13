@@ -33,7 +33,7 @@ class SetBattery: UITableViewCell {
         }else if sender.selectedSegmentIndex == 1 {
             UserDefaults.standard.setValue(90, forKey: "percentage")
         }else{
-            UserDefaults.standard.setValue(100, forKey: "percentage")
+            UserDefaults.standard.setValue(99, forKey: "percentage")
         }
         
     }

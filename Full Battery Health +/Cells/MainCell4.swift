@@ -35,6 +35,9 @@ class MainCell4: UITableViewCell {
                         }else{
                             UserDefaults.standard.setValue("off", forKey: "notification")
                         }
+                        DispatchQueue.main.async {
+                            UIApplication.shared.registerForRemoteNotifications()
+                        }
                     }
                 }else{
                     UserDefaults.standard.setValue("off", forKey: "notification")
@@ -79,6 +82,22 @@ class MainCell4: UITableViewCell {
                 UserDefaults.standard.setValue("on", forKey: "position")
             }else{
                 UserDefaults.standard.setValue("off", forKey: "position")
+            }
+            
+        }else if sender.tag == 6 {
+            
+            if UserDefaults.standard.bool(forKey: "pro") {
+                
+                if sender.isOn {
+                    UserDefaults.standard.setValue("on", forKey: "background")
+                    
+                }else{
+                    UserDefaults.standard.setValue("off", forKey: "background")
+                }
+                
+            }else{
+                sender.setOn(false, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name("Showinapp"), object: nil,userInfo: ["background": true])
             }
             
         }

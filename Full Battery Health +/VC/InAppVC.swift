@@ -78,4 +78,13 @@ class InAppVC: UIViewController {
         self.present(myAlt(titel:"Congratulations !",message:"You are a pro member now. Enjoy seamless experience without the Ads."), animated: true, completion: nil)
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "pro"){
+            DispatchQueue.main.async {
+                SKStoreReviewController.requestReview()
+            }
+        }
+    }
+    
 }

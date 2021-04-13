@@ -14,4 +14,6 @@ target 'Full Battery Health' do
   pod 'lottie-ios'
   pod 'MeterGauge'
   pod 'InAppPurchase'
+  pod 'Alamofire', '~> 5.1'
+  pod 'SwiftyJSON', '~> 4.0'
 end

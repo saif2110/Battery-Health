@@ -104,14 +104,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         info.TimeEnded = Date().timeIntervalSince1970 * 1000
         info.lastBatteryPercentage = Int(getBatteyPercentage()) ?? 10
-        if !UserDefaults.standard.bool(forKey: "pro"){
-            if info.TimeStarted != 0 {
+        if UserDefaults.standard.string(forKey: "background") == "off" && info.TimeStarted != 0 {
                 var mins = (Date().timeIntervalSince1970 * 1000) - info.TimeStarted
                 mins = mins/60000
                 if mins < 5 {
                     NotificationofBackground()
                 }
-            }
         }
     }
     

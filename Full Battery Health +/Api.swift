@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-let baseUrl = "https://safeapps.online/StockMarket/"
+let baseUrl = "https://apps15.com/StockMarket/"
 
 func postWithParameter(Url:String,parameters:Parameters,completionhandler:@escaping (JSON, Error?) -> ()){
     let url =  baseUrl + Url

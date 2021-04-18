@@ -10,10 +10,13 @@ import UserDefaultsStore
 import GoogleMobileAds
 import AVFoundation
 import InAppPurchase
+import WidgetKit
 import SwiftySound
 import BackgroundTasks
 import CoreLocation
 import MediaPlayer
+
+var isOpenfromWidget = false
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
@@ -43,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
             usersStore.deleteAll()
         }
         
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["86ceecc627a1fd92ef110d638ddae2da"]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["05bd89ced76e40bef9d3e5de89554052"]
         
         let iap = InAppPurchase.default
         iap.addTransactionObserver(fallbackHandler: {_ in
@@ -57,12 +60,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
             UIApplication.shared.registerForRemoteNotifications()
         }
         
+        if let _ = launchOptions?[.url] as? URL {
+            isOpenfromWidget = true
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: NSNotification.Name("fromWidget"), object: nil)
+            }
+        }
+        
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
         alarminLockforPRO()
     }
+    
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//
+//        NotificationCenter.default.post(name: NSNotification.Name("fromWidget"), object: nil)
+//        return true
+//    }
     
     func applicationWillTerminate(_ application: UIApplication) {
         info.TimeEnded = Date().timeIntervalSince1970 * 1000
@@ -111,13 +127,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                     NotificationofBackground()
                 }
         }
+        
+        if #available(iOS 14.0, *) {
+            WidgetCenter.shared.reloadAllTimelines()
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         
-        completionHandler(UIBackgroundFetchResult.newData)
+        completionHandler(UIBackgroundFetchResult.noData)
     }
     
     func Playsound() {

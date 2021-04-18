@@ -24,8 +24,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var tabBar: UIView!
     @IBOutlet weak var MBView: MBCircularProgressBarView!
     
+    
+    override var prefersHomeIndicatorAutoHidden: Bool{
+        hide
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isOpenfromWidget {
+            showAds(Myself: self)
+        }
         
         let tap = UITapGestureRecognizer()
         tap.numberOfTapsRequired = 1
@@ -129,7 +139,7 @@ class ViewController: UIViewController {
     
     func HideUI() {
         if hide {
-            
+            self.setNeedsUpdateOfHomeIndicatorAutoHidden()
             self.ChargingLabel.isHidden = true
             self.MBView.progressColor = .none
             self.MBView.progressStrokeColor = .none
@@ -145,7 +155,7 @@ class ViewController: UIViewController {
             self.view.layoutIfNeeded()
             
         }else{
-            
+            self.setNeedsUpdateOfHomeIndicatorAutoHidden()
             ChargingShouldHide()
             self.MBView.progressColor = .white
             self.MBView.progressStrokeColor = .systemOrange
@@ -236,3 +246,4 @@ class ViewController: UIViewController {
         }
     }
 }
+

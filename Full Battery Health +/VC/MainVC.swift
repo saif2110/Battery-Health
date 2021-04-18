@@ -394,8 +394,14 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
                                                object: nil)
         
         
-        showAds(Myself: self)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(fromWidget),
+                                               name: NSNotification.Name("fromWidget"),
+                                               object: nil)
+        
+        
+        showAds(Myself: self)
         
         batterytestOutlet.tintColor = neonClr
         
@@ -433,7 +439,19 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         mySound?.play()
         mySound?.stop()
         
-        self.myView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100))
+        
+        let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: 120))
+        view.backgroundColor = .black
+        let sectionText = UILabel()
+        sectionText.frame = CGRect.init(x: 0, y: 0, width: view.frame.width, height: 70)
+        sectionText.text = "Add WIDGET to the Home Screen so you don't need to open App everytime"
+        sectionText.textAlignment = .center
+        sectionText.minimumScaleFactor = 0.5
+        sectionText.numberOfLines = 0
+        sectionText.font = .systemFont(ofSize: 11, weight: .regular) // my custom font
+        sectionText.textColor = .lightGray
+        view.addSubview(sectionText)
+        self.myView.tableFooterView = view
         
         let iap = InAppPurchase.default
         iap.set(shouldAddStorePaymentHandler: { (product) -> Bool in
@@ -454,35 +472,28 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         self.myView.delegate = self
         self.myView.dataSource = self
         self.myView.reloadData()
+
+    }
+
+    
+    @objc func fromWidget(noti:Notification) {
         
-        //        manager.delegate = self
-        //        manager.desiredAccuracy = kCLLocationAccuracyBest
-        //        manager.activityType = .other
-        //        manager.allowsBackgroundLocationUpdates = true
-        //        manager.requestWhenInUseAuthorization()
-        //        manager.requestAlwaysAuthorization()
-        //        manager.startUpdatingLocation()
-        //
-        //        alwaysAuthorization()
+        if  getBattryState() == "Charging" {
+            
+            info.currentBatteryPercentage = Int(getBatteyPercentage()) ?? 10
+            info.TimeStarted = Date().timeIntervalSince1970 * 1000
+            
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+    
+        }else{
+            
+            self.present(myAlt(titel:"Phone isn't charging",message:"Please connect the charger to set alarm"), animated: true, completion: nil)
+        }
+       
     }
     
-    //    func alwaysAuthorization(){
-    //        if CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-    //            manager.requestAlwaysAuthorization()
-    //        }
-    //    }
-    //
-    //    let manager = CLLocationManager()
-    //
-    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    //        let location = locations.last
-    //
-    //        print("location \(location!.coordinate.latitude) and \(location!.coordinate.longitude)")
-    //    }
-    //
-    
     @objc func Showinapp(notification:Notification) {
-        
         let vc = InAppVC()
         self.present(vc, animated: true, completion: nil)
     }

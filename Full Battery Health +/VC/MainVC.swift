@@ -472,25 +472,33 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         self.myView.delegate = self
         self.myView.dataSource = self
         self.myView.reloadData()
-
+        
     }
-
+    
     
     @objc func fromWidget(noti:Notification) {
         
         if  getBattryState() == "Charging" {
             
-            info.currentBatteryPercentage = Int(getBatteyPercentage()) ?? 10
-            info.TimeStarted = Date().timeIntervalSince1970 * 1000
+            if Int(getBatteyPercentage()) ?? 10 <= UserDefaults.standard.integer(forKey: "percentage") {
+                
+                
+                info.currentBatteryPercentage = Int(getBatteyPercentage()) ?? 10
+                info.TimeStarted = Date().timeIntervalSince1970 * 1000
+                
+                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
+                self.navigationController?.pushViewController(vc!, animated: true)
+                
+            }else{
+                
+                self.present(myAlt(titel:"Something is wrong",message:"Your current battery level is greater than the selected battery percentage for alarm"), animated: true, completion: nil)
+            }
             
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
-            self.navigationController?.pushViewController(vc!, animated: true)
-    
         }else{
             
             self.present(myAlt(titel:"Phone isn't charging",message:"Please connect the charger to set alarm"), animated: true, completion: nil)
         }
-       
+        
     }
     
     @objc func Showinapp(notification:Notification) {

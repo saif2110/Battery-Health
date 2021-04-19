@@ -13,12 +13,11 @@
 		5C153BE1260B3A31007B9E5D /* Ads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C153BE0260B3A31007B9E5D /* Ads.swift */; };
 		5C2F117F25FE74F800B5541C /* BatteryStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F117E25FE74F800B5541C /* BatteryStateCell.swift */; };
 		5C4183FC25FA3F0300FC4647 /* BatteryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4183FB25FA3F0300FC4647 /* BatteryState.swift */; };
+		5C41E5D3262CBB60001D82C7 /* StartWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5C41E5D2262CBB60001D82C7 /* StartWidget.intentdefinition */; };
 		5C46E53F2629A6F3004B48ED /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C46E53E2629A6F2004B48ED /* WidgetKit.framework */; };
 		5C46E5412629A6F3004B48ED /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C46E5402629A6F3004B48ED /* SwiftUI.framework */; };
 		5C46E5442629A6F3004B48ED /* StartWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C46E5432629A6F3004B48ED /* StartWidget.swift */; };
 		5C46E5472629A6F3004B48ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C46E5462629A6F3004B48ED /* Assets.xcassets */; };
-		5C46E5492629A6F3004B48ED /* StartWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5C46E5452629A6F3004B48ED /* StartWidget.intentdefinition */; };
-		5C46E54A2629A6F3004B48ED /* StartWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5C46E5452629A6F3004B48ED /* StartWidget.intentdefinition */; };
 		5C46E54D2629A6F3004B48ED /* StartWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C46E53D2629A6F2004B48ED /* StartWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C5572A42622F00C00E095F3 /* AlarmB.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5C5572A32622F00C00E095F3 /* AlarmB.mp3 */; };
 		5C656BDA25EE7B2E00EF896F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C656BD925EE7B2E00EF896F /* AppDelegate.swift */; };
@@ -79,11 +78,11 @@
 		5C153BE0260B3A31007B9E5D /* Ads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ads.swift; sourceTree = "<group>"; };
 		5C2F117E25FE74F800B5541C /* BatteryStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStateCell.swift; sourceTree = "<group>"; };
 		5C4183FB25FA3F0300FC4647 /* BatteryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryState.swift; sourceTree = "<group>"; };
+		5C41E5D2262CBB60001D82C7 /* StartWidget.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = StartWidget.intentdefinition; sourceTree = "<group>"; };
 		5C46E53D2629A6F2004B48ED /* StartWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StartWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C46E53E2629A6F2004B48ED /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5C46E5402629A6F3004B48ED /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		5C46E5432629A6F3004B48ED /* StartWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWidget.swift; sourceTree = "<group>"; };
-		5C46E5452629A6F3004B48ED /* StartWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = StartWidget.intentdefinition; sourceTree = "<group>"; };
 		5C46E5462629A6F3004B48ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C46E5482629A6F3004B48ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C5572A32622F00C00E095F3 /* AlarmB.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AlarmB.mp3; sourceTree = "<group>"; };
@@ -155,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				5C46E5432629A6F3004B48ED /* StartWidget.swift */,
-				5C46E5452629A6F3004B48ED /* StartWidget.intentdefinition */,
+				5C41E5D2262CBB60001D82C7 /* StartWidget.intentdefinition */,
 				5C46E5462629A6F3004B48ED /* Assets.xcassets */,
 				5C46E5482629A6F3004B48ED /* Info.plist */,
 			);
@@ -400,7 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C46E5442629A6F3004B48ED /* StartWidget.swift in Sources */,
-				5C46E5492629A6F3004B48ED /* StartWidget.intentdefinition in Sources */,
+				5C41E5D3262CBB60001D82C7 /* StartWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +419,6 @@
 				5CE57E2C25F5375E004D9D04 /* MainCell5.swift in Sources */,
 				5CE57E2525F5323C004D9D04 /* MainCell3.swift in Sources */,
 				5C656BDA25EE7B2E00EF896F /* AppDelegate.swift in Sources */,
-				5C46E54A2629A6F3004B48ED /* StartWidget.intentdefinition in Sources */,
 				5C2F117F25FE74F800B5541C /* BatteryStateCell.swift in Sources */,
 				5CFBCC9625F4F374002DB657 /* MainCell.swift in Sources */,
 				5CD9591726206BAC009E8B83 /* Api.swift in Sources */,
@@ -466,6 +464,7 @@
 				CODE_SIGN_ENTITLEMENTS = StartWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = StartWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -474,6 +473,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health.StartWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -490,6 +490,7 @@
 				CODE_SIGN_ENTITLEMENTS = StartWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = StartWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -498,6 +499,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health.StartWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -632,7 +634,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Full Battery Health.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -659,7 +661,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Full Battery Health.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

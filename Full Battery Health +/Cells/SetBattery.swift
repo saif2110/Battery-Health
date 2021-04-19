@@ -37,7 +37,7 @@ class SetBattery: UITableViewCell {
             UserDefaults(suiteName:
             "group.com.Full-Battery.Health.percentage")!.set(90, forKey: "percentage")
         }else{
-            UserDefaults.standard.setValue(99, forKey: "percentage")
+            UserDefaults.standard.setValue(100, forKey: "percentage")
             UserDefaults(suiteName:
             "group.com.Full-Battery.Health.percentage")!.set(100, forKey: "percentage")
         }

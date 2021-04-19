@@ -44,6 +44,8 @@ struct SimpleEntry: TimelineEntry {
     let percenatge : Int
 }
 
+
+
 struct StartWidgetEntryView : View {
     var entry: Provider.Entry
     

@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
             usersStore.deleteAll()
         }
         
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["05bd89ced76e40bef9d3e5de89554052"]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ae5f274c4305230770d28553692d49a0"]
         
         let iap = InAppPurchase.default
         iap.addTransactionObserver(fallbackHandler: {_ in
@@ -61,24 +61,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
         }
         
         if let _ = launchOptions?[.url] as? URL {
-            isOpenfromWidget = true
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name("fromWidget"), object: nil)
-            }
+            openAppAuto()
         }
         
         return true
     }
     
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        
+        // WHEN PRO
+        
+        
+//        if UserDefaults.standard.integer(forKey: "auto") != 0 {
+//
+//            UserDefaults.standard.setValue(UserDefaults.standard.integer(forKey: "auto") + 1, forKey: "auto")
+//        }else{
+//            UserDefaults.standard.setValue(1, forKey: "auto")
+//        }
+//
+//        if UserDefaults.standard.bool(forKey: "pro") {
+//            openAppAuto()
+//        }else{
+//            if UserDefaults.standard.integer(forKey: "auto") < 5 {
+//                openAppAuto()
+//            }else{
+//                NotificationCenter.default.post(name: NSNotification.Name("forcepro"), object: nil)
+//            }
+//
+//        }
+        
+        
+        openAppAuto()
+        
+        return true
+    }
+    
+    
+    func openAppAuto(){
+        isOpenfromWidget = true
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: NSNotification.Name("fromWidget"), object: nil)
+        }
+        
+    }
+    
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         alarminLockforPRO()
     }
     
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//
-//        NotificationCenter.default.post(name: NSNotification.Name("fromWidget"), object: nil)
-//        return true
-//    }
     
     func applicationWillTerminate(_ application: UIApplication) {
         info.TimeEnded = Date().timeIntervalSince1970 * 1000
@@ -121,11 +155,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         info.TimeEnded = Date().timeIntervalSince1970 * 1000
         info.lastBatteryPercentage = Int(getBatteyPercentage()) ?? 10
         if UserDefaults.standard.string(forKey: "background") == "off" && info.TimeStarted != 0 {
-                var mins = (Date().timeIntervalSince1970 * 1000) - info.TimeStarted
-                mins = mins/60000
-                if mins < 5 {
-                    NotificationofBackground()
-                }
+            var mins = (Date().timeIntervalSince1970 * 1000) - info.TimeStarted
+            mins = mins/60000
+            if mins < 5 {
+                NotificationofBackground()
+            }
         }
         
         if #available(iOS 14.0, *) {
@@ -176,7 +210,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 }
                 
                 mySound?.play(numberOfLoops: 100000, completion: nil)
-                
             }
             
             

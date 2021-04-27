@@ -44,8 +44,6 @@ struct SimpleEntry: TimelineEntry {
     let percenatge : Int
 }
 
-
-
 struct StartWidgetEntryView : View {
     var entry: Provider.Entry
     
@@ -83,9 +81,9 @@ struct StartWidgetEntryView : View {
                         .background(Color.init(#colorLiteral(red: 0.4682161212, green: 0.7442020774, blue: 0.2786980867, alpha: 1)))
                     })
                     
-                }.widgetURL(URL(string: "BatteryHealth://small"))
-            }.widgetURL(URL(string: "BatteryHealth://small"))
-        }.widgetURL(URL(string: "BatteryHealth://small"))
+                }.widgetURL(URL(string: "bh://open"))
+            }.widgetURL(URL(string: "bh://open"))
+        }.widgetURL(URL(string: "bh://open"))
     }
 }
 

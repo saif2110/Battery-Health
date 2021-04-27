@@ -27,7 +27,7 @@
 			<string>com.Full-Battery.Health</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>BatteryHealth</string>
+				<string>bh</string>
 			</array>
 		</dict>
 	</array>
@@ -39,6 +39,10 @@
 	<true/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>IntentIntent</string>
+	</array>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>This identifier will be used to deliver personalized &amp; best ads to you.</string>
 	<key>SKAdNetworkItems</key>

@@ -48,7 +48,6 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
             cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
             cell.detailTextLabel?.font = UIFont(name: "Arial", size: 15)
             
-            
             if indexPath.row == 0 {
                 cell.imageView?.image = #imageLiteral(resourceName: "battery")
                 cell.detailTextLabel?.text = detailTextArray[indexPath.section][indexPath.row] + "%"
@@ -251,7 +250,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
                 cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
                 cell.imageView?.image = #imageLiteral(resourceName: "background")
                 cell.textLabel?.text = UserDefaults.standard.string(forKey: "featureTitel") ?? "Alarm in lock  (Pro)"
-                cell.turningSwitch.tag = 6
+                cell.turningSwitch.tag = 5
                 
                 if UserDefaults.standard.string(forKey: "background") != nil {
                     if UserDefaults.standard.string(forKey: "background") == "on"{
@@ -265,25 +264,18 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
                 
             }else{
                 
-                let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell4", for: indexPath) as! MainCell4
-                cell.selectionStyle = .none
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
                 cell.backgroundColor = .secondarySystemBackground
-                cell.selectionStyle = .none
                 cell.imageView?.clipsToBounds = true
                 cell.imageView?.layer.cornerRadius = 8
+                cell.textLabel?.font = UIFont(name: "Arial", size: 13)
+                cell.textLabel?.minimumScaleFactor = 0.5
+                cell.textLabel?.clipsToBounds = true
+                cell.imageView?.image = #imageLiteral(resourceName: "auto")
                 
-                cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-                cell.imageView?.image = #imageLiteral(resourceName: "percentage")
-                cell.textLabel?.text = "Change Percentage Position"
-                cell.turningSwitch.tag = 5
-                
-                if UserDefaults.standard.string(forKey: "position") != nil {
-                    if UserDefaults.standard.string(forKey: "position") == "on"{
-                        cell.turningSwitch.isOn = true
-                    }else{
-                        cell.turningSwitch.isOn = false
-                    }
-                }
+                cell.textLabel?.text = "Auto Set Alarm When Charger Connected"
+                cell.detailTextLabel?.text = ""
+                cell.accessoryType = .disclosureIndicator
                 
                 return cell
             }
@@ -377,16 +369,20 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BatteryState") as? BatteryState
             vc?.BatteryHistory = true
             self.navigationController?.pushViewController(vc!, animated: true)
-        }else  if indexPath.section == 3 && indexPath.row == 2 {
+        }else if indexPath.section == 3 && indexPath.row == 2 {
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BatteryState") as? BatteryState
             vc?.BatteryHistory = false
             self.navigationController?.pushViewController(vc!, animated: true)
+        }else if indexPath.section == 4 && indexPath.row == 3 {
+            UIApplication.shared.open(URL(string: "https://www.youtube.com/watch?v=cWbpY7vcW68")!, completionHandler: nil)
         }
     }
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showAds(Myself: self)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(Showinapp),
@@ -400,8 +396,11 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
                                                name: NSNotification.Name("fromWidget"),
                                                object: nil)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(forcepro),
+                                               name: NSNotification.Name("forcepro"),
+                                               object: nil)
         
-        showAds(Myself: self)
         
         batterytestOutlet.tintColor = neonClr
         
@@ -444,11 +443,11 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         view.backgroundColor = .black
         let sectionText = UILabel()
         sectionText.frame = CGRect.init(x: 0, y: 0, width: view.frame.width, height: 70)
-        sectionText.text = "Add WIDGET to the Home Screen so you don't need to open App everytime"
+        sectionText.text = "Automatically open app & set alarm as soon as you connect charger to the phone (Click on above option)"
         sectionText.textAlignment = .center
         sectionText.minimumScaleFactor = 0.5
         sectionText.numberOfLines = 0
-        sectionText.font = .systemFont(ofSize: 11, weight: .regular) // my custom font
+        sectionText.font = .systemFont(ofSize: 11.5, weight: .regular) // my custom font
         sectionText.textColor = .lightGray
         view.addSubview(sectionText)
         self.myView.tableFooterView = view
@@ -474,6 +473,12 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         self.myView.reloadData()
         
     }
+    
+    @objc func forcepro(){
+        
+        self.present(myAlt(titel:"Not Pro Member",message:"bla bla bla"), animated: true, completion: nil)
+    }
+    
     
     
     @objc func fromWidget(noti:Notification) {

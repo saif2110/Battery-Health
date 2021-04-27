@@ -143,14 +143,14 @@ func NotificationofBackground() {
 extension UIView {
     func shadow()  {
         self.layer.shadowColor = UIColor.darkGray.cgColor
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowRadius = 5
     }
     
     func shadow2()  {
         self.layer.shadowColor = UIColor.lightGray.cgColor
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowRadius = 5
     }

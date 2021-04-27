@@ -7,7 +7,7 @@
 	<key>INIntentDefinitionModelVersion</key>
 	<string>1.2</string>
 	<key>INIntentDefinitionNamespace</key>
-	<string>88xZPY</string>
+	<string>QbQwWI</string>
 	<key>INIntentDefinitionSystemVersion</key>
 	<string>20C69</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
@@ -18,17 +18,33 @@
 	<array>
 		<dict>
 			<key>INIntentCategory</key>
-			<string>information</string>
-			<key>INIntentDefaultImageName</key>
-			<string>battery</string>
+			<string>generic</string>
+			<key>INIntentConfigurable</key>
+			<true/>
+			<key>INIntentDescription</key>
+			<string>Open App &amp; Set Alarm Automatically</string>
 			<key>INIntentDescriptionID</key>
-			<string>tVvJ9c</string>
+			<string>YMJlwW</string>
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>2</integer>
+			<integer>9</integer>
+			<key>INIntentManagedParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Set Alarm</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>oUPsiF</string>
+					<key>INIntentParameterCombinationUpdatesLinked</key>
+					<true/>
+				</dict>
+			</dict>
 			<key>INIntentName</key>
-			<string>Configuration</string>
+			<string>Intent</string>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -40,21 +56,25 @@
 						<true/>
 					</dict>
 					<dict>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Error</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>b3n1a6</string>
 						<key>INIntentResponseCodeName</key>
 						<string>failure</string>
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>6</integer>
+				<integer>2</integer>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Open</string>
+			<string>Automatically set alarm when charger is connected</string>
 			<key>INIntentTitleID</key>
-			<string>gpCwrM</string>
+			<string>xBUw6Q</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentVerb</key>
-			<string>View</string>
+			<string>Do</string>
 		</dict>
 	</array>
 	<key>INTypes</key>

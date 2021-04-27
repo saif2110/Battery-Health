@@ -32,6 +32,8 @@ class SetBattery: UITableViewCell {
             UserDefaults.standard.setValue(80, forKey: "percentage")
             UserDefaults(suiteName:
             "group.com.Full-Battery.Health.percentage")!.set(80, forKey: "percentage")
+
+            
         }else if sender.selectedSegmentIndex == 1 {
             UserDefaults.standard.setValue(90, forKey: "percentage")
             UserDefaults(suiteName:

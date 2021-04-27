@@ -75,16 +75,7 @@ class MainCell4: UITableViewCell {
                 NotificationCenter.default.post(name: NSNotification.Name("Showinapp"), object: nil)
             }
             
-        }
-        else if sender.tag == 5 {
-            
-            if sender.isOn {
-                UserDefaults.standard.setValue("on", forKey: "position")
-            }else{
-                UserDefaults.standard.setValue("off", forKey: "position")
-            }
-            
-        }else if sender.tag == 6 {
+        }else if sender.tag == 5 {
             
             if UserDefaults.standard.bool(forKey: "pro") {
                 

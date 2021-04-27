@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C005E8A262EC696004B4D99 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5C005E89262EC696004B4D99 /* Intents.intentdefinition */; };
 		5C0566C4261C4A6200798392 /* InAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0566C2261C4A6200798392 /* InAppVC.xib */; };
 		5C0566C5261C4A6200798392 /* InAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0566C3261C4A6200798392 /* InAppVC.swift */; };
 		5C0566E4261C54AB00798392 /* pro.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0566E3261C54AB00798392 /* pro.json */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		2E44DFC7A8A9BFF9E562F068 /* Pods-Full Battery Health +.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health +.release.xcconfig"; path = "Target Support Files/Pods-Full Battery Health +/Pods-Full Battery Health +.release.xcconfig"; sourceTree = "<group>"; };
 		46DA66993CDDA33054D9291B /* Pods-Full Battery Health +.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health +.debug.xcconfig"; path = "Target Support Files/Pods-Full Battery Health +/Pods-Full Battery Health +.debug.xcconfig"; sourceTree = "<group>"; };
+		5C005E89262EC696004B4D99 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		5C0566C2261C4A6200798392 /* InAppVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InAppVC.xib; sourceTree = "<group>"; };
 		5C0566C3261C4A6200798392 /* InAppVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppVC.swift; sourceTree = "<group>"; };
 		5C0566E3261C54AB00798392 /* pro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pro.json; sourceTree = "<group>"; };
@@ -153,8 +155,8 @@
 		5C46E5422629A6F3004B48ED /* StartWidget */ = {
 			isa = PBXGroup;
 			children = (
-				5C46E5432629A6F3004B48ED /* StartWidget.swift */,
 				5C41E5D2262CBB60001D82C7 /* StartWidget.intentdefinition */,
+				5C46E5432629A6F3004B48ED /* StartWidget.swift */,
 				5C46E5462629A6F3004B48ED /* Assets.xcassets */,
 				5C46E5482629A6F3004B48ED /* Info.plist */,
 			);
@@ -186,7 +188,6 @@
 		5C656BD825EE7B2E00EF896F /* Full Battery Health + */ = {
 			isa = PBXGroup;
 			children = (
-				5C0566E3261C54AB00798392 /* pro.json */,
 				5C0566C7261C4A7300798392 /* VC */,
 				5CE57E2325F5318F004D9D04 /* Cells */,
 				5C656BD925EE7B2E00EF896F /* AppDelegate.swift */,
@@ -203,6 +204,8 @@
 				5C656BE725EE7B3100EF896F /* Info.plist */,
 				5C656BE425EE7B3100EF896F /* LaunchScreen.storyboard */,
 				5C9CFD112618C7C100CCEF10 /* Lotti.json */,
+				5C005E89262EC696004B4D99 /* Intents.intentdefinition */,
+				5C0566E3261C54AB00798392 /* pro.json */,
 			);
 			path = "Full Battery Health +";
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			files = (
 				5C153BE1260B3A31007B9E5D /* Ads.swift in Sources */,
 				5C656BDE25EE7B2E00EF896F /* ViewController.swift in Sources */,
+				5C005E8A262EC696004B4D99 /* Intents.intentdefinition in Sources */,
 				5C0566C5261C4A6200798392 /* InAppVC.swift in Sources */,
 				5CE57E2125F52A11004D9D04 /* MainCell2.swift in Sources */,
 				5CFBCC9325F4F0BD002DB657 /* MainVC.swift in Sources */,
@@ -464,7 +468,7 @@
 				CODE_SIGN_ENTITLEMENTS = StartWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = StartWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -473,7 +477,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4;
+				MARKETING_VERSION = 4.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health.StartWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -490,7 +494,7 @@
 				CODE_SIGN_ENTITLEMENTS = StartWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = StartWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -499,7 +503,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4;
+				MARKETING_VERSION = 4.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health.StartWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -634,7 +638,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Full Battery Health.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -642,7 +646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4;
+				MARKETING_VERSION = 4.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -661,7 +665,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Full Battery Health.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -669,7 +673,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4;
+				MARKETING_VERSION = 4.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

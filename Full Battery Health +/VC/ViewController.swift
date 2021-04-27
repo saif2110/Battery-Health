@@ -188,6 +188,7 @@ class ViewController: UIViewController {
     }
     
     let usersStore = UserDefaultsStore<BatteryInfo>(uniqueIdentifier: "Batteryinfo")
+    
     @IBAction func exitApp(_ sender: Any) {
         UIScreen.main.brightness = CGFloat(0.5)
         info.TimeEnded = Date().timeIntervalSince1970 * 1000

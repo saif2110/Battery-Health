@@ -81,9 +81,7 @@ class InAppVC: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         if UserDefaults.standard.bool(forKey: "pro"){
-            DispatchQueue.main.async {
-                SKStoreReviewController.requestReview()
-            }
+            requestToRate()
         }
     }
     

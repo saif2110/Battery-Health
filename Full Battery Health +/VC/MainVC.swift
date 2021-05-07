@@ -523,9 +523,9 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         info.TimeStarted = Date().timeIntervalSince1970 * 1000
         
         if UserDefaults.standard.integer(forKey: "AppLaunch") > 6 && !UserDefaults.standard.bool(forKey: "pro")  {
-            DispatchQueue.main.async {
-                SKStoreReviewController.requestReview()
-            }
+            
+            requestToRate()
+            
         }
         
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController

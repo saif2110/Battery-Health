@@ -75,23 +75,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
         // WHEN PRO
         
         
-//        if UserDefaults.standard.integer(forKey: "auto") != 0 {
-//
-//            UserDefaults.standard.setValue(UserDefaults.standard.integer(forKey: "auto") + 1, forKey: "auto")
-//        }else{
-//            UserDefaults.standard.setValue(1, forKey: "auto")
-//        }
-//
-//        if UserDefaults.standard.bool(forKey: "pro") {
-//            openAppAuto()
-//        }else{
-//            if UserDefaults.standard.integer(forKey: "auto") < 5 {
-//                openAppAuto()
-//            }else{
-//                NotificationCenter.default.post(name: NSNotification.Name("forcepro"), object: nil)
-//            }
-//
-//        }
+        //        if UserDefaults.standard.integer(forKey: "auto") != 0 {
+        //
+        //            UserDefaults.standard.setValue(UserDefaults.standard.integer(forKey: "auto") + 1, forKey: "auto")
+        //        }else{
+        //            UserDefaults.standard.setValue(1, forKey: "auto")
+        //        }
+        //
+        //        if UserDefaults.standard.bool(forKey: "pro") {
+        //            openAppAuto()
+        //        }else{
+        //            if UserDefaults.standard.integer(forKey: "auto") < 5 {
+        //                openAppAuto()
+        //            }else{
+        //                NotificationCenter.default.post(name: NSNotification.Name("forcepro"), object: nil)
+        //            }
+        //
+        //        }
         
         
         openAppAuto()

@@ -522,7 +522,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         info.currentBatteryPercentage = Int(getBatteyPercentage()) ?? 10
         info.TimeStarted = Date().timeIntervalSince1970 * 1000
         
-        if UserDefaults.standard.integer(forKey: "AppLaunch") > 6 && !UserDefaults.standard.bool(forKey: "pro")  {
+        if UserDefaults.standard.integer(forKey: "AppLaunch") > 4 && !UserDefaults.standard.bool(forKey: "pro")  {
             
             requestToRate()
             

@@ -126,7 +126,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
             if mins > 5 {
                 
                 info.id = usersStore.objectsCount + 1
-                print(usersStore.objectsCount+1)
                 try! usersStore.save(info)
             }else{
                 

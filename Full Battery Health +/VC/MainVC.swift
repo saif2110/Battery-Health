@@ -348,6 +348,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     
     @IBAction func proAction(_ sender: Any) {
         let vc = InAppVC()
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -355,9 +356,12 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         
         if Int(getBatteyPercentage()) ?? 10 <= UserDefaults.standard.integer(forKey: "percentage") {
             
+            print(UserDefaults.standard.integer(forKey: "percentage"))
+            
             startAlarm()
             
         }else{
+            
             self.present(myAlt(titel:"Something is wrong",message:"Your current battery level is greater than the selected battery percentage for alarm"), animated: true, completion: nil)
         }
         
@@ -381,8 +385,6 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        showAds(Myself: self)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(Showinapp),
@@ -468,6 +470,16 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
             self.navigationItem.leftBarButtonItem = nil
         }
         
+        DispatchQueue.main.async {
+            if !UserDefaults.standard.bool(forKey: "pro"){
+                let vc = InAppVC()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+        
+        stateofBattery()
+        
         self.myView.delegate = self
         self.myView.dataSource = self
         self.myView.reloadData()
@@ -508,6 +520,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     
     @objc func Showinapp(notification:Notification) {
         let vc = InAppVC()
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -522,11 +535,11 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         info.currentBatteryPercentage = Int(getBatteyPercentage()) ?? 10
         info.TimeStarted = Date().timeIntervalSince1970 * 1000
         
-        if UserDefaults.standard.integer(forKey: "AppLaunch") > 4 && !UserDefaults.standard.bool(forKey: "pro")  {
-            
-            requestToRate()
-            
-        }
+//        if UserDefaults.standard.integer(forKey: "AppLaunch") > 4 && !UserDefaults.standard.bool(forKey: "pro")  {
+//
+//            requestToRate()
+//
+//        }
         
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -544,6 +557,19 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
             volumePercentage = String(Int((volume ?? 1 )*100)) + "%"
         }
         
+        stateofBattery()
+        
+        self.myView.delegate = self
+        self.myView.dataSource = self
+        self.myView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    
+    func stateofBattery(){
         if (UIDevice.current.batteryState == .charging) {
             setAlaram.backgroundColor = neonClr
             setAlaram.isEnabled = true
@@ -565,13 +591,6 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
             setAlaram.setTitle("Connect Charger", for: .normal)
         }
         
-        self.myView.delegate = self
-        self.myView.dataSource = self
-        self.myView.reloadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }

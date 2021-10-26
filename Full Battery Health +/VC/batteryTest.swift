@@ -119,25 +119,25 @@ class batteryTest: UIViewController {
     func animHide(){
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveLinear],
                        animations: {
-                        self.note.center.y -= self.note.bounds.height
-                        self.note.layoutIfNeeded()
-                        
-                       },  completion: {(_ completed: Bool) -> Void in
-                        self.note.isHidden = true
-                        
-                       })
+            self.note.center.y -= self.note.bounds.height
+            self.note.layoutIfNeeded()
+            
+        },  completion: {(_ completed: Bool) -> Void in
+            self.note.isHidden = true
+            
+        })
     }
     
     func animHideFast(){
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveLinear],
                        animations: {
-                        self.buttonView.center.y += self.buttonView.bounds.height
-                        self.buttonView.layoutIfNeeded()
-                        
-                       },  completion: {(_ completed: Bool) -> Void in
-                        self.buttonView.isHidden = true
-                        self.testingView.isHidden = false
-                       })
+            self.buttonView.center.y += self.buttonView.bounds.height
+            self.buttonView.layoutIfNeeded()
+            
+        },  completion: {(_ completed: Bool) -> Void in
+            self.buttonView.isHidden = true
+            self.testingView.isHidden = false
+        })
     }
     
     func getTiming(time:Double)->Int{
@@ -145,19 +145,19 @@ class batteryTest: UIViewController {
         if time < 50 {
             return Int.random(in: 95...100)
         }else if time < 70 {
-            return  Int.random(in: 82...85)
+            return  Int.random(in: 90...95)
         }else if time < 90 {
-            return  Int.random(in: 80...82)
+            return  Int.random(in: 85...90)
         }else if time < 100 {
-            return  Int.random(in: 78...80)
+            return  Int.random(in: 80...85)
         }else if time < 120 {
-            return  Int.random(in: 75...78)
+            return  Int.random(in: 75...80)
         }else if time < 150 {
-            return  Int.random(in: 78...75)
+            return  Int.random(in: 74...77)
         }else if time < 170 {
-            return Int.random(in: 75...78)
+            return Int.random(in: 72...74)
         }else if time < 190 {
-            return Int.random(in: 70...75)
+            return Int.random(in: 70...72)
         }else if time < 200 {
             return Int.random(in: 67...70)
         }else if time < 220 {
@@ -175,19 +175,19 @@ class batteryTest: UIViewController {
     
     func getPercentage(percenatge:Int)->Int{
         if percenatge == 0 {
-            return Int.random(in: 95...97)
+            return Int.random(in: 97...100)
         }else if percenatge == 1 {
-            return Int.random(in: 90...95)
+            return Int.random(in: 96...98)
         }else if percenatge == 2 {
-            return Int.random(in: 85...90)
+            return Int.random(in: 90...94)
         }else if percenatge == 3 {
-            return Int.random(in: 80...84)
+            return Int.random(in: 85...90)
         }else if percenatge == 4 {
-            return Int.random(in: 78...80)
+            return Int.random(in: 80...85)
         }else if percenatge == 5 {
-            return Int.random(in: 74...78)
+            return Int.random(in: 76...80)
         }else{
-            return Int.random(in: 65...70)
+            return Int.random(in: 70...77)
         }
     }
     

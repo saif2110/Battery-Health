@@ -84,7 +84,7 @@ func Notification() {
     
     //adding title, subtitle, body and badge
     content.title = "Battery Charged"
-    //content.subtitle = "Battery is fully as per you desired"
+    //content.subtitle = "Battery is full as per your limit."
     content.body = "Disconnect cable & close the app"
     content.sound = .default
     

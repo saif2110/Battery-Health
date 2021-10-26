@@ -10,6 +10,7 @@ import UserDefaultsStore
 import GoogleMobileAds
 import AVFoundation
 import InAppPurchase
+import Purchases
 import WidgetKit
 import SwiftySound
 import BackgroundTasks
@@ -49,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
         
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ae5f274c4305230770d28553692d49a0"]
         
+        
+        Purchases.debugLogsEnabled = false
+        Purchases.configure(withAPIKey: "kdukyCeOYfkdxmNFiKBYuUdctojLclgw")
+        
         let iap = InAppPurchase.default
         iap.addTransactionObserver(fallbackHandler: {_ in
             // Handle the result of payment added by Store
@@ -67,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
         
         return true
     }
+    
     
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -167,6 +173,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    // show alert while app is running in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent
+            notification: UNNotification, withCompletionHandler completionHandler:
+            @escaping (UNNotificationPresentationOptions) -> Void) {
+
+        return completionHandler([.alert,.badge,.sound])
     }
     
     

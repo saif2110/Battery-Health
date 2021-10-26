@@ -47,6 +47,9 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - Purchases (3.12.4):
+    - PurchasesCoreSwift (= 3.12.4)
+  - PurchasesCoreSwift (3.12.4)
   - StepIndicator (1.0.8)
   - SwiftyJSON (4.3.0)
   - SwiftySound (1.2.0)
@@ -60,6 +63,7 @@ DEPENDENCIES:
   - lottie-ios
   - MBCircularProgressBar
   - MeterGauge
+  - Purchases
   - StepIndicator
   - SwiftyJSON (~> 4.0)
   - SwiftySound (~> 1.2)
@@ -79,6 +83,8 @@ SPEC REPOS:
     - MeterGauge
     - nanopb
     - PromisesObjC
+    - Purchases
+    - PurchasesCoreSwift
     - StepIndicator
     - SwiftyJSON
     - SwiftySound
@@ -97,11 +103,13 @@ SPEC CHECKSUMS:
   MeterGauge: e3243120af0ca69f807e72d459707edc7d5447da
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  Purchases: c451e29e3ceefaa8e7926a0d0d831b0f0ff39e32
+  PurchasesCoreSwift: c276d8c8df495271afebb0b090ec35117a0a827f
   StepIndicator: 748b293f671355b021253f82031ac002f153dc81
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   SwiftySound: 9eb28bb14edb601b40027e44319e0ef8383f88bf
   UserDefaultsStore: 2049df5d9096a43632c7ee2c3c2dbfe5c70d20ed
 
-PODFILE CHECKSUM: 8e6b4a69de0cdf0ad09a9ca7000712e1ee6ebc7a
+PODFILE CHECKSUM: f0716b462687081a49fcdd5d486cd5e0859f41f2
 
 COCOAPODS: 1.10.2

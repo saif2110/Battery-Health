@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InAppVC" customModule="Full_Battery_Health" customModuleProvider="target">
             <connections>
                 <outlet property="buyButton" destination="zg6-P2-wLg" id="vob-PQ-9Nj"/>
+                <outlet property="dismissOutlet" destination="adw-Jg-g6Q" id="ZRV-2v-sCs"/>
                 <outlet property="imageLotti" destination="SHj-QV-Zid" id="bck-TN-rhz"/>
+                <outlet property="priceLabel" destination="4hV-nt-LaT" id="8mT-ep-xTd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -209,42 +212,14 @@ Cg
                     <color key="textColor" red="0.54731565709999996" green="0.8570153117" blue="0.32999774809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNI-Tu-Mbo">
-                    <rect key="frame" x="20" y="729" width="374" height="25"/>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Already pro member? ">
-                                <attributes>
-                                    <color key="NSColor" red="0.73968266933050975" green="0.7559429160690263" blue="0.69482855352216311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" metaFont="smallSystem"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=" ">
-                                <attributes>
-                                    <color key="NSColor" red="0.80588526099053981" green="0.82421821360000003" blue="0.75420589781248581" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" metaFont="smallSystem"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content="Restore purchase">
-                                <attributes>
-                                    <color key="NSColor" red="0.63682758809999995" green="0.82421821360000003" blue="0.33873397109999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" metaFont="smallSystem"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
-                    <connections>
-                        <action selector="restore:" destination="-1" eventType="touchUpInside" id="aCQ-tN-BbM"/>
-                    </connections>
-                </button>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg6-P2-wLg">
-                    <rect key="frame" x="90" y="762" width="234" height="50"/>
+                    <rect key="frame" x="70" y="745" width="274" height="50"/>
                     <color key="backgroundColor" red="0.54731565709999996" green="0.8570153117" blue="0.32999774809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Uaa-0e-BWu"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                    <state key="normal" title="Buy Pro">
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="Subscribe">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -263,29 +238,93 @@ Cg
                         <constraint firstAttribute="height" constant="150" id="vgd-E4-UE3"/>
                     </constraints>
                 </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adw-Jg-g6Q">
+                    <rect key="frame" x="369" y="44" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="7AX-Wu-jyf"/>
+                        <constraint firstAttribute="height" constant="25" id="hK2-xR-nSp"/>
+                    </constraints>
+                    <color key="tintColor" red="0.54901960780000003" green="0.71846574539999997" blue="0.29393061999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal">
+                        <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissVC:" destination="-1" eventType="touchUpInside" id="bDQ-DF-oea"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hV-nt-LaT">
+                    <rect key="frame" x="15" y="689" width="384" height="36"/>
+                    <string key="text">Try 3 days for free
+Then 00 / Year</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.74117647058823533" green="0.75686274509803919" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4g-dA-uJf">
+                    <rect key="frame" x="20" y="825" width="75" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="tintColor" red="0.9215852618" green="0.36784270409999997" blue="0.30765333769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Terms of Use">
+                        <color key="titleColor" red="0.54901960780000003" green="0.71764705880000002" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="tocWithSender:" destination="-1" eventType="touchUpInside" id="9jT-pK-MQG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4G-tP-Bmi">
+                    <rect key="frame" x="315" y="825" width="79" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="tintColor" red="0.9215852618" green="0.36784270409999997" blue="0.30765333769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Privacy Policy">
+                        <color key="titleColor" red="0.54901960780000003" green="0.71764705880000002" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="privacyPolicyWithSender:" destination="-1" eventType="touchUpInside" id="wCN-BM-ZhB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNI-Tu-Mbo">
+                    <rect key="frame" x="157.5" y="815" width="99" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="Restore purchase">
+                        <color key="titleColor" red="0.63682758809999995" green="0.82421821360000003" blue="0.33873397109999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="restore:" destination="-1" eventType="touchUpInside" id="aCQ-tN-BbM"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="xNI-Tu-Mbo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="2OH-WF-0Jq"/>
+                <constraint firstItem="4hV-nt-LaT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="7WY-eo-A0Z"/>
                 <constraint firstItem="2TA-dR-8hp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="7en-kp-vUh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4hV-nt-LaT" secondAttribute="trailing" constant="15" id="HVB-Wi-mxB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X0c-2e-bXR" secondAttribute="trailing" constant="20" id="JM0-MQ-jXi"/>
+                <constraint firstItem="t4g-dA-uJf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="JkK-mw-BAi"/>
                 <constraint firstItem="2TA-dR-8hp" firstAttribute="top" secondItem="X0c-2e-bXR" secondAttribute="bottom" constant="30" id="QnC-FJ-nLH"/>
-                <constraint firstItem="zg6-P2-wLg" firstAttribute="top" secondItem="xNI-Tu-Mbo" secondAttribute="bottom" constant="8" id="Ro9-Wh-8OY"/>
-                <constraint firstItem="zg6-P2-wLg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="90" id="TJ9-2U-YQZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W4G-tP-Bmi" secondAttribute="bottom" constant="10" id="SgJ-3j-6QQ"/>
+                <constraint firstItem="adw-Jg-g6Q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="T6R-Ak-jUb"/>
+                <constraint firstItem="zg6-P2-wLg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="TJ9-2U-YQZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xNI-Tu-Mbo" secondAttribute="bottom" constant="20" id="WcQ-9g-Fl6"/>
                 <constraint firstItem="X0c-2e-bXR" firstAttribute="top" secondItem="SHj-QV-Zid" secondAttribute="bottom" id="Weg-hH-xuO"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zg6-P2-wLg" secondAttribute="bottom" constant="50" id="ZWS-Zl-Nin"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="t4g-dA-uJf" secondAttribute="bottom" constant="10" id="X0b-TC-HHS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W4G-tP-Bmi" secondAttribute="trailing" constant="20" id="YL0-1w-XK1"/>
+                <constraint firstItem="zg6-P2-wLg" firstAttribute="top" secondItem="4hV-nt-LaT" secondAttribute="bottom" constant="20" id="dUe-uW-DHL"/>
+                <constraint firstItem="xNI-Tu-Mbo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gcF-xW-vze"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2TA-dR-8hp" secondAttribute="trailing" constant="20" id="mys-7b-FD0"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xNI-Tu-Mbo" secondAttribute="trailing" constant="20" id="nhZ-7H-4ov"/>
+                <constraint firstItem="xNI-Tu-Mbo" firstAttribute="top" secondItem="zg6-P2-wLg" secondAttribute="bottom" constant="20" id="oAm-zI-cdY"/>
                 <constraint firstItem="SHj-QV-Zid" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="oGQ-Xl-fEU"/>
                 <constraint firstItem="X0c-2e-bXR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oVw-Rr-v91"/>
                 <constraint firstItem="SHj-QV-Zid" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vKM-1z-wgI"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zg6-P2-wLg" secondAttribute="trailing" constant="90" id="wfO-wZ-GZh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="adw-Jg-g6Q" secondAttribute="trailing" constant="20" id="vxZ-aE-r4C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zg6-P2-wLg" secondAttribute="trailing" constant="70" id="wfO-wZ-GZh"/>
             </constraints>
             <point key="canvasLocation" x="121.73913043478262" y="89.732142857142847"/>
         </view>
     </objects>
     <resources>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

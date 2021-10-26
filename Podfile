@@ -15,5 +15,6 @@ target 'Full Battery Health' do
   pod 'MeterGauge'
   pod 'InAppPurchase'
   pod 'Alamofire', '~> 5.1'
+  pod 'Purchases'
   pod 'SwiftyJSON', '~> 4.0'
 end

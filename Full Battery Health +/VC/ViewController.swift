@@ -32,8 +32,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if isOpenfromWidget {
+
+        if !UserDefaults.standard.bool(forKey: "pro"){
             showAds(Myself: self)
         }
         
@@ -148,8 +148,8 @@ class ViewController: UIViewController {
             self.MBView.value =  CGFloat(UIDevice.current.batteryLevel * 100)
             UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut],
                            animations: {
-                            self.tabBar.center.y += self.tabBar.frame.height
-                           },completion: nil)
+                self.tabBar.center.y += self.tabBar.frame.height
+            },completion: nil)
             self.tabBar.isHidden = true
             self.hide = false
             self.view.layoutIfNeeded()
@@ -165,8 +165,8 @@ class ViewController: UIViewController {
             
             UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn],
                            animations: {
-                            self.tabBar.center.y -= self.tabBar.frame.height
-                           },completion: nil)
+                self.tabBar.center.y -= self.tabBar.frame.height
+            },completion: nil)
             self.tabBar.isHidden = false
             self.hide = true
             self.view.layoutIfNeeded()

@@ -6,6 +6,8 @@ ${BUILT_PRODUCTS_DIR}/InAppPurchase/InAppPurchase.framework
 ${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework
 ${BUILT_PRODUCTS_DIR}/MeterGauge/MeterGauge.framework
 ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
+${BUILT_PRODUCTS_DIR}/Purchases/Purchases.framework
+${BUILT_PRODUCTS_DIR}/PurchasesCoreSwift/PurchasesCoreSwift.framework
 ${BUILT_PRODUCTS_DIR}/StepIndicator/StepIndicator.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework

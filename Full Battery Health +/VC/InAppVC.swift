@@ -92,7 +92,9 @@ class InAppVC: UIViewController {
                 
                 let pricetwo = offerings[IPA.OneYearPro.rawValue]?.annual?.localizedPriceString
                 
-                self.priceLabel.text = "Try 3 days for free\nThen \(String(describing: pricetwo ?? "00"))/year."
+                //self.priceLabel.text = "Try 3 days for free\nThen \(String(describing: pricetwo ?? "00"))/year."
+                
+                self.priceLabel.text = "Subscribe for \(String(describing: pricetwo ?? "00"))/year."
                 
                 stopIndicator()
                 

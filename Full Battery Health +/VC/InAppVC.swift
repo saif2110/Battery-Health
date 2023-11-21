@@ -31,6 +31,7 @@ class InAppVC: UIViewController {
             buyButton.layer.cornerRadius = buyButton.bounds.height/2
         }
     }
+  
     @IBOutlet weak var imageLotti: UIImageView!
     
     @IBOutlet weak var dismissOutlet: UIButton!

@@ -121,8 +121,8 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         
         let BarChartSet = BarChartDataSet(entries: dataEntries, label: "Minutes")
-        let BarData = BarChartData()
-        BarData.addDataSet(BarChartSet)
+        let BarData = BarChartData(dataSet: BarChartSet)
+        //BarData.addDataSet(BarChartSet)
         Chart.data = BarData
     }
 }

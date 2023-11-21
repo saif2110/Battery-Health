@@ -1,29 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n8c-Nv-h3s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n8c-Nv-h3s">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item 2-->
+        <scene sceneID="k1R-tJ-fQj">
+            <objects>
+                <viewController id="QfB-Y3-mmX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="smP-8m-rd2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9zT-el-vel"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="heL-6c-Dws"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2TZ-8k-JRF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4472" y="-70"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="x97-da-i2O">
+            <objects>
+                <tabBarController id="VYH-T1-cCJ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jbf-bQ-VBY">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="D6h-gO-D6G" kind="relationship" relationship="viewControllers" id="MXe-mF-JKY"/>
+                        <segue destination="QfB-Y3-mmX" kind="relationship" relationship="viewControllers" id="Ms6-nG-Whs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GSh-hr-h69" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2977" y="-784"/>
+        </scene>
         <!--Battery Health-->
         <scene sceneID="Z9v-QM-0X9">
             <objects>
                 <viewController storyboardIdentifier="MainVC" id="D6h-gO-D6G" customClass="MainVC" customModule="Full_Battery_Health" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3qr-fv-atE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S5j-NG-dUW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="734"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell" textLabel="5HZ-9i-vvh" detailTextLabel="phR-RZ-VHe" rowHeight="67" style="IBUITableViewCellStyleValue1" id="cE0-dh-vra" customClass="MainCell" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="67"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cE0-dh-vra" id="2kf-ko-rdZ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -47,7 +81,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell2" rowHeight="67" id="2JI-bJ-hgF" customClass="MainCell2" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="111.5" width="414" height="67"/>
+                                        <rect key="frame" x="0.0" y="117" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2JI-bJ-hgF" id="oPe-8k-JDO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -77,7 +111,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell3" rowHeight="67" id="h8V-07-y5G" customClass="MainCell3" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="178.5" width="414" height="67"/>
+                                        <rect key="frame" x="0.0" y="184" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h8V-07-y5G" id="wta-Tu-z2D">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -103,7 +137,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell4" rowHeight="67" id="2KL-bn-eOY" customClass="MainCell4" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="245.5" width="414" height="67"/>
+                                        <rect key="frame" x="0.0" y="251" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2KL-bn-eOY" id="JlL-TN-Crf">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -127,7 +161,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell5" rowHeight="125" id="9Y8-ht-x0a" customClass="MainCell5" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="312.5" width="414" height="125"/>
+                                        <rect key="frame" x="0.0" y="318" width="414" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Y8-ht-x0a" id="Llf-Fd-yS9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
@@ -156,10 +190,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdU-Ls-R3e">
-                                <rect key="frame" x="3" y="676" width="408" height="132"/>
+                                <rect key="frame" x="0.0" y="679" width="414" height="134"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoH-JF-jXX">
-                                        <rect key="frame" x="10" y="12" width="388" height="45"/>
+                                        <rect key="frame" x="10" y="12" width="394" height="45"/>
                                         <color key="backgroundColor" red="0.17841947939626027" green="0.17925425458236272" blue="0.19199281126986789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="feN-Gr-4ua"/>
@@ -178,7 +212,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO NOT KILL THE APP AFTER SETTING THE ALARM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qun-CE-TnZ">
-                                        <rect key="frame" x="8" y="65" width="392" height="18"/>
+                                        <rect key="frame" x="8" y="65" width="398" height="18.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qun-CE-TnZ" secondAttribute="height" multiplier="392:31" constant="164.38709677419357" id="KAG-37-xqe"/>
                                         </constraints>
@@ -203,14 +237,15 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="S5j-NG-dUW" firstAttribute="top" secondItem="3qr-fv-atE" secondAttribute="top" id="DWe-p9-f67"/>
-                            <constraint firstAttribute="bottom" secondItem="xdU-Ls-R3e" secondAttribute="bottom" id="Jy7-uE-Bff"/>
                             <constraint firstItem="S5j-NG-dUW" firstAttribute="trailing" secondItem="YqS-TE-xmX" secondAttribute="trailing" id="OCI-xd-QDz"/>
                             <constraint firstItem="S5j-NG-dUW" firstAttribute="leading" secondItem="YqS-TE-xmX" secondAttribute="leading" id="QWa-oL-NO2"/>
-                            <constraint firstItem="xdU-Ls-R3e" firstAttribute="leading" secondItem="YqS-TE-xmX" secondAttribute="leading" constant="3" id="RjJ-l4-aoJ"/>
-                            <constraint firstItem="YqS-TE-xmX" firstAttribute="trailing" secondItem="xdU-Ls-R3e" secondAttribute="trailing" constant="3" id="VIR-vw-DzT"/>
-                            <constraint firstItem="YqS-TE-xmX" firstAttribute="bottom" secondItem="S5j-NG-dUW" secondAttribute="bottom" constant="40" id="tC2-ST-rII"/>
+                            <constraint firstItem="xdU-Ls-R3e" firstAttribute="leading" secondItem="YqS-TE-xmX" secondAttribute="leading" id="RjJ-l4-aoJ"/>
+                            <constraint firstItem="xdU-Ls-R3e" firstAttribute="top" secondItem="S5j-NG-dUW" secondAttribute="bottom" id="SL0-dl-I04"/>
+                            <constraint firstItem="YqS-TE-xmX" firstAttribute="trailing" secondItem="xdU-Ls-R3e" secondAttribute="trailing" id="VIR-vw-DzT"/>
+                            <constraint firstItem="YqS-TE-xmX" firstAttribute="bottom" secondItem="xdU-Ls-R3e" secondAttribute="bottom" id="vYs-oq-IYf"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="pd7-7G-7S8"/>
                     <navigationItem key="navigationItem" title="Battery Health" id="ASM-hu-6jb">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="pro1" id="Dio-1B-rwu">
                             <color key="tintColor" red="0.53333333333333333" green="0.69803921568627447" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -236,14 +271,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3Y-tz-X5d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1045" y="86"/>
+            <point key="canvasLocation" x="-1046.376811594203" y="85.714285714285708"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I4K-2I-3n1">
             <objects>
                 <navigationController id="n8c-Nv-h3s" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="mIq-Zq-9fL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -261,7 +296,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gut-04-Arg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1820" y="86"/>
+            <point key="canvasLocation" x="-2684" y="86"/>
         </scene>
         <!--Battery State-->
         <scene sceneID="8uL-bh-9Tp">
@@ -293,7 +328,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BatteryStateCell" textLabel="C7j-yn-EXU" detailTextLabel="dRF-VU-qGN" imageView="3Ky-aE-iea" rowHeight="72" style="IBUITableViewCellStyleSubtitle" id="9ay-jb-Mpb" customClass="BatteryStateCell" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="72"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ay-jb-Mpb" id="gMJ-ib-SC5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
@@ -398,7 +433,7 @@
                                 <rect key="frame" x="15" y="781" width="384" height="115"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEm-jJ-2If">
-                                        <rect key="frame" x="20" y="22" width="40" height="41.5"/>
+                                        <rect key="frame" x="20" y="22.5" width="40" height="41.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="WtP-GD-sl4"/>
                                             <constraint firstAttribute="width" constant="40" id="hib-NX-zzW"/>
@@ -531,11 +566,11 @@
             <objects>
                 <viewController storyboardIdentifier="batteryTest" id="jtd-xS-7se" customClass="batteryTest" customModule="Full_Battery_Health" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xwo-Zn-DWB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fe-bY-reU" userLabel="ButttonView">
-                                <rect key="frame" x="107" y="278" width="200" height="200"/>
+                                <rect key="frame" x="107" y="343" width="200" height="200"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startRing" translatesAutoresizingMaskIntoConstraints="NO" id="CKq-wN-YnO">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -609,10 +644,10 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvB-6V-eUx" customClass="PastelView" customModule="Pastel">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="920"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFO-bD-zjy" customClass="StepIndicatorView" customModule="StepIndicator">
-                                        <rect key="frame" x="8" y="30" width="63" height="696"/>
+                                        <rect key="frame" x="8" y="30" width="63" height="860"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
@@ -630,7 +665,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running multiple for-loops in the background in several threads" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u5H-VA-cQA">
-                                        <rect key="frame" x="79" y="328" width="327" height="100"/>
+                                        <rect key="frame" x="79" y="410" width="327" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="XYN-3C-dxk"/>
                                         </constraints>
@@ -639,7 +674,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBs-8y-3vZ" customClass="AnimationView">
-                                        <rect key="frame" x="79" y="175" width="327" height="145"/>
+                                        <rect key="frame" x="79" y="257" width="327" height="145"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PBs-8y-3vZ" secondAttribute="height" multiplier="327:145" id="N0D-QO-SD9"/>
@@ -661,7 +696,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="438-x9-BQY" userLabel="ResultView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il2-gV-YRu">
                                         <rect key="frame" x="8" y="15" width="398" height="47"/>
@@ -720,7 +755,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XPf-cq-2ma">
-                                        <rect key="frame" x="0.0" y="302" width="414" height="454"/>
+                                        <rect key="frame" x="0.0" y="302" width="414" height="584"/>
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <color key="sectionIndexBackgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="Fyh-xh-55v">
@@ -1036,12 +1071,15 @@
             <point key="canvasLocation" x="-1046.376811594203" y="-571.20535714285711"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MXe-mF-JKY"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.backward.square" catalog="system" width="128" height="114"/>
         <image name="battery" width="32" height="32"/>
         <image name="dim" width="32" height="32"/>
-        <image name="lightbulb.fill" catalog="system" width="113" height="128"/>
-        <image name="poweroff" catalog="system" width="128" height="121"/>
+        <image name="lightbulb.fill" catalog="system" width="92" height="128"/>
+        <image name="poweroff" catalog="system" width="128" height="123"/>
         <image name="pro1" width="24" height="22"/>
         <image name="startRing" width="820" height="818"/>
         <image name="startStopButton" width="41" height="44"/>

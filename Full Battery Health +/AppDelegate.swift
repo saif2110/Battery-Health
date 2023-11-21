@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
             usersStore.deleteAll()
         }
         
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ae5f274c4305230770d28553692d49a0"]
+      //  GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ae5f274c4305230770d28553692d49a0"]
         
         
         Purchases.debugLogsEnabled = false

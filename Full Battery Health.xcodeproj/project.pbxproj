@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -44,6 +44,7 @@
 		5CFBCC9625F4F374002DB657 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBCC9525F4F374002DB657 /* MainCell.swift */; };
 		831D4388AB2B11DCC0511A82 /* Pods_Full_Battery_Health.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9171965A6932E6632802677 /* Pods_Full_Battery_Health.framework */; };
 		B095A26B27244BAC007104AC /* pro.json in Resources */ = {isa = PBXBuildFile; fileRef = B095A26A27244BAC007104AC /* pro.json */; };
+		B0F826E62B0D1354003771E2 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B0F826E52B0D1354003771E2 /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				831D4388AB2B11DCC0511A82 /* Pods_Full_Battery_Health.framework in Frameworks */,
+				B0F826E62B0D1354003771E2 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +276,8 @@
 				5C656BD225EE7B2E00EF896F /* Sources */,
 				5C656BD325EE7B2E00EF896F /* Frameworks */,
 				5C656BD425EE7B2E00EF896F /* Resources */,
-				857CF6D4BBFFD207D5AD7976 /* [CP] Embed Pods Frameworks */,
 				5C46E54E2629A6F3004B48ED /* Embed App Extensions */,
+				ADECC4D0F67150D2FBD4CF0D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -283,6 +285,9 @@
 				5C46E54C2629A6F3004B48ED /* PBXTargetDependency */,
 			);
 			name = "Full Battery Health";
+			packageProductDependencies = (
+				B0F826E52B0D1354003771E2 /* Charts */,
+			);
 			productName = "Full Battery Health +";
 			productReference = 5C656BD625EE7B2E00EF896F /* Full Battery Health.app */;
 			productType = "com.apple.product-type.application";
@@ -313,6 +318,9 @@
 				Base,
 			);
 			mainGroup = 5C656BCD25EE7B2E00EF896F;
+			packageReferences = (
+				B0F826E42B0D1354003771E2 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = 5C656BD725EE7B2E00EF896F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -377,7 +385,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		857CF6D4BBFFD207D5AD7976 /* [CP] Embed Pods Frameworks */ = {
+		ADECC4D0F67150D2FBD4CF0D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -640,15 +648,16 @@
 				CODE_SIGN_ENTITLEMENTS = "Full Battery Health.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.1;
+				MARKETING_VERSION = 5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -667,15 +676,16 @@
 				CODE_SIGN_ENTITLEMENTS = "Full Battery Health.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.1;
+				MARKETING_VERSION = 5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -715,6 +725,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B0F826E42B0D1354003771E2 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0F826E52B0D1354003771E2 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0F826E42B0D1354003771E2 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C656BCE25EE7B2E00EF896F /* Project object */;
 }

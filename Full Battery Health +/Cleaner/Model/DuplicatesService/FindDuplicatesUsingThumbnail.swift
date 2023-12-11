@@ -9,6 +9,7 @@
 import Foundation
 import CocoaImageHashing
 import Photos
+import UIKit
 
 extension PHAsset {
     

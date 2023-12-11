@@ -7,7 +7,6 @@
 
 import UIKit
 import UserDefaultsStore
-import GoogleMobileAds
 import AVFoundation
 import InAppPurchase
 import Purchases
@@ -32,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
         window?.tintColor = neonClr
         UIApplication.shared.isIdleTimerDisabled = true
         UIDevice.current.isBatteryMonitoringEnabled = true
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+      //  GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         if UserDefaults.standard.integer(forKey: "AppLaunch") != 0 {
             

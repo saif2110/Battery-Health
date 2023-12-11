@@ -57,16 +57,16 @@ class InAppVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let LottiV = AnimationView()
-        LottiV.frame = self.imageLotti.bounds
-        LottiV.backgroundColor = .clear
-        LottiV.animation = Animation.named("pro")
-        LottiV.contentMode = .scaleAspectFit
-        LottiV.loopMode = .repeat(0)
-        DispatchQueue.main.async {
-            self.imageLotti.addSubview(LottiV)
-            LottiV.play()
-        }
+//        let LottiV = AnimationView()
+//        LottiV.frame = self.imageLotti.bounds
+//        LottiV.backgroundColor = .clear
+//        LottiV.animation = Animation.named("pro")
+//        LottiV.contentMode = .scaleAspectFit
+//        LottiV.loopMode = .repeat(0)
+//        DispatchQueue.main.async {
+//            self.imageLotti.addSubview(LottiV)
+//            LottiV.play()
+//        }
         
         let iap = InAppPurchase.default
         iap.fetchProduct(productIdentifiers: ["BatteryHealthPro"], handler: { (result) in

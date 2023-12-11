@@ -1,0 +1,50 @@
+{
+  "pins" : [
+    {
+      "identity" : "charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielgindi/Charts",
+      "state" : {
+        "revision" : "07b23476ad52b926be772f317d8f1d4511ee8d02",
+        "version" : "4.1.0"
+      }
+    },
+    {
+      "identity" : "cocoaimagehashing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ameingast/cocoaimagehashing.git",
+      "state" : {
+        "revision" : "ad01eee3c3f91bd181f7f4eba7f48f7cb211b51c",
+        "version" : "1.9.0"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "3f1202f254ad5d71f6c5b518ed2d6b9e2abe6969",
+        "version" : "4.3.4"
+      }
+    },
+    {
+      "identity" : "swift-algorithms",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-algorithms",
+      "state" : {
+        "revision" : "f6919dfc309e7f1b56224378b11e28bab5bccc42",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "swift-numerics",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-numerics.git",
+      "state" : {
+        "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}

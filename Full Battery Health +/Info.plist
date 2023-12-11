@@ -82,5 +82,7 @@
 	<string>Dark</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need photos permission to find duplicate Images to display it to you.</string>
 </dict>
 </plist>

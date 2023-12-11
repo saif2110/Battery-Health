@@ -540,7 +540,10 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
 //            requestToRate()
 //
 //        }
-        
+      
+      
+        self.tabBarController?.tabBar.isHidden = true
+  
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController") as? ViewController
         self.navigationController?.pushViewController(vc!, animated: true)
         

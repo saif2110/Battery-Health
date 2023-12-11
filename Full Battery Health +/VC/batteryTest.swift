@@ -67,16 +67,16 @@ class batteryTest: UIViewController {
         StartRing.rotate()
         stepsLabel.flashSlow(numberOfFlashes: 100000)
         
-        let LottiV = AnimationView()
-        LottiV.frame = self.LottiV.bounds
-        LottiV.backgroundColor = .black
-        LottiV.animation = Animation.named("Lotti")
-        LottiV.contentMode = .scaleAspectFit
-        LottiV.loopMode = .repeat(10000000)
-        LottiV.play()
-        DispatchQueue.main.async {
-            self.LottiV.addSubview(LottiV)
-        }
+//        let LottiV = AnimationView()
+//        LottiV.frame = self.LottiV.bounds
+//        LottiV.backgroundColor = .black
+//        LottiV.animation = Animation.named("Lotti")
+//        LottiV.contentMode = .scaleAspectFit
+//        LottiV.loopMode = .repeat(10000000)
+//        LottiV.play()
+//        DispatchQueue.main.async {
+//            self.LottiV.addSubview(LottiV)
+//        }
     }
     
     var startInfo:Double = 0

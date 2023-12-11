@@ -17,8 +17,9 @@ class DublicateCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     var photoAsset: PHAsset?
-    
-    override func awakeFromNib() {
+    @IBOutlet weak var selectedImageview: UIImageView!
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
     }
     

@@ -9,14 +9,15 @@ target 'Full Battery Health' do
   pod 'SwiftySound', '~> 1.2'
 #  pod 'Charts'
   pod 'UserDefaultsStore'
-  pod 'Google-Mobile-Ads-SDK'
+#  pod 'Google-Mobile-Ads-SDK'
   pod 'StepIndicator'
-  pod 'lottie-ios'
+#  pod 'lottie-ios'
   pod 'MeterGauge'
   pod 'InAppPurchase'
   pod 'Alamofire', '~> 5.1'
   pod 'Purchases'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'SystemServices', '~> 2.0.1'
 end
 
 post_install do |installer|

@@ -54,7 +54,7 @@
     self.storageInfo.totalSapce = [self getTotalSpace];
     self.storageInfo.usedSpace = [self getUsedSpace];
     self.storageInfo.freeSpace = [self getFreeSpace];
-    self.storageInfo.songCount = [self getSongCount];
+   // self.storageInfo.songCount = [self getSongCount];
     self.storageInfo.totalSongSize = [self getTotalSongSize];
     
     [self updatePictureCount];

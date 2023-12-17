@@ -43,7 +43,55 @@
 		5CFBCC9325F4F0BD002DB657 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBCC9225F4F0BD002DB657 /* MainVC.swift */; };
 		5CFBCC9625F4F374002DB657 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBCC9525F4F374002DB657 /* MainCell.swift */; };
 		831D4388AB2B11DCC0511A82 /* Pods_Full_Battery_Health.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9171965A6932E6632802677 /* Pods_Full_Battery_Health.framework */; };
+		B06780AE2B2DF3C9007FA572 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06780AD2B2DF3C9007FA572 /* VideosViewController.swift */; };
 		B095A26B27244BAC007104AC /* pro.json in Resources */ = {isa = PBXBuildFile; fileRef = B095A26A27244BAC007104AC /* pro.json */; };
+		B0ACC6AC2B279EB500F0FBC4 /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC63D2B279EB500F0FBC4 /* HardcodedDeviceData.m */; };
+		B0ACC6AD2B279EB500F0FBC4 /* DeviceSpecificUI.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6412B279EB500F0FBC4 /* DeviceSpecificUI.m */; };
+		B0ACC6AE2B279EB500F0FBC4 /* GPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6432B279EB500F0FBC4 /* GPUInfo.m */; };
+		B0ACC6AF2B279EB500F0FBC4 /* GPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6462B279EB500F0FBC4 /* GPUInfoController.m */; };
+		B0ACC6B02B279EB500F0FBC4 /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC64F2B279EB500F0FBC4 /* CPULoad.m */; };
+		B0ACC6B12B279EB500F0FBC4 /* CPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6502B279EB500F0FBC4 /* CPUInfoController.m */; };
+		B0ACC6B22B279EB500F0FBC4 /* CPULoadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6512B279EB500F0FBC4 /* CPULoadFilter.m */; };
+		B0ACC6B32B279EB500F0FBC4 /* CPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6522B279EB500F0FBC4 /* CPUInfo.m */; };
+		B0ACC6B42B279EB500F0FBC4 /* ActiveConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6562B279EB500F0FBC4 /* ActiveConnection.m */; };
+		B0ACC6B52B279EB500F0FBC4 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6572B279EB500F0FBC4 /* NetworkInfoController.m */; };
+		B0ACC6B62B279EB500F0FBC4 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6582B279EB500F0FBC4 /* NetworkInfo.m */; };
+		B0ACC6B72B279EB500F0FBC4 /* NetworkBandwidth.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6592B279EB500F0FBC4 /* NetworkBandwidth.m */; };
+		B0ACC6B82B279EB500F0FBC4 /* SystemMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC65F2B279EB500F0FBC4 /* SystemMonitor.m */; };
+		B0ACC6B92B279EB500F0FBC4 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0ACC6662B279EB500F0FBC4 /* libLumberjack.a */; };
+		B0ACC6BA2B279EB500F0FBC4 /* StorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6682B279EB500F0FBC4 /* StorageInfo.m */; };
+		B0ACC6BB2B279EB500F0FBC4 /* StorageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC66B2B279EB500F0FBC4 /* StorageInfoController.m */; };
+		B0ACC6BC2B279EB500F0FBC4 /* GLDataLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6702B279EB500F0FBC4 /* GLDataLine.m */; };
+		B0ACC6BD2B279EB500F0FBC4 /* GLLineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6712B279EB500F0FBC4 /* GLLineGraph.m */; };
+		B0ACC6BE2B279EB500F0FBC4 /* GLEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6752B279EB500F0FBC4 /* GLEffect.m */; };
+		B0ACC6BF2B279EB500F0FBC4 /* GLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6762B279EB500F0FBC4 /* GLCommon.m */; };
+		B0ACC6C02B279EB500F0FBC4 /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B0ACC6792B279EB500F0FBC4 /* GLBubbleEffect.vsh */; };
+		B0ACC6C12B279EB500F0FBC4 /* GLBubbleEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B0ACC67B2B279EB500F0FBC4 /* GLBubbleEffect.fsh */; };
+		B0ACC6C22B279EB500F0FBC4 /* GLBubbleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC67C2B279EB500F0FBC4 /* GLBubbleEffect.m */; };
+		B0ACC6C32B279EB500F0FBC4 /* GLTube.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC67E2B279EB500F0FBC4 /* GLTube.m */; };
+		B0ACC6C42B279EB500F0FBC4 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC67F2B279EB500F0FBC4 /* AMUtils.m */; };
+		B0ACC6C52B279EB500F0FBC4 /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6832B279EB500F0FBC4 /* DeviceInfoController.m */; };
+		B0ACC6C62B279EB500F0FBC4 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6842B279EB500F0FBC4 /* DeviceInfo.m */; };
+		B0ACC6C72B279EB500F0FBC4 /* AMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6852B279EB500F0FBC4 /* AMLogger.m */; };
+		B0ACC6C82B279EB500F0FBC4 /* BatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6892B279EB500F0FBC4 /* BatteryInfo.m */; };
+		B0ACC6C92B279EB500F0FBC4 /* BatteryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC68A2B279EB500F0FBC4 /* BatteryInfoController.m */; };
+		B0ACC6CA2B279EB500F0FBC4 /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC68F2B279EB500F0FBC4 /* RAMInfo.m */; };
+		B0ACC6CB2B279EB500F0FBC4 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6902B279EB500F0FBC4 /* RAMUsage.m */; };
+		B0ACC6CC2B279EB500F0FBC4 /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6912B279EB500F0FBC4 /* RAMInfoController.m */; };
+		B0ACC6CD2B279EB500F0FBC4 /* ProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6932B279EB500F0FBC4 /* ProcessInfo.m */; };
+		B0ACC6CE2B279EB500F0FBC4 /* ProcessInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6942B279EB500F0FBC4 /* ProcessInfoController.m */; };
+		B0ACC6CF2B279EB500F0FBC4 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC69A2B279EB500F0FBC4 /* NSString+MD5Addition.m */; };
+		B0ACC6D02B279EB500F0FBC4 /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC69B2B279EB500F0FBC4 /* UIDevice+Resolutions.m */; };
+		B0ACC6D12B279EB500F0FBC4 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC69D2B279EB500F0FBC4 /* UIDevice+IdentifierAddition.m */; };
+		B0ACC6D22B279EB500F0FBC4 /* BonjourUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6A02B279EB500F0FBC4 /* BonjourUtils.m */; };
+		B0ACC6D32B279EB500F0FBC4 /* AirPlayUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6A22B279EB500F0FBC4 /* AirPlayUtils.m */; };
+		B0ACC6D42B279EB500F0FBC4 /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6A52B279EB500F0FBC4 /* IPAddress.c */; };
+		B0ACC6D52B279EB500F0FBC4 /* LocationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6A62B279EB500F0FBC4 /* LocationUtils.m */; };
+		B0ACC6D62B279EB500F0FBC4 /* ALHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6A72B279EB500F0FBC4 /* ALHardware.m */; };
+		B0ACC6D72B279EB500F0FBC4 /* SystemUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6AA2B279EB500F0FBC4 /* SystemUtilities.m */; };
+		B0ACC6D92B279F7800F0FBC4 /* CleanerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6D82B279F7800F0FBC4 /* CleanerViewController.swift */; };
+		B0ACC6DF2B28A98200F0FBC4 /* MultiProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = B0ACC6DE2B28A98200F0FBC4 /* MultiProgressView */; };
+		B0ACC6E12B29A1F800F0FBC4 /* ScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6E02B29A1F700F0FBC4 /* ScreenshotsViewController.swift */; };
 		B0F826E62B0D1354003771E2 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B0F826E52B0D1354003771E2 /* Charts */; };
 		B0FBE2952B1F3BE8007FC0C0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B0FBE2942B1F3BE8007FC0C0 /* Lottie */; };
 		B0FBE2982B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBE2972B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift */; };
@@ -126,7 +174,101 @@
 		5CFBCC9525F4F374002DB657 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		9121C540F6F818630BE6BF7D /* Pods-Full Battery Health.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health.debug.xcconfig"; path = "Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health.debug.xcconfig"; sourceTree = "<group>"; };
 		9B470D66B49D76BC30226B88 /* Pods-Full Battery Health.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health.release.xcconfig"; path = "Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health.release.xcconfig"; sourceTree = "<group>"; };
+		B06780AD2B2DF3C9007FA572 /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		B095A26A27244BAC007104AC /* pro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pro.json; sourceTree = "<group>"; };
+		B0ACC63D2B279EB500F0FBC4 /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
+		B0ACC6402B279EB500F0FBC4 /* DeviceSpecificUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSpecificUI.h; sourceTree = "<group>"; };
+		B0ACC6412B279EB500F0FBC4 /* DeviceSpecificUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSpecificUI.m; sourceTree = "<group>"; };
+		B0ACC6432B279EB500F0FBC4 /* GPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUInfo.m; sourceTree = "<group>"; };
+		B0ACC6442B279EB500F0FBC4 /* GPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfoController.h; sourceTree = "<group>"; };
+		B0ACC6452B279EB500F0FBC4 /* GPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfo.h; sourceTree = "<group>"; };
+		B0ACC6462B279EB500F0FBC4 /* GPUInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUInfoController.m; sourceTree = "<group>"; };
+		B0ACC6472B279EB500F0FBC4 /* AMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtils.h; sourceTree = "<group>"; };
+		B0ACC64C2B279EB500F0FBC4 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
+		B0ACC64D2B279EB500F0FBC4 /* CPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfoController.h; sourceTree = "<group>"; };
+		B0ACC64E2B279EB500F0FBC4 /* CPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfo.h; sourceTree = "<group>"; };
+		B0ACC64F2B279EB500F0FBC4 /* CPULoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoad.m; sourceTree = "<group>"; };
+		B0ACC6502B279EB500F0FBC4 /* CPUInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfoController.m; sourceTree = "<group>"; };
+		B0ACC6512B279EB500F0FBC4 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
+		B0ACC6522B279EB500F0FBC4 /* CPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfo.m; sourceTree = "<group>"; };
+		B0ACC6532B279EB500F0FBC4 /* CPULoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoad.h; sourceTree = "<group>"; };
+		B0ACC6552B279EB500F0FBC4 /* NetworkBandwidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkBandwidth.h; sourceTree = "<group>"; };
+		B0ACC6562B279EB500F0FBC4 /* ActiveConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveConnection.m; sourceTree = "<group>"; };
+		B0ACC6572B279EB500F0FBC4 /* NetworkInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfoController.m; sourceTree = "<group>"; };
+		B0ACC6582B279EB500F0FBC4 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfo.m; sourceTree = "<group>"; };
+		B0ACC6592B279EB500F0FBC4 /* NetworkBandwidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkBandwidth.m; sourceTree = "<group>"; };
+		B0ACC65A2B279EB500F0FBC4 /* NetworkInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfoController.h; sourceTree = "<group>"; };
+		B0ACC65B2B279EB500F0FBC4 /* ActiveConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveConnection.h; sourceTree = "<group>"; };
+		B0ACC65C2B279EB500F0FBC4 /* NetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfo.h; sourceTree = "<group>"; };
+		B0ACC65D2B279EB500F0FBC4 /* bsd_var.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bsd_var.h; sourceTree = "<group>"; };
+		B0ACC65E2B279EB500F0FBC4 /* AMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLogger.h; sourceTree = "<group>"; };
+		B0ACC65F2B279EB500F0FBC4 /* SystemMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMonitor.m; sourceTree = "<group>"; };
+		B0ACC6622B279EB500F0FBC4 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		B0ACC6632B279EB500F0FBC4 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		B0ACC6642B279EB500F0FBC4 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		B0ACC6652B279EB500F0FBC4 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		B0ACC6662B279EB500F0FBC4 /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLumberjack.a; sourceTree = "<group>"; };
+		B0ACC6682B279EB500F0FBC4 /* StorageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfo.m; sourceTree = "<group>"; };
+		B0ACC6692B279EB500F0FBC4 /* StorageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfoController.h; sourceTree = "<group>"; };
+		B0ACC66A2B279EB500F0FBC4 /* StorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfo.h; sourceTree = "<group>"; };
+		B0ACC66B2B279EB500F0FBC4 /* StorageInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfoController.m; sourceTree = "<group>"; };
+		B0ACC66C2B279EB500F0FBC4 /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
+		B0ACC66F2B279EB500F0FBC4 /* GLLineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLLineGraph.h; sourceTree = "<group>"; };
+		B0ACC6702B279EB500F0FBC4 /* GLDataLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDataLine.m; sourceTree = "<group>"; };
+		B0ACC6712B279EB500F0FBC4 /* GLLineGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLLineGraph.m; sourceTree = "<group>"; };
+		B0ACC6722B279EB500F0FBC4 /* GLDataLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDataLine.h; sourceTree = "<group>"; };
+		B0ACC6732B279EB500F0FBC4 /* GLEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLEffect.h; sourceTree = "<group>"; };
+		B0ACC6742B279EB500F0FBC4 /* GLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
+		B0ACC6752B279EB500F0FBC4 /* GLEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLEffect.m; sourceTree = "<group>"; };
+		B0ACC6762B279EB500F0FBC4 /* GLCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCommon.m; sourceTree = "<group>"; };
+		B0ACC6792B279EB500F0FBC4 /* GLBubbleEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.vsh; sourceTree = "<group>"; };
+		B0ACC67A2B279EB500F0FBC4 /* GLBubbleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBubbleEffect.h; sourceTree = "<group>"; };
+		B0ACC67B2B279EB500F0FBC4 /* GLBubbleEffect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.fsh; sourceTree = "<group>"; };
+		B0ACC67C2B279EB500F0FBC4 /* GLBubbleEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBubbleEffect.m; sourceTree = "<group>"; };
+		B0ACC67D2B279EB500F0FBC4 /* GLTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTube.h; sourceTree = "<group>"; };
+		B0ACC67E2B279EB500F0FBC4 /* GLTube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTube.m; sourceTree = "<group>"; };
+		B0ACC67F2B279EB500F0FBC4 /* AMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils.m; sourceTree = "<group>"; };
+		B0ACC6812B279EB500F0FBC4 /* DeviceInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoController.h; sourceTree = "<group>"; };
+		B0ACC6822B279EB500F0FBC4 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		B0ACC6832B279EB500F0FBC4 /* DeviceInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoController.m; sourceTree = "<group>"; };
+		B0ACC6842B279EB500F0FBC4 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		B0ACC6852B279EB500F0FBC4 /* AMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLogger.m; sourceTree = "<group>"; };
+		B0ACC6872B279EB500F0FBC4 /* BatteryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfo.h; sourceTree = "<group>"; };
+		B0ACC6882B279EB500F0FBC4 /* BatteryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfoController.h; sourceTree = "<group>"; };
+		B0ACC6892B279EB500F0FBC4 /* BatteryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfo.m; sourceTree = "<group>"; };
+		B0ACC68A2B279EB500F0FBC4 /* BatteryInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfoController.m; sourceTree = "<group>"; };
+		B0ACC68C2B279EB500F0FBC4 /* RAMUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMUsage.h; sourceTree = "<group>"; };
+		B0ACC68D2B279EB500F0FBC4 /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
+		B0ACC68E2B279EB500F0FBC4 /* RAMInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfoController.h; sourceTree = "<group>"; };
+		B0ACC68F2B279EB500F0FBC4 /* RAMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfo.m; sourceTree = "<group>"; };
+		B0ACC6902B279EB500F0FBC4 /* RAMUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMUsage.m; sourceTree = "<group>"; };
+		B0ACC6912B279EB500F0FBC4 /* RAMInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfoController.m; sourceTree = "<group>"; };
+		B0ACC6932B279EB500F0FBC4 /* ProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfo.m; sourceTree = "<group>"; };
+		B0ACC6942B279EB500F0FBC4 /* ProcessInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfoController.m; sourceTree = "<group>"; };
+		B0ACC6952B279EB500F0FBC4 /* ProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfo.h; sourceTree = "<group>"; };
+		B0ACC6962B279EB500F0FBC4 /* ProcessInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfoController.h; sourceTree = "<group>"; };
+		B0ACC6972B279EB500F0FBC4 /* SystemMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMonitor.h; sourceTree = "<group>"; };
+		B0ACC69A2B279EB500F0FBC4 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		B0ACC69B2B279EB500F0FBC4 /* UIDevice+Resolutions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Resolutions.m"; sourceTree = "<group>"; };
+		B0ACC69C2B279EB500F0FBC4 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
+		B0ACC69D2B279EB500F0FBC4 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		B0ACC69E2B279EB500F0FBC4 /* ALHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALHardware.h; sourceTree = "<group>"; };
+		B0ACC69F2B279EB500F0FBC4 /* LocationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationUtils.h; sourceTree = "<group>"; };
+		B0ACC6A02B279EB500F0FBC4 /* BonjourUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourUtils.m; sourceTree = "<group>"; };
+		B0ACC6A12B279EB500F0FBC4 /* SystemUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUtilities.h; sourceTree = "<group>"; };
+		B0ACC6A22B279EB500F0FBC4 /* AirPlayUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPlayUtils.m; sourceTree = "<group>"; };
+		B0ACC6A32B279EB500F0FBC4 /* UIDevice+Resolutions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Resolutions.h"; sourceTree = "<group>"; };
+		B0ACC6A42B279EB500F0FBC4 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		B0ACC6A52B279EB500F0FBC4 /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
+		B0ACC6A62B279EB500F0FBC4 /* LocationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtils.m; sourceTree = "<group>"; };
+		B0ACC6A72B279EB500F0FBC4 /* ALHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALHardware.m; sourceTree = "<group>"; };
+		B0ACC6A82B279EB500F0FBC4 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		B0ACC6A92B279EB500F0FBC4 /* AirPlayUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPlayUtils.h; sourceTree = "<group>"; };
+		B0ACC6AA2B279EB500F0FBC4 /* SystemUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemUtilities.m; sourceTree = "<group>"; };
+		B0ACC6AB2B279EB500F0FBC4 /* BonjourUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourUtils.h; sourceTree = "<group>"; };
+		B0ACC6D82B279F7800F0FBC4 /* CleanerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanerViewController.swift; sourceTree = "<group>"; };
+		B0ACC6DA2B27A05D00F0FBC4 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		B0ACC6E02B29A1F700F0FBC4 /* ScreenshotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsViewController.swift; sourceTree = "<group>"; };
 		B0FBE2972B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatePhotosViewController.swift; sourceTree = "<group>"; };
 		B0FBE29C2B220265007FC0C0 /* DublicatesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublicatesTableViewCell.swift; sourceTree = "<group>"; };
 		B0FBE2A02B2202D9007FC0C0 /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -153,9 +295,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0ACC6DF2B28A98200F0FBC4 /* MultiProgressView in Frameworks */,
 				831D4388AB2B11DCC0511A82 /* Pods_Full_Battery_Health.framework in Frameworks */,
 				B0F826E62B0D1354003771E2 /* Charts in Frameworks */,
 				B0FBE2952B1F3BE8007FC0C0 /* Lottie in Frameworks */,
+				B0ACC6B92B279EB500F0FBC4 /* libLumberjack.a in Frameworks */,
 				B0FBE2B02B220490007FC0C0 /* CocoaImageHashing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +361,7 @@
 				5CE57E2325F5318F004D9D04 /* Cells */,
 				5C656BD925EE7B2E00EF896F /* AppDelegate.swift */,
 				5C656BDF25EE7B2E00EF896F /* Main.storyboard */,
+				B0ACC6DA2B27A05D00F0FBC4 /* Header.h */,
 				5CD9591626206BAC009E8B83 /* Api.swift */,
 				5CE57E1625F512CD004D9D04 /* Model.swift */,
 				5C656BE225EE7B3100EF896F /* Assets.xcassets */,
@@ -250,12 +395,288 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		B0ACC63B2B279EA200F0FBC4 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC63C2B279EB500F0FBC4 /* SystemMonitor */,
+				B0ACC6982B279EB500F0FBC4 /* SystemUtilities */,
+				B0ACC6992B279EB500F0FBC4 /* SystemUtility */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		B0ACC63C2B279EB500F0FBC4 /* SystemMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC63D2B279EB500F0FBC4 /* HardcodedDeviceData.m */,
+				B0ACC63E2B279EB500F0FBC4 /* UI */,
+				B0ACC6422B279EB500F0FBC4 /* GPU */,
+				B0ACC6472B279EB500F0FBC4 /* AMUtils.h */,
+				B0ACC6482B279EB500F0FBC4 /* HockeySDK */,
+				B0ACC64B2B279EB500F0FBC4 /* CPU */,
+				B0ACC6542B279EB500F0FBC4 /* Network */,
+				B0ACC65E2B279EB500F0FBC4 /* AMLogger.h */,
+				B0ACC65F2B279EB500F0FBC4 /* SystemMonitor.m */,
+				B0ACC6602B279EB500F0FBC4 /* Lumberjack */,
+				B0ACC6672B279EB500F0FBC4 /* Storage */,
+				B0ACC66C2B279EB500F0FBC4 /* HardcodedDeviceData.h */,
+				B0ACC66D2B279EB500F0FBC4 /* GL */,
+				B0ACC67F2B279EB500F0FBC4 /* AMUtils.m */,
+				B0ACC6802B279EB500F0FBC4 /* Device */,
+				B0ACC6852B279EB500F0FBC4 /* AMLogger.m */,
+				B0ACC6862B279EB500F0FBC4 /* Battery */,
+				B0ACC68B2B279EB500F0FBC4 /* RAM */,
+				B0ACC6922B279EB500F0FBC4 /* Process */,
+				B0ACC6972B279EB500F0FBC4 /* SystemMonitor.h */,
+			);
+			path = SystemMonitor;
+			sourceTree = "<group>";
+		};
+		B0ACC63E2B279EB500F0FBC4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC63F2B279EB500F0FBC4 /* DeviceSpecificUI */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B0ACC63F2B279EB500F0FBC4 /* DeviceSpecificUI */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6402B279EB500F0FBC4 /* DeviceSpecificUI.h */,
+				B0ACC6412B279EB500F0FBC4 /* DeviceSpecificUI.m */,
+			);
+			path = DeviceSpecificUI;
+			sourceTree = "<group>";
+		};
+		B0ACC6422B279EB500F0FBC4 /* GPU */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6432B279EB500F0FBC4 /* GPUInfo.m */,
+				B0ACC6442B279EB500F0FBC4 /* GPUInfoController.h */,
+				B0ACC6452B279EB500F0FBC4 /* GPUInfo.h */,
+				B0ACC6462B279EB500F0FBC4 /* GPUInfoController.m */,
+			);
+			path = GPU;
+			sourceTree = "<group>";
+		};
+		B0ACC6482B279EB500F0FBC4 /* HockeySDK */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6492B279EB500F0FBC4 /* HockeySDK.embeddedframework */,
+			);
+			path = HockeySDK;
+			sourceTree = "<group>";
+		};
+		B0ACC6492B279EB500F0FBC4 /* HockeySDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC64A2B279EB500F0FBC4 /* Resources */,
+			);
+			path = HockeySDK.embeddedframework;
+			sourceTree = "<group>";
+		};
+		B0ACC64A2B279EB500F0FBC4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0ACC64B2B279EB500F0FBC4 /* CPU */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC64C2B279EB500F0FBC4 /* CPULoadFilter.h */,
+				B0ACC64D2B279EB500F0FBC4 /* CPUInfoController.h */,
+				B0ACC64E2B279EB500F0FBC4 /* CPUInfo.h */,
+				B0ACC64F2B279EB500F0FBC4 /* CPULoad.m */,
+				B0ACC6502B279EB500F0FBC4 /* CPUInfoController.m */,
+				B0ACC6512B279EB500F0FBC4 /* CPULoadFilter.m */,
+				B0ACC6522B279EB500F0FBC4 /* CPUInfo.m */,
+				B0ACC6532B279EB500F0FBC4 /* CPULoad.h */,
+			);
+			path = CPU;
+			sourceTree = "<group>";
+		};
+		B0ACC6542B279EB500F0FBC4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6552B279EB500F0FBC4 /* NetworkBandwidth.h */,
+				B0ACC6562B279EB500F0FBC4 /* ActiveConnection.m */,
+				B0ACC6572B279EB500F0FBC4 /* NetworkInfoController.m */,
+				B0ACC6582B279EB500F0FBC4 /* NetworkInfo.m */,
+				B0ACC6592B279EB500F0FBC4 /* NetworkBandwidth.m */,
+				B0ACC65A2B279EB500F0FBC4 /* NetworkInfoController.h */,
+				B0ACC65B2B279EB500F0FBC4 /* ActiveConnection.h */,
+				B0ACC65C2B279EB500F0FBC4 /* NetworkInfo.h */,
+				B0ACC65D2B279EB500F0FBC4 /* bsd_var.h */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B0ACC6602B279EB500F0FBC4 /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6612B279EB500F0FBC4 /* include */,
+				B0ACC6662B279EB500F0FBC4 /* libLumberjack.a */,
+			);
+			path = Lumberjack;
+			sourceTree = "<group>";
+		};
+		B0ACC6612B279EB500F0FBC4 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6622B279EB500F0FBC4 /* DDLog.h */,
+				B0ACC6632B279EB500F0FBC4 /* DDFileLogger.h */,
+				B0ACC6642B279EB500F0FBC4 /* DDTTYLogger.h */,
+				B0ACC6652B279EB500F0FBC4 /* DDASLLogger.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		B0ACC6672B279EB500F0FBC4 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6682B279EB500F0FBC4 /* StorageInfo.m */,
+				B0ACC6692B279EB500F0FBC4 /* StorageInfoController.h */,
+				B0ACC66A2B279EB500F0FBC4 /* StorageInfo.h */,
+				B0ACC66B2B279EB500F0FBC4 /* StorageInfoController.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		B0ACC66D2B279EB500F0FBC4 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC66E2B279EB500F0FBC4 /* GLGraph */,
+				B0ACC6732B279EB500F0FBC4 /* GLEffect.h */,
+				B0ACC6742B279EB500F0FBC4 /* GLCommon.h */,
+				B0ACC6752B279EB500F0FBC4 /* GLEffect.m */,
+				B0ACC6762B279EB500F0FBC4 /* GLCommon.m */,
+				B0ACC6772B279EB500F0FBC4 /* GLTube */,
+			);
+			path = GL;
+			sourceTree = "<group>";
+		};
+		B0ACC66E2B279EB500F0FBC4 /* GLGraph */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC66F2B279EB500F0FBC4 /* GLLineGraph.h */,
+				B0ACC6702B279EB500F0FBC4 /* GLDataLine.m */,
+				B0ACC6712B279EB500F0FBC4 /* GLLineGraph.m */,
+				B0ACC6722B279EB500F0FBC4 /* GLDataLine.h */,
+			);
+			path = GLGraph;
+			sourceTree = "<group>";
+		};
+		B0ACC6772B279EB500F0FBC4 /* GLTube */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6782B279EB500F0FBC4 /* BubbleEffect */,
+				B0ACC67D2B279EB500F0FBC4 /* GLTube.h */,
+				B0ACC67E2B279EB500F0FBC4 /* GLTube.m */,
+			);
+			path = GLTube;
+			sourceTree = "<group>";
+		};
+		B0ACC6782B279EB500F0FBC4 /* BubbleEffect */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6792B279EB500F0FBC4 /* GLBubbleEffect.vsh */,
+				B0ACC67A2B279EB500F0FBC4 /* GLBubbleEffect.h */,
+				B0ACC67B2B279EB500F0FBC4 /* GLBubbleEffect.fsh */,
+				B0ACC67C2B279EB500F0FBC4 /* GLBubbleEffect.m */,
+			);
+			path = BubbleEffect;
+			sourceTree = "<group>";
+		};
+		B0ACC6802B279EB500F0FBC4 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6812B279EB500F0FBC4 /* DeviceInfoController.h */,
+				B0ACC6822B279EB500F0FBC4 /* DeviceInfo.h */,
+				B0ACC6832B279EB500F0FBC4 /* DeviceInfoController.m */,
+				B0ACC6842B279EB500F0FBC4 /* DeviceInfo.m */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		B0ACC6862B279EB500F0FBC4 /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6872B279EB500F0FBC4 /* BatteryInfo.h */,
+				B0ACC6882B279EB500F0FBC4 /* BatteryInfoController.h */,
+				B0ACC6892B279EB500F0FBC4 /* BatteryInfo.m */,
+				B0ACC68A2B279EB500F0FBC4 /* BatteryInfoController.m */,
+			);
+			path = Battery;
+			sourceTree = "<group>";
+		};
+		B0ACC68B2B279EB500F0FBC4 /* RAM */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC68C2B279EB500F0FBC4 /* RAMUsage.h */,
+				B0ACC68D2B279EB500F0FBC4 /* RAMInfo.h */,
+				B0ACC68E2B279EB500F0FBC4 /* RAMInfoController.h */,
+				B0ACC68F2B279EB500F0FBC4 /* RAMInfo.m */,
+				B0ACC6902B279EB500F0FBC4 /* RAMUsage.m */,
+				B0ACC6912B279EB500F0FBC4 /* RAMInfoController.m */,
+			);
+			path = RAM;
+			sourceTree = "<group>";
+		};
+		B0ACC6922B279EB500F0FBC4 /* Process */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC6932B279EB500F0FBC4 /* ProcessInfo.m */,
+				B0ACC6942B279EB500F0FBC4 /* ProcessInfoController.m */,
+				B0ACC6952B279EB500F0FBC4 /* ProcessInfo.h */,
+				B0ACC6962B279EB500F0FBC4 /* ProcessInfoController.h */,
+			);
+			path = Process;
+			sourceTree = "<group>";
+		};
+		B0ACC6982B279EB500F0FBC4 /* SystemUtilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SystemUtilities;
+			sourceTree = "<group>";
+		};
+		B0ACC6992B279EB500F0FBC4 /* SystemUtility */ = {
+			isa = PBXGroup;
+			children = (
+				B0ACC69A2B279EB500F0FBC4 /* NSString+MD5Addition.m */,
+				B0ACC69B2B279EB500F0FBC4 /* UIDevice+Resolutions.m */,
+				B0ACC69C2B279EB500F0FBC4 /* IPAddress.h */,
+				B0ACC69D2B279EB500F0FBC4 /* UIDevice+IdentifierAddition.m */,
+				B0ACC69E2B279EB500F0FBC4 /* ALHardware.h */,
+				B0ACC69F2B279EB500F0FBC4 /* LocationUtils.h */,
+				B0ACC6A02B279EB500F0FBC4 /* BonjourUtils.m */,
+				B0ACC6A12B279EB500F0FBC4 /* SystemUtilities.h */,
+				B0ACC6A22B279EB500F0FBC4 /* AirPlayUtils.m */,
+				B0ACC6A32B279EB500F0FBC4 /* UIDevice+Resolutions.h */,
+				B0ACC6A42B279EB500F0FBC4 /* NSString+MD5Addition.h */,
+				B0ACC6A52B279EB500F0FBC4 /* IPAddress.c */,
+				B0ACC6A62B279EB500F0FBC4 /* LocationUtils.m */,
+				B0ACC6A72B279EB500F0FBC4 /* ALHardware.m */,
+				B0ACC6A82B279EB500F0FBC4 /* UIDevice+IdentifierAddition.h */,
+				B0ACC6A92B279EB500F0FBC4 /* AirPlayUtils.h */,
+				B0ACC6AA2B279EB500F0FBC4 /* SystemUtilities.m */,
+				B0ACC6AB2B279EB500F0FBC4 /* BonjourUtils.h */,
+			);
+			path = SystemUtility;
+			sourceTree = "<group>";
+		};
 		B0FBE2962B21FD72007FC0C0 /* Cleaner */ = {
 			isa = PBXGroup;
 			children = (
+				B0ACC63B2B279EA200F0FBC4 /* System */,
 				B0FBE2A42B22031B007FC0C0 /* Model */,
 				B0FBE29B2B22025C007FC0C0 /* Cell */,
 				B0FBE2972B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift */,
+				B0ACC6E02B29A1F700F0FBC4 /* ScreenshotsViewController.swift */,
+				B0ACC6D82B279F7800F0FBC4 /* CleanerViewController.swift */,
 			);
 			path = Cleaner;
 			sourceTree = "<group>";
@@ -263,6 +684,7 @@
 		B0FBE29B2B22025C007FC0C0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B06780AD2B2DF3C9007FA572 /* VideosViewController.swift */,
 				B0FBE2A02B2202D9007FC0C0 /* ScreenshotCollectionViewCell.swift */,
 				B0FBE2A22B2202DF007FC0C0 /* DublicateCollectionViewCell.swift */,
 				B0FBE29C2B220265007FC0C0 /* DublicatesTableViewCell.swift */,
@@ -360,6 +782,7 @@
 				B0F826E52B0D1354003771E2 /* Charts */,
 				B0FBE2942B1F3BE8007FC0C0 /* Lottie */,
 				B0FBE2AF2B220490007FC0C0 /* CocoaImageHashing */,
+				B0ACC6DE2B28A98200F0FBC4 /* MultiProgressView */,
 			);
 			productName = "Full Battery Health +";
 			productReference = 5C656BD625EE7B2E00EF896F /* Full Battery Health.app */;
@@ -395,6 +818,7 @@
 				B0F826E42B0D1354003771E2 /* XCRemoteSwiftPackageReference "Charts" */,
 				B0FBE2932B1F3BE8007FC0C0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				B0FBE2AE2B220490007FC0C0 /* XCRemoteSwiftPackageReference "cocoaimagehashing" */,
+				B0ACC6DD2B28A98200F0FBC4 /* XCRemoteSwiftPackageReference "MultiProgressView" */,
 			);
 			productRefGroup = 5C656BD725EE7B2E00EF896F /* Products */;
 			projectDirPath = "";
@@ -421,11 +845,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CB0D84925EF8C2E005634CF /* melody.mp3 in Resources */,
+				B0ACC6C12B279EB500F0FBC4 /* GLBubbleEffect.fsh in Resources */,
 				5CB0D84725EF8C2E005634CF /* siren.mp3 in Resources */,
 				5C0566C4261C4A6200798392 /* InAppVC.xib in Resources */,
 				5C656BE625EE7B3100EF896F /* LaunchScreen.storyboard in Resources */,
 				5C656BE325EE7B3100EF896F /* Assets.xcassets in Resources */,
 				B095A26B27244BAC007104AC /* pro.json in Resources */,
+				B0ACC6C02B279EB500F0FBC4 /* GLBubbleEffect.vsh in Resources */,
 				5C656BE125EE7B2E00EF896F /* Main.storyboard in Resources */,
 				5C9CFD122618C7C100CCEF10 /* Lotti.json in Resources */,
 				5CE57E1C25F51DDD004D9D04 /* SetBattery.xib in Resources */,
@@ -493,32 +919,76 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0ACC6B52B279EB500F0FBC4 /* NetworkInfoController.m in Sources */,
+				B0ACC6C92B279EB500F0FBC4 /* BatteryInfoController.m in Sources */,
+				B0ACC6BA2B279EB500F0FBC4 /* StorageInfo.m in Sources */,
 				5C153BE1260B3A31007B9E5D /* Ads.swift in Sources */,
+				B0ACC6C82B279EB500F0FBC4 /* BatteryInfo.m in Sources */,
 				5C656BDE25EE7B2E00EF896F /* ViewController.swift in Sources */,
 				B0FBE2AD2B220394007FC0C0 /* FindDuplicatesUsingThumbnail.swift in Sources */,
 				5C005E8A262EC696004B4D99 /* Intents.intentdefinition in Sources */,
+				B0ACC6D32B279EB500F0FBC4 /* AirPlayUtils.m in Sources */,
 				B0FBE2AC2B220394007FC0C0 /* ImageManager.swift in Sources */,
+				B06780AE2B2DF3C9007FA572 /* VideosViewController.swift in Sources */,
+				B0ACC6D72B279EB500F0FBC4 /* SystemUtilities.m in Sources */,
 				B0FBE2A12B2202D9007FC0C0 /* ScreenshotCollectionViewCell.swift in Sources */,
+				B0ACC6B12B279EB500F0FBC4 /* CPUInfoController.m in Sources */,
+				B0ACC6CD2B279EB500F0FBC4 /* ProcessInfo.m in Sources */,
 				5C0566C5261C4A6200798392 /* InAppVC.swift in Sources */,
 				5CE57E2125F52A11004D9D04 /* MainCell2.swift in Sources */,
+				B0ACC6B02B279EB500F0FBC4 /* CPULoad.m in Sources */,
+				B0ACC6CC2B279EB500F0FBC4 /* RAMInfoController.m in Sources */,
+				B0ACC6BC2B279EB500F0FBC4 /* GLDataLine.m in Sources */,
 				5CFBCC9325F4F0BD002DB657 /* MainVC.swift in Sources */,
+				B0ACC6B72B279EB500F0FBC4 /* NetworkBandwidth.m in Sources */,
+				B0ACC6C22B279EB500F0FBC4 /* GLBubbleEffect.m in Sources */,
 				B0FBE29D2B220265007FC0C0 /* DublicatesTableViewCell.swift in Sources */,
+				B0ACC6B32B279EB500F0FBC4 /* CPUInfo.m in Sources */,
 				B0FBE2A62B220321007FC0C0 /* Formatter.swift in Sources */,
+				B0ACC6C42B279EB500F0FBC4 /* AMUtils.m in Sources */,
 				5C4183FC25FA3F0300FC4647 /* BatteryState.swift in Sources */,
 				5CE57E1725F512CD004D9D04 /* Model.swift in Sources */,
+				B0ACC6BD2B279EB500F0FBC4 /* GLLineGraph.m in Sources */,
+				B0ACC6E12B29A1F800F0FBC4 /* ScreenshotsViewController.swift in Sources */,
 				5CE57E1B25F51DDD004D9D04 /* SetBattery.swift in Sources */,
+				B0ACC6C32B279EB500F0FBC4 /* GLTube.m in Sources */,
+				B0ACC6D22B279EB500F0FBC4 /* BonjourUtils.m in Sources */,
+				B0ACC6AE2B279EB500F0FBC4 /* GPUInfo.m in Sources */,
 				B0FBE2982B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift in Sources */,
 				5C75C2C62616154C00808F40 /* batteryTest.swift in Sources */,
+				B0ACC6D12B279EB500F0FBC4 /* UIDevice+IdentifierAddition.m in Sources */,
 				B0FBE2AB2B220394007FC0C0 /* ImageObjectModel.swift in Sources */,
+				B0ACC6D02B279EB500F0FBC4 /* UIDevice+Resolutions.m in Sources */,
 				B0FBE2A32B2202E0007FC0C0 /* DublicateCollectionViewCell.swift in Sources */,
+				B0ACC6BF2B279EB500F0FBC4 /* GLCommon.m in Sources */,
 				B0FBE2B32B220538007FC0C0 /* Array+chunked.swift in Sources */,
 				5CE57E2C25F5375E004D9D04 /* MainCell5.swift in Sources */,
+				B0ACC6BE2B279EB500F0FBC4 /* GLEffect.m in Sources */,
+				B0ACC6B22B279EB500F0FBC4 /* CPULoadFilter.m in Sources */,
 				5CE57E2525F5323C004D9D04 /* MainCell3.swift in Sources */,
+				B0ACC6C52B279EB500F0FBC4 /* DeviceInfoController.m in Sources */,
+				B0ACC6CB2B279EB500F0FBC4 /* RAMUsage.m in Sources */,
+				B0ACC6AD2B279EB500F0FBC4 /* DeviceSpecificUI.m in Sources */,
+				B0ACC6CE2B279EB500F0FBC4 /* ProcessInfoController.m in Sources */,
+				B0ACC6B82B279EB500F0FBC4 /* SystemMonitor.m in Sources */,
 				5C656BDA25EE7B2E00EF896F /* AppDelegate.swift in Sources */,
+				B0ACC6D92B279F7800F0FBC4 /* CleanerViewController.swift in Sources */,
+				B0ACC6D62B279EB500F0FBC4 /* ALHardware.m in Sources */,
+				B0ACC6CA2B279EB500F0FBC4 /* RAMInfo.m in Sources */,
 				5C2F117F25FE74F800B5541C /* BatteryStateCell.swift in Sources */,
+				B0ACC6CF2B279EB500F0FBC4 /* NSString+MD5Addition.m in Sources */,
 				5CFBCC9625F4F374002DB657 /* MainCell.swift in Sources */,
+				B0ACC6B62B279EB500F0FBC4 /* NetworkInfo.m in Sources */,
+				B0ACC6C72B279EB500F0FBC4 /* AMLogger.m in Sources */,
+				B0ACC6AF2B279EB500F0FBC4 /* GPUInfoController.m in Sources */,
 				5CD9591726206BAC009E8B83 /* Api.swift in Sources */,
+				B0ACC6AC2B279EB500F0FBC4 /* HardcodedDeviceData.m in Sources */,
+				B0ACC6D42B279EB500F0FBC4 /* IPAddress.c in Sources */,
+				B0ACC6B42B279EB500F0FBC4 /* ActiveConnection.m in Sources */,
+				B0ACC6D52B279EB500F0FBC4 /* LocationUtils.m in Sources */,
+				B0ACC6C62B279EB500F0FBC4 /* DeviceInfo.m in Sources */,
 				5CE57E2925F53427004D9D04 /* MainCell4.swift in Sources */,
+				B0ACC6BB2B279EB500F0FBC4 /* StorageInfoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,10 +1211,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Full\\ Battery\\ Health\\ +/Cleaner/System/SystemMonitor/Lumberjack",
+				);
 				MARKETING_VERSION = 5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/saif/Desktop/Full Battery Health +/Full Battery Health +/Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -769,10 +1244,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Full\\ Battery\\ Health\\ +/Cleaner/System/SystemMonitor/Lumberjack",
+				);
 				MARKETING_VERSION = 5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/saif/Desktop/Full Battery Health +/Full Battery Health +/Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -811,6 +1291,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B0ACC6DD2B28A98200F0FBC4 /* XCRemoteSwiftPackageReference "MultiProgressView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-gallagher/MultiProgressView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		B0F826E42B0D1354003771E2 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
@@ -838,6 +1326,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B0ACC6DE2B28A98200F0FBC4 /* MultiProgressView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0ACC6DD2B28A98200F0FBC4 /* XCRemoteSwiftPackageReference "MultiProgressView" */;
+			productName = MultiProgressView;
+		};
 		B0F826E52B0D1354003771E2 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B0F826E42B0D1354003771E2 /* XCRemoteSwiftPackageReference "Charts" */;

@@ -9,6 +9,7 @@ PODS:
   - StepIndicator (1.0.8)
   - SwiftyJSON (4.3.0)
   - SwiftySound (1.2.0)
+  - SystemServices (2.0.1)
   - UserDefaultsStore (2.0.0)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - StepIndicator
   - SwiftyJSON (~> 4.0)
   - SwiftySound (~> 1.2)
+  - SystemServices (~> 2.0.1)
   - UserDefaultsStore
 
 SPEC REPOS:
@@ -33,6 +35,7 @@ SPEC REPOS:
     - StepIndicator
     - SwiftyJSON
     - SwiftySound
+    - SystemServices
     - UserDefaultsStore
 
 SPEC CHECKSUMS:
@@ -45,8 +48,9 @@ SPEC CHECKSUMS:
   StepIndicator: 748b293f671355b021253f82031ac002f153dc81
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   SwiftySound: 9eb28bb14edb601b40027e44319e0ef8383f88bf
+  SystemServices: 7af348493ece8951449b476c41532df72569b181
   UserDefaultsStore: 2049df5d9096a43632c7ee2c3c2dbfe5c70d20ed
 
-PODFILE CHECKSUM: 548c63d78e315c0bb852287e1f7851a463cc5a49
+PODFILE CHECKSUM: 778429a0da4c5b7d4abc82d3f4e509384b25ae08
 
 COCOAPODS: 1.11.3

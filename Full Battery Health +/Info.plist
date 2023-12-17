@@ -84,5 +84,7 @@
 	<false/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need photos permission to find duplicate Images to display it to you.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We need media permission to find duplicate and large size video to display it to you for cleaing purpose .</string>
 </dict>
 </plist>

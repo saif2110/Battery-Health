@@ -41,15 +41,51 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
     
     guard duplicates?.count ?? 0 > 0 else { return }
     
-    let alert = UIAlertController(title: "🔄🗑️ Delete all duplicate photos", message: "NOTE - You will see a few pop-ups asking if you want to delete. Just choose what you want.", preferredStyle: .actionSheet)
+    let alert = UIAlertController(title: "🔄🗑️ Delete all duplicate photos", message: "NOTE - You will see a pop-up asking if you want to delete. Just choose what you want.", preferredStyle: .actionSheet)
     let deleteAction = UIAlertAction(title: "Delete all images", style: .destructive) { _ in
       
       
-      if let dupArrays = self.duplicates {
-        for i in dupArrays {
-          self.deleteAssetesAll(toDelete: i)
+//      if let dupArrays = self.duplicates {
+//       // for i in dupArrays {
+//        //  let deletedArray = i.filter {$0 != $0}
+//        self.deleteAssetesAll(toDelete: dupArrays)
+//        }
+//     // }
+      
+      var dups:[PHAsset] = [PHAsset]()
+      self.duplicates = self.duplicates?.map { subArray in
+          var modifiedArray = subArray
+          if !modifiedArray.isEmpty {
+              modifiedArray.removeFirst()
+          }
+          return modifiedArray
+      }
+      
+      self.duplicates.map { array in [[PHAsset]].self
+        for i in array {
+          dups.append(contentsOf: i)
         }
       }
+      
+      //self.deleteAssetesAll(toDelete: self.duplicates!)
+      
+     // if let phpAssets =  self.dups {
+        PHPhotoLibrary.shared().performChanges({
+          PHAssetChangeRequest.deleteAssets(dups as NSArray)
+        }) { bool, error in
+          if bool {
+            self.duplicates?.removeAll()
+            DispatchQueue.main.async {
+              self.saveupto.text = "0 MB"
+              self.statusLabel.text = "0"
+              self.tableView.reloadData()
+            }
+            
+          }
+        }
+    //  }
+      
+      
     }
     
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -111,10 +147,12 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    if self.duplicates?.count == 0 {
-      self.tableView.setEmptyMessage("✨ Great news!\nYour photo collection is pristine – no duplicate photos found!")
-    } else {
-      self.tableView.restore()
+    DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1) {
+      if self.duplicates?.count == 0 {
+        self.tableView.setEmptyMessage("✨ Great news!\nYour photo collection is pristine – no duplicate photos found!")
+      } else {
+        self.tableView.restore()
+      }
     }
     
     return self.duplicates?.count ?? 0

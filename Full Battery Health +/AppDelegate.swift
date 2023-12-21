@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
       //  GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ae5f274c4305230770d28553692d49a0"]
         
         
-        Purchases.debugLogsEnabled = false
+        Purchases.debugLogsEnabled = true
         Purchases.configure(withAPIKey: "kdukyCeOYfkdxmNFiKBYuUdctojLclgw")
         
         let iap = InAppPurchase.default

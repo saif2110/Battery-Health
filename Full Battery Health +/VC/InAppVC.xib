@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_72" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,93 +21,35 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TA-dR-8hp">
-                    <rect key="frame" x="20" y="263" width="374" height="184"/>
+                    <rect key="frame" x="20" y="392" width="390" height="172.66666666666663"/>
                     <attributedString key="attributedText">
-                        <fragment content="•">
+                        <fragment content="✓">
                             <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.50899225469999998" green="0.65845203399999996" blue="0.27018392089999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
+                                <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <real key="NSKern" value="0.0"/>
+                                <font key="NSOriginalFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.88627" green="0.93332999999999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </attributes>
                         </fragment>
                         <fragment>
                             <string key="content"> Remove all Ads
-
 </string>
                             <attributes>
                                 <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="•">
-                            <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.50899000000000005" green="0.65844999999999998" blue="0.27017999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content=" ">
-                            <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="Unlock always hide UI ">
-                            <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="while charging">
-                            <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                            </attributes>
-                        </fragment>
-                        <fragment>
-                            <string key="content"> 
-</string>
-                            <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="•">
-                            <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.50899000000000005" green="0.65844999999999998" blue="0.27017999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content=" ">
-                            <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="Unlock always dim while charging">
-                            <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
                             </attributes>
                         </fragment>
                         <fragment>
@@ -116,9 +58,58 @@ Cg
 </string>
                             <attributes>
                                 <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="✓">
+                            <attributes>
+                                <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <real key="NSKern" value="0.0"/>
+                                <font key="NSOriginalFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.88627" green="0.93332999999999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content"> Unlock always hide UI while charging 
+</string>
+                            <attributes>
+                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
+                            </attributes>
+                        </fragment>
+                        <fragment content="✓">
+                            <attributes>
+                                <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <real key="NSKern" value="0.0"/>
+                                <font key="NSOriginalFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.88627" green="0.93332999999999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content"> Unlock always dim while charging
+</string>
+                            <attributes>
+                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
                             </attributes>
                         </fragment>
                         <fragment>
@@ -127,16 +118,21 @@ Cg
 </string>
                             <attributes>
                                 <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
                             </attributes>
                         </fragment>
-                        <fragment content="•">
+                        <fragment content="✓">
                             <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.50899000000000005" green="0.65844999999999998" blue="0.27017999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <real key="NSKern" value="0.0"/>
+                                <font key="NSOriginalFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.88627" green="0.93332999999999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </attributes>
                         </fragment>
                         <fragment>
@@ -144,9 +140,11 @@ Cg
 </string>
                             <attributes>
                                 <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
                             </attributes>
                         </fragment>
                         <fragment>
@@ -155,16 +153,21 @@ Cg
 </string>
                             <attributes>
                                 <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
                             </attributes>
                         </fragment>
-                        <fragment content="•">
+                        <fragment content="✓">
                             <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.50899000000000005" green="0.65844999999999998" blue="0.27017999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <real key="NSKern" value="0.0"/>
+                                <font key="NSOriginalFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.88627" green="0.93332999999999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </attributes>
                         </fragment>
                         <fragment>
@@ -172,9 +175,11 @@ Cg
 </string>
                             <attributes>
                                 <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
                             </attributes>
                         </fragment>
                         <fragment>
@@ -183,43 +188,113 @@ Cg
 </string>
                             <attributes>
                                 <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
                             </attributes>
                         </fragment>
-                        <fragment content="•">
+                        <fragment content="✓">
                             <attributes>
-                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.50899000000000005" green="0.65844999999999998" blue="0.27017999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <real key="NSKern" value="0.0"/>
+                                <font key="NSOriginalFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.88627" green="0.93332999999999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </attributes>
                         </fragment>
                         <fragment content=" Support Developer">
                             <attributes>
                                 <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="system" size="14"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                <color key="NSColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <font key="NSFont" size="14" name="ArialMT"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops/>
+                                </paragraphStyle>
                             </attributes>
                         </fragment>
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT YOU WILL GET IN PRO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0c-2e-bXR">
-                    <rect key="frame" x="20" y="214" width="374" height="19"/>
+                    <rect key="frame" x="20" y="229" width="390" height="19"/>
                     <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                     <color key="textColor" red="0.54731565709999996" green="0.8570153117" blue="0.32999774809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SHj-QV-Zid">
+                    <rect key="frame" x="115" y="79" width="200" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="ZFd-Xl-zdf"/>
+                        <constraint firstAttribute="height" constant="150" id="vgd-E4-UE3"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access unlocked app forever with 40% off at just $ .... billed for lifetime with all the benefits." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hV-nt-LaT">
+                    <rect key="frame" x="10" y="824.66666666666663" width="410" height="31.333333333333371"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4g-dA-uJf">
+                    <rect key="frame" x="20" y="866" width="75" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="tintColor" red="0.9215852618" green="0.36784270409999997" blue="0.30765333769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Terms of Use">
+                        <color key="titleColor" red="0.54901960780000003" green="0.71764705880000002" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="tocWithSender:" destination="-1" eventType="touchUpInside" id="9jT-pK-MQG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4G-tP-Bmi">
+                    <rect key="frame" x="331" y="866" width="79" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="tintColor" red="0.9215852618" green="0.36784270409999997" blue="0.30765333769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Privacy Policy">
+                        <color key="titleColor" red="0.54901960780000003" green="0.71764705880000002" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="privacyPolicyWithSender:" destination="-1" eventType="touchUpInside" id="wCN-BM-ZhB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNI-Tu-Mbo">
+                    <rect key="frame" x="165.66666666666666" y="866" width="98.999999999999972" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="Restore purchase">
+                        <color key="titleColor" red="0.53333333329999999" green="0.69803921570000005" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="restore:" destination="-1" eventType="touchUpInside" id="aCQ-tN-BbM"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pro_banner" translatesAutoresizingMaskIntoConstraints="NO" id="tVe-k4-M8Z">
+                    <rect key="frame" x="-5" y="0.0" width="440" height="382"/>
+                </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adw-Jg-g6Q">
+                    <rect key="frame" x="385" y="59" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="7AX-Wu-jyf"/>
+                        <constraint firstAttribute="height" constant="25" id="hK2-xR-nSp"/>
+                    </constraints>
+                    <color key="tintColor" red="0.54901960780000003" green="0.71846574539999997" blue="0.29393061999999998" alpha="0.53203451882845187" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal">
+                        <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissVC:" destination="-1" eventType="touchUpInside" id="bDQ-DF-oea"/>
+                    </connections>
+                </button>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg6-P2-wLg">
-                    <rect key="frame" x="70" y="745" width="274" height="50"/>
-                    <color key="backgroundColor" red="0.54731565709999996" green="0.8570153117" blue="0.32999774809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="15" y="760.66666666666663" width="400" height="50"/>
+                    <color key="backgroundColor" red="0.5490196078431373" green="0.85882352941176465" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Uaa-0e-BWu"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                    <state key="normal" title="Subscribe">
+                    <state key="normal" title="Continue">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -231,98 +306,53 @@ Cg
                         <action selector="buyPro:" destination="-1" eventType="touchUpInside" id="xon-pX-2n1"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SHj-QV-Zid">
-                    <rect key="frame" x="107" y="64" width="200" height="150"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="ZFd-Xl-zdf"/>
-                        <constraint firstAttribute="height" constant="150" id="vgd-E4-UE3"/>
-                    </constraints>
-                </imageView>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adw-Jg-g6Q">
-                    <rect key="frame" x="369" y="44" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="7AX-Wu-jyf"/>
-                        <constraint firstAttribute="height" constant="25" id="hK2-xR-nSp"/>
-                    </constraints>
-                    <color key="tintColor" red="0.54901960780000003" green="0.71846574539999997" blue="0.29393061999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal">
-                        <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
-                    </state>
-                    <connections>
-                        <action selector="dismissVC:" destination="-1" eventType="touchUpInside" id="bDQ-DF-oea"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe for 00 / Year" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hV-nt-LaT">
-                    <rect key="frame" x="15" y="707" width="384" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.74117647058823533" green="0.75686274509803919" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaT-IP-qCO">
+                    <rect key="frame" x="14" y="707" width="402" height="39.666666666666629"/>
+                    <string key="text">The subscription will automaticallv renew unless auto-renew is turned off at least 24 hours before the end of the current period.Your account will be charged for renewal within 24-hours prior to the end of the current period.</string>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4g-dA-uJf">
-                    <rect key="frame" x="20" y="825" width="75" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="tintColor" red="0.9215852618" green="0.36784270409999997" blue="0.30765333769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Terms of Use">
-                        <color key="titleColor" red="0.54901960780000003" green="0.71764705880000002" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="tocWithSender:" destination="-1" eventType="touchUpInside" id="9jT-pK-MQG"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4G-tP-Bmi">
-                    <rect key="frame" x="315" y="825" width="79" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="tintColor" red="0.9215852618" green="0.36784270409999997" blue="0.30765333769999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Privacy Policy">
-                        <color key="titleColor" red="0.54901960780000003" green="0.71764705880000002" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="privacyPolicyWithSender:" destination="-1" eventType="touchUpInside" id="wCN-BM-ZhB"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNI-Tu-Mbo">
-                    <rect key="frame" x="157.5" y="815" width="99" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="Restore purchase">
-                        <color key="titleColor" red="0.63682758809999995" green="0.82421821360000003" blue="0.33873397109999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="restore:" destination="-1" eventType="touchUpInside" id="aCQ-tN-BbM"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="4hV-nt-LaT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="7WY-eo-A0Z"/>
+                <constraint firstAttribute="trailing" secondItem="eaT-IP-qCO" secondAttribute="trailing" constant="14" id="0Gu-iZ-ufo"/>
                 <constraint firstItem="2TA-dR-8hp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="7en-kp-vUh"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4hV-nt-LaT" secondAttribute="trailing" constant="15" id="HVB-Wi-mxB"/>
+                <constraint firstItem="4hV-nt-LaT" firstAttribute="top" secondItem="zg6-P2-wLg" secondAttribute="bottom" constant="14" id="Gan-qo-Wm4"/>
+                <constraint firstItem="2TA-dR-8hp" firstAttribute="top" secondItem="tVe-k4-M8Z" secondAttribute="bottom" constant="10" id="H9E-cz-QXD"/>
+                <constraint firstAttribute="trailing" secondItem="tVe-k4-M8Z" secondAttribute="trailing" constant="-5" id="IUd-U4-75K"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X0c-2e-bXR" secondAttribute="trailing" constant="20" id="JM0-MQ-jXi"/>
                 <constraint firstItem="t4g-dA-uJf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="JkK-mw-BAi"/>
-                <constraint firstItem="2TA-dR-8hp" firstAttribute="top" secondItem="X0c-2e-bXR" secondAttribute="bottom" constant="30" id="QnC-FJ-nLH"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W4G-tP-Bmi" secondAttribute="bottom" constant="10" id="SgJ-3j-6QQ"/>
+                <constraint firstItem="tVe-k4-M8Z" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.41" id="R5E-0T-K0n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W4G-tP-Bmi" secondAttribute="bottom" constant="5" id="SgJ-3j-6QQ"/>
                 <constraint firstItem="adw-Jg-g6Q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="T6R-Ak-jUb"/>
-                <constraint firstItem="zg6-P2-wLg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="TJ9-2U-YQZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xNI-Tu-Mbo" secondAttribute="bottom" constant="20" id="WcQ-9g-Fl6"/>
+                <constraint firstItem="zg6-P2-wLg" firstAttribute="top" secondItem="eaT-IP-qCO" secondAttribute="bottom" constant="14" id="TCI-fy-Vyl"/>
+                <constraint firstItem="zg6-P2-wLg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="TJ9-2U-YQZ"/>
+                <constraint firstItem="tVe-k4-M8Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tcp-3B-umH"/>
+                <constraint firstAttribute="trailing" secondItem="4hV-nt-LaT" secondAttribute="trailing" constant="10" id="Tqi-cG-Lf2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xNI-Tu-Mbo" secondAttribute="bottom" constant="5" id="WcQ-9g-Fl6"/>
                 <constraint firstItem="X0c-2e-bXR" firstAttribute="top" secondItem="SHj-QV-Zid" secondAttribute="bottom" id="Weg-hH-xuO"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="t4g-dA-uJf" secondAttribute="bottom" constant="10" id="X0b-TC-HHS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="t4g-dA-uJf" secondAttribute="bottom" constant="5" id="X0b-TC-HHS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W4G-tP-Bmi" secondAttribute="trailing" constant="20" id="YL0-1w-XK1"/>
-                <constraint firstItem="zg6-P2-wLg" firstAttribute="top" secondItem="4hV-nt-LaT" secondAttribute="bottom" constant="20" id="dUe-uW-DHL"/>
                 <constraint firstItem="xNI-Tu-Mbo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gcF-xW-vze"/>
+                <constraint firstItem="t4g-dA-uJf" firstAttribute="top" secondItem="4hV-nt-LaT" secondAttribute="bottom" constant="10" id="hTh-GX-MZM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2TA-dR-8hp" secondAttribute="trailing" constant="20" id="mys-7b-FD0"/>
-                <constraint firstItem="xNI-Tu-Mbo" firstAttribute="top" secondItem="zg6-P2-wLg" secondAttribute="bottom" constant="20" id="oAm-zI-cdY"/>
                 <constraint firstItem="SHj-QV-Zid" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="oGQ-Xl-fEU"/>
                 <constraint firstItem="X0c-2e-bXR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oVw-Rr-v91"/>
+                <constraint firstItem="eaT-IP-qCO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="14" id="toz-ab-mgn"/>
+                <constraint firstItem="4hV-nt-LaT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="v1O-af-xCc"/>
                 <constraint firstItem="SHj-QV-Zid" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vKM-1z-wgI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="adw-Jg-g6Q" secondAttribute="trailing" constant="20" id="vxZ-aE-r4C"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zg6-P2-wLg" secondAttribute="trailing" constant="70" id="wfO-wZ-GZh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zg6-P2-wLg" secondAttribute="trailing" constant="15" id="wfO-wZ-GZh"/>
+                <constraint firstItem="tVe-k4-M8Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-5" id="xw2-Ul-CBf"/>
             </constraints>
             <point key="canvasLocation" x="121.73913043478262" y="89.732142857142847"/>
         </view>
     </objects>
     <resources>
         <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="pro_banner" width="996" height="929.33331298828125"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

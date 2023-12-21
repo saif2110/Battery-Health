@@ -13,7 +13,7 @@ import InAppPurchase
 import StoreKit
 
 enum IPA:String {
-    case OneYearPro = "BatteryHealthProYear"
+    case OneYearPro = "BatteryHealthPro"
 }
 
 class InAppVC: UIViewController {
@@ -41,7 +41,7 @@ class InAppVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        jumpButtonAnimation(sender: buyButton)
+        //jumpButtonAnimation(sender: buyButton)
         dismissOutlet.fadeIn()
     }
     
@@ -91,11 +91,13 @@ class InAppVC: UIViewController {
                 
                 self.AllPackage.append(package)
                 
-                let pricetwo = offerings[IPA.OneYearPro.rawValue]?.annual?.localizedPriceString
+                let pricetwo = offerings[IPA.OneYearPro.rawValue]?.lifetime?.localizedPriceString
                 
                 //self.priceLabel.text = "Try 3 days for free\nThen \(String(describing: pricetwo ?? "00"))/year."
                 
-                self.priceLabel.text = "Subscribe for \(String(describing: pricetwo ?? "00"))/year."
+                //self.priceLabel.text = "Subscribe for \(String(describing: pricetwo ?? "00"))/year."
+              
+              self.priceLabel.text = "Access unlocked app forever with 40% off at just \(String(describing: pricetwo ?? "00")) billed for lifetime with all the benefits."
                 
                 stopIndicator()
                 
@@ -139,7 +141,7 @@ class InAppVC: UIViewController {
                     
                 }
                 
-                print(error)
+               // print(error)
                 
             }
             
@@ -180,7 +182,7 @@ extension UIView {
         
         UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.isHidden = false
-            self.alpha = 1.0
+            self.alpha = 0.7
         }, completion: completion)
     }
 }

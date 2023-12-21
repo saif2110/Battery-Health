@@ -33,6 +33,15 @@ class VideosViewController: UIViewController, UICollectionViewDelegate, UICollec
   }
   
   func deleteAssetes(toDelete: [PHAsset]) {
+    
+    if !UserDefaults.standard.bool(forKey: "pro"){
+        let vc = InAppVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+      return
+    }
+    
+    
     let alert = UIAlertController(title: "Delete Videos!", message: "Delete all selected videos from phone", preferredStyle: .actionSheet)
     let deleteAction = UIAlertAction(title: "Delete \(toDelete.count) videos", style: .destructive) { _ in
       
@@ -117,13 +126,17 @@ class VideosViewController: UIViewController, UICollectionViewDelegate, UICollec
   
   @IBAction func removeAll(_ sender: Any) {
     
+    
+    if !UserDefaults.standard.bool(forKey: "pro"){
+        let vc = InAppVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+      return
+    }
+
+    
     let alert = UIAlertController(title: "Delete Screeenshots!", message: "Delete all selected screeenshots shown below.", preferredStyle: .actionSheet)
     let deleteAction = UIAlertAction(title: "Delete \(self.arrayOfVideos?.count ?? 0) images", style: .destructive) { _ in
-      
-      //            if !UserDefaults.standard.bool(forKey: "isBuyed") {
-      //                self.showSubscription()
-      //                return
-      //            }
       
       var phpAssets = self.arrayOfVideos?.compactMap { $0.asset }
       if let phpAssets = phpAssets {

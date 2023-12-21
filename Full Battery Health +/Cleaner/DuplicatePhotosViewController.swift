@@ -39,6 +39,13 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
   
   @IBAction func removeAllduplicate(_ sender: Any) {
     
+    if !UserDefaults.standard.bool(forKey: "pro"){
+        let vc = InAppVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+      return
+    }
+    
     guard duplicates?.count ?? 0 > 0 else { return }
     
     let alert = UIAlertController(title: "🔄🗑️ Delete all duplicate photos", message: "NOTE - You will see a pop-up asking if you want to delete. Just choose what you want.", preferredStyle: .actionSheet)
@@ -168,13 +175,17 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
   }
   
   func deleteAssetes(toDelete: [PHAsset]) {
+    
+    if !UserDefaults.standard.bool(forKey: "pro"){
+        let vc = InAppVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+      return
+    }
+
+    
     let alert = UIAlertController(title: "Delete photos", message: "Save selected image and delete duplicates.", preferredStyle: .actionSheet)
     let deleteAction = UIAlertAction(title: "Delete \(toDelete.count) images", style: .destructive) { _ in
-      
-      //      if !UserDefaults.standard.bool(forKey: "isBuyed") {
-      //        self.showSubscription()
-      //        return
-      //      }
       
       PHPhotoLibrary.shared().performChanges({
         PHAssetChangeRequest.deleteAssets(toDelete as NSArray)

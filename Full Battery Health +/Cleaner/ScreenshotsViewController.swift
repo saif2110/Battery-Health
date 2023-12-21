@@ -33,13 +33,17 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
   }
   
   func deleteAssetes(toDelete: [PHAsset]) {
+    
+    if !UserDefaults.standard.bool(forKey: "pro"){
+      let vc = InAppVC()
+      vc.modalPresentationStyle = .fullScreen
+      self.present(vc, animated: true, completion: nil)
+      return
+    }
+    
     let alert = UIAlertController(title: "Delete Screeenshots!", message: "Delete all selected screeenshots from phone.", preferredStyle: .actionSheet)
     let deleteAction = UIAlertAction(title: "Delete \(toDelete.count) images", style: .destructive) { _ in
       
-      //            if !UserDefaults.standard.bool(forKey: "isBuyed") {
-      //                self.showSubscription()
-      //                return
-      //            }
       
       PHPhotoLibrary.shared().performChanges({
         PHAssetChangeRequest.deleteAssets(toDelete as NSArray)
@@ -76,13 +80,15 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
   
   @IBAction func removeAll(_ sender: Any) {
     
+    if !UserDefaults.standard.bool(forKey: "pro"){
+      let vc = InAppVC()
+      vc.modalPresentationStyle = .fullScreen
+      self.present(vc, animated: true, completion: nil)
+      return
+    }
+    
     let alert = UIAlertController(title: "Delete Screeenshots!", message: "Delete all selected screeenshots shown below.", preferredStyle: .actionSheet)
     let deleteAction = UIAlertAction(title: "Delete \(self.arrayOfScreenshots?.count ?? 0) images", style: .destructive) { _ in
-      
-      //            if !UserDefaults.standard.bool(forKey: "isBuyed") {
-      //                self.showSubscription()
-      //                return
-      //            }
       
       var phpAssets = self.arrayOfScreenshots?.compactMap { $0.asset }
       if let phpAssets = phpAssets {

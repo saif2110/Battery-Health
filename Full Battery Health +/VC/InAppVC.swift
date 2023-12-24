@@ -151,9 +151,10 @@ class InAppVC: UIViewController {
     
     func PerchesedComplte(){
         UserDefaults.standard.setValue(true , forKeyPath: "pro")
+        self.dismiss(animated: true)
         self.present(myAlt(titel:"Congratulations !",message:"You are a pro member now. Enjoy seamless experience without the Ads."), animated: true, completion: nil)
         stopIndicator()
-        self.dismiss(animated: true)
+       
     }
     
     

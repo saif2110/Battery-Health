@@ -469,24 +469,36 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         if UserDefaults.standard.bool(forKey: "pro"){
             self.navigationItem.leftBarButtonItem = nil
         }
+      
+      stateofBattery()
+      
+      self.myView.delegate = self
+      self.myView.dataSource = self
+      self.myView.reloadData()
         
         DispatchQueue.main.async {
-            if !UserDefaults.standard.bool(forKey: "pro"){
+            if !UserDefaults.standard.bool(forKey: "pro") && UserDefaults.standard.integer(forKey: "AppLaunch") > 1{
                 let vc = InAppVC()
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
         }
         
-        stateofBattery()
-        
-        self.myView.delegate = self
-        self.myView.dataSource = self
-        self.myView.reloadData()
-        
+      
+      /// Welcome Screen Logic
+      if UserDefaults.standard.integer(forKey: "AppLaunch") == 1 {
+        DispatchQueue.main.async {
+          let story = UIStoryboard(name: "Welcome", bundle: Bundle.main)
+          let vc = story.instantiateViewController(withIdentifier: "Navigation")
+          vc.modalPresentationStyle = .fullScreen
+          self.present(vc, animated: false)
+        }
+      }
+      
+      
     }
-    
-    @objc func forcepro(){
+  
+  @objc func forcepro(){
         
         self.present(myAlt(titel:"Not Pro Member",message:"bla bla bla"), animated: true, completion: nil)
     }

@@ -25,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TA-dR-8hp">
-                    <rect key="frame" x="20" y="392" width="390" height="172.66666666666663"/>
+                    <rect key="frame" x="20" y="392" width="390" height="178.66666666666663"/>
                     <attributedString key="attributedText">
                         <fragment content="✓">
                             <attributes>
                                 <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <font key="NSFont" metaFont="system" size="14"/>
                                 <real key="NSKern" value="0.0"/>
                                 <font key="NSOriginalFont" size="14" name="ArialMT"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -66,7 +66,7 @@ Cg
                             <attributes>
                                 <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <font key="NSFont" metaFont="system" size="14"/>
                                 <real key="NSKern" value="0.0"/>
                                 <font key="NSOriginalFont" size="14" name="ArialMT"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -91,7 +91,7 @@ Cg
                             <attributes>
                                 <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <font key="NSFont" metaFont="system" size="14"/>
                                 <real key="NSKern" value="0.0"/>
                                 <font key="NSOriginalFont" size="14" name="ArialMT"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -126,7 +126,7 @@ Cg
                             <attributes>
                                 <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <font key="NSFont" metaFont="system" size="14"/>
                                 <real key="NSKern" value="0.0"/>
                                 <font key="NSOriginalFont" size="14" name="ArialMT"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -161,7 +161,7 @@ Cg
                             <attributes>
                                 <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <font key="NSFont" metaFont="system" size="14"/>
                                 <real key="NSKern" value="0.0"/>
                                 <font key="NSOriginalFont" size="14" name="ArialMT"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -196,7 +196,7 @@ Cg
                             <attributes>
                                 <color key="NSBackgroundColor" red="0.25881999999999999" green="0.52156999999999998" blue="0.95686000000000004" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="NSColor" red="0.62353000000000003" green="0.93725000000000003" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                <font key="NSFont" metaFont="system" size="14"/>
                                 <real key="NSKern" value="0.0"/>
                                 <font key="NSOriginalFont" size="14" name="ArialMT"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
@@ -287,7 +287,7 @@ Cg
                         <action selector="dismissVC:" destination="-1" eventType="touchUpInside" id="bDQ-DF-oea"/>
                     </connections>
                 </button>
-                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg6-P2-wLg">
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg6-P2-wLg" customClass="AnimatedVisibilityButton" customModule="Full_Battery_Health" customModuleProvider="target">
                     <rect key="frame" x="15" y="760.66666666666663" width="400" height="50"/>
                     <color key="backgroundColor" red="0.5490196078431373" green="0.85882352941176465" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>

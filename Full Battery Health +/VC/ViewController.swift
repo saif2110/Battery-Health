@@ -97,6 +97,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         self.navigationItem.hidesBackButton = true
+        self.tabBarController?.tabBar.isHidden = true
+
         
         UIDevice.current.isBatteryMonitoringEnabled = true
         batteryLevel = Double(UIDevice.current.batteryLevel)

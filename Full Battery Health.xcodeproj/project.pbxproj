@@ -92,6 +92,8 @@
 		B0ACC6D92B279F7800F0FBC4 /* CleanerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6D82B279F7800F0FBC4 /* CleanerViewController.swift */; };
 		B0ACC6DF2B28A98200F0FBC4 /* MultiProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = B0ACC6DE2B28A98200F0FBC4 /* MultiProgressView */; };
 		B0ACC6E12B29A1F800F0FBC4 /* ScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6E02B29A1F700F0FBC4 /* ScreenshotsViewController.swift */; };
+		B0B109412B38661A00FF7350 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B109402B38661A00FF7350 /* Welcome.storyboard */; };
+		B0B109432B38821700FF7350 /* WelcomeEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B109422B38821700FF7350 /* WelcomeEnd.swift */; };
 		B0F826E62B0D1354003771E2 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B0F826E52B0D1354003771E2 /* Charts */; };
 		B0FBE2952B1F3BE8007FC0C0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B0FBE2942B1F3BE8007FC0C0 /* Lottie */; };
 		B0FBE2982B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBE2972B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift */; };
@@ -269,6 +271,8 @@
 		B0ACC6D82B279F7800F0FBC4 /* CleanerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanerViewController.swift; sourceTree = "<group>"; };
 		B0ACC6DA2B27A05D00F0FBC4 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		B0ACC6E02B29A1F700F0FBC4 /* ScreenshotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsViewController.swift; sourceTree = "<group>"; };
+		B0B109402B38661A00FF7350 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		B0B109422B38821700FF7350 /* WelcomeEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeEnd.swift; sourceTree = "<group>"; };
 		B0FBE2972B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatePhotosViewController.swift; sourceTree = "<group>"; };
 		B0FBE29C2B220265007FC0C0 /* DublicatesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublicatesTableViewCell.swift; sourceTree = "<group>"; };
 		B0FBE2A02B2202D9007FC0C0 /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -316,6 +320,7 @@
 				5C0566C3261C4A6200798392 /* InAppVC.swift */,
 				5C0566C2261C4A6200798392 /* InAppVC.xib */,
 				5C75C2C52616154C00808F40 /* batteryTest.swift */,
+				B0B109422B38821700FF7350 /* WelcomeEnd.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -361,13 +366,13 @@
 				5CE57E2325F5318F004D9D04 /* Cells */,
 				5C656BD925EE7B2E00EF896F /* AppDelegate.swift */,
 				5C656BDF25EE7B2E00EF896F /* Main.storyboard */,
+				B0B109402B38661A00FF7350 /* Welcome.storyboard */,
 				B0ACC6DA2B27A05D00F0FBC4 /* Header.h */,
 				5CD9591626206BAC009E8B83 /* Api.swift */,
 				5CE57E1625F512CD004D9D04 /* Model.swift */,
 				5C656BE225EE7B3100EF896F /* Assets.xcassets */,
 				5C5572A32622F00C00E095F3 /* AlarmB.mp3 */,
 				5C97489525EFEE7F00C150B5 /* bell.mp3 */,
-				5CEE564A262367C30065A524 /* batteryICONNew.png */,
 				5CB0D84625EF8C2E005634CF /* melody.mp3 */,
 				5CB0D84425EF8C2E005634CF /* siren.mp3 */,
 				5C656BE725EE7B3100EF896F /* Info.plist */,
@@ -375,6 +380,7 @@
 				5C656BE425EE7B3100EF896F /* LaunchScreen.storyboard */,
 				B095A26A27244BAC007104AC /* pro.json */,
 				5C9CFD112618C7C100CCEF10 /* Lotti.json */,
+				5CEE564A262367C30065A524 /* batteryICONNew.png */,
 				5C005E89262EC696004B4D99 /* Intents.intentdefinition */,
 			);
 			path = "Full Battery Health +";
@@ -849,6 +855,7 @@
 				5CB0D84725EF8C2E005634CF /* siren.mp3 in Resources */,
 				5C0566C4261C4A6200798392 /* InAppVC.xib in Resources */,
 				5C656BE625EE7B3100EF896F /* LaunchScreen.storyboard in Resources */,
+				B0B109412B38661A00FF7350 /* Welcome.storyboard in Resources */,
 				5C656BE325EE7B3100EF896F /* Assets.xcassets in Resources */,
 				B095A26B27244BAC007104AC /* pro.json in Resources */,
 				B0ACC6C02B279EB500F0FBC4 /* GLBubbleEffect.vsh in Resources */,
@@ -946,6 +953,7 @@
 				B0ACC6B32B279EB500F0FBC4 /* CPUInfo.m in Sources */,
 				B0FBE2A62B220321007FC0C0 /* Formatter.swift in Sources */,
 				B0ACC6C42B279EB500F0FBC4 /* AMUtils.m in Sources */,
+				B0B109432B38821700FF7350 /* WelcomeEnd.swift in Sources */,
 				5C4183FC25FA3F0300FC4647 /* BatteryState.swift in Sources */,
 				5CE57E1725F512CD004D9D04 /* Model.swift in Sources */,
 				B0ACC6BD2B279EB500F0FBC4 /* GLLineGraph.m in Sources */,

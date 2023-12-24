@@ -57,8 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
         iap.addTransactionObserver(fallbackHandler: {_ in
             // Handle the result of payment added by Store
             // See also `InAppPurchase#purchase`
-            
-            //print("what the hell is this")
         })
         
         DispatchQueue.main.async {
@@ -69,6 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
             openAppAuto()
         }
         
+        Apps15init.shared.start(id: "com.Full-Battery.Health")
+      
         return true
     }
     

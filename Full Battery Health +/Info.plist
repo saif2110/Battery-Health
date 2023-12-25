@@ -24,10 +24,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>com.Full-Battery.Health</string>
+			<string>open</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>bh</string>
+				<string>space</string>
 			</array>
 		</dict>
 	</array>
@@ -37,18 +37,13 @@
 	<string>ca-app-pub-2710347124980493~9109372485</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We need media permission to find duplicate and large size video to display it to you for cleaing purpose .</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need photos permission to find duplicate Images to display it to you.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>IntentIntent</string>
-	</array>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This identifier will be used to deliver personalized &amp; best ads to you.</string>
-	<key>SKAdNetworkItems</key>
-	<array>
-		<dict>
-			<key>SKAdNetworkIdentifier</key>
-			<string>cstr6suwn9.skadnetwork</string>
-		</dict>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
@@ -82,9 +77,7 @@
 	<string>Dark</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need photos permission to find duplicate Images to display it to you.</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>We need media permission to find duplicate and large size video to display it to you for cleaing purpose .</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>We need tracking using to serve you better personalize ads.</string>
 </dict>
 </plist>

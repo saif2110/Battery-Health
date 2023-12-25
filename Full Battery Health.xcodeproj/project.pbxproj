@@ -42,7 +42,6 @@
 		5CFA586A262ADF9500636988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C656BE225EE7B3100EF896F /* Assets.xcassets */; };
 		5CFBCC9325F4F0BD002DB657 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBCC9225F4F0BD002DB657 /* MainVC.swift */; };
 		5CFBCC9625F4F374002DB657 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBCC9525F4F374002DB657 /* MainCell.swift */; };
-		831D4388AB2B11DCC0511A82 /* Pods_Full_Battery_Health.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9171965A6932E6632802677 /* Pods_Full_Battery_Health.framework */; };
 		B06780AE2B2DF3C9007FA572 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06780AD2B2DF3C9007FA572 /* VideosViewController.swift */; };
 		B095A26B27244BAC007104AC /* pro.json in Resources */ = {isa = PBXBuildFile; fileRef = B095A26A27244BAC007104AC /* pro.json */; };
 		B0ACC6AC2B279EB500F0FBC4 /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC63D2B279EB500F0FBC4 /* HardcodedDeviceData.m */; };
@@ -92,6 +91,7 @@
 		B0ACC6D92B279F7800F0FBC4 /* CleanerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6D82B279F7800F0FBC4 /* CleanerViewController.swift */; };
 		B0ACC6DF2B28A98200F0FBC4 /* MultiProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = B0ACC6DE2B28A98200F0FBC4 /* MultiProgressView */; };
 		B0ACC6E12B29A1F800F0FBC4 /* ScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6E02B29A1F700F0FBC4 /* ScreenshotsViewController.swift */; };
+		B0AE02F22B399CAB00AFF1D9 /* WelcomeFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE02F12B399CAB00AFF1D9 /* WelcomeFirst.swift */; };
 		B0B109412B38661A00FF7350 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B109402B38661A00FF7350 /* Welcome.storyboard */; };
 		B0B109432B38821700FF7350 /* WelcomeEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B109422B38821700FF7350 /* WelcomeEnd.swift */; };
 		B0B109452B38939400FF7350 /* Apps15init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B109442B38939300FF7350 /* Apps15init.swift */; };
@@ -107,6 +107,7 @@
 		B0FBE2AD2B220394007FC0C0 /* FindDuplicatesUsingThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBE2AA2B220393007FC0C0 /* FindDuplicatesUsingThumbnail.swift */; };
 		B0FBE2B02B220490007FC0C0 /* CocoaImageHashing in Frameworks */ = {isa = PBXBuildFile; productRef = B0FBE2AF2B220490007FC0C0 /* CocoaImageHashing */; };
 		B0FBE2B32B220538007FC0C0 /* Array+chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBE2B22B220538007FC0C0 /* Array+chunked.swift */; };
+		EC1AE90472CB244E50E53F11 /* Pods_Full_Battery_Health.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6ED6850AC81E78E497C9F /* Pods_Full_Battery_Health.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +135,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2E44DFC7A8A9BFF9E562F068 /* Pods-Full Battery Health +.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health +.release.xcconfig"; path = "Target Support Files/Pods-Full Battery Health +/Pods-Full Battery Health +.release.xcconfig"; sourceTree = "<group>"; };
-		46DA66993CDDA33054D9291B /* Pods-Full Battery Health +.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health +.debug.xcconfig"; path = "Target Support Files/Pods-Full Battery Health +/Pods-Full Battery Health +.debug.xcconfig"; sourceTree = "<group>"; };
 		5C005E89262EC696004B4D99 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		5C0566C2261C4A6200798392 /* InAppVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InAppVC.xib; sourceTree = "<group>"; };
 		5C0566C3261C4A6200798392 /* InAppVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppVC.swift; sourceTree = "<group>"; };
@@ -175,8 +174,8 @@
 		5CFA58672629EBFE00636988 /* StartWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StartWidgetExtension.entitlements; sourceTree = "<group>"; };
 		5CFBCC9225F4F0BD002DB657 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		5CFBCC9525F4F374002DB657 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
-		9121C540F6F818630BE6BF7D /* Pods-Full Battery Health.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health.debug.xcconfig"; path = "Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health.debug.xcconfig"; sourceTree = "<group>"; };
-		9B470D66B49D76BC30226B88 /* Pods-Full Battery Health.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health.release.xcconfig"; path = "Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health.release.xcconfig"; sourceTree = "<group>"; };
+		8DB6ED6850AC81E78E497C9F /* Pods_Full_Battery_Health.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Full_Battery_Health.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AA9E670130ACA6F4B9686A1 /* Pods-Full Battery Health.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health.debug.xcconfig"; path = "Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health.debug.xcconfig"; sourceTree = "<group>"; };
 		B06780AD2B2DF3C9007FA572 /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		B095A26A27244BAC007104AC /* pro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pro.json; sourceTree = "<group>"; };
 		B0ACC63D2B279EB500F0FBC4 /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
@@ -272,6 +271,7 @@
 		B0ACC6D82B279F7800F0FBC4 /* CleanerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanerViewController.swift; sourceTree = "<group>"; };
 		B0ACC6DA2B27A05D00F0FBC4 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		B0ACC6E02B29A1F700F0FBC4 /* ScreenshotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsViewController.swift; sourceTree = "<group>"; };
+		B0AE02F12B399CAB00AFF1D9 /* WelcomeFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFirst.swift; sourceTree = "<group>"; };
 		B0B109402B38661A00FF7350 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		B0B109422B38821700FF7350 /* WelcomeEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeEnd.swift; sourceTree = "<group>"; };
 		B0B109442B38939300FF7350 /* Apps15init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apps15init.swift; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 		B0FBE2A92B220393007FC0C0 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		B0FBE2AA2B220393007FC0C0 /* FindDuplicatesUsingThumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDuplicatesUsingThumbnail.swift; sourceTree = "<group>"; };
 		B0FBE2B22B220538007FC0C0 /* Array+chunked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+chunked.swift"; sourceTree = "<group>"; };
-		E9171965A6932E6632802677 /* Pods_Full_Battery_Health.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Full_Battery_Health.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E60D2D8DB2A97C803C6F387B /* Pods-Full Battery Health.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Full Battery Health.release.xcconfig"; path = "Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,11 +302,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0ACC6DF2B28A98200F0FBC4 /* MultiProgressView in Frameworks */,
-				831D4388AB2B11DCC0511A82 /* Pods_Full_Battery_Health.framework in Frameworks */,
 				B0F826E62B0D1354003771E2 /* Charts in Frameworks */,
 				B0FBE2952B1F3BE8007FC0C0 /* Lottie in Frameworks */,
 				B0ACC6B92B279EB500F0FBC4 /* libLumberjack.a in Frameworks */,
 				B0FBE2B02B220490007FC0C0 /* CocoaImageHashing in Frameworks */,
+				EC1AE90472CB244E50E53F11 /* Pods_Full_Battery_Health.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +323,7 @@
 				5C0566C2261C4A6200798392 /* InAppVC.xib */,
 				5C75C2C52616154C00808F40 /* batteryTest.swift */,
 				B0B109422B38821700FF7350 /* WelcomeEnd.swift */,
+				B0AE02F12B399CAB00AFF1D9 /* WelcomeFirst.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -732,9 +733,9 @@
 		D6D6C19C844C3F41108C3B3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E9171965A6932E6632802677 /* Pods_Full_Battery_Health.framework */,
 				5C46E53E2629A6F2004B48ED /* WidgetKit.framework */,
 				5C46E5402629A6F3004B48ED /* SwiftUI.framework */,
+				8DB6ED6850AC81E78E497C9F /* Pods_Full_Battery_Health.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -742,10 +743,8 @@
 		EC67C4984A190C40D2427297 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				46DA66993CDDA33054D9291B /* Pods-Full Battery Health +.debug.xcconfig */,
-				2E44DFC7A8A9BFF9E562F068 /* Pods-Full Battery Health +.release.xcconfig */,
-				9121C540F6F818630BE6BF7D /* Pods-Full Battery Health.debug.xcconfig */,
-				9B470D66B49D76BC30226B88 /* Pods-Full Battery Health.release.xcconfig */,
+				9AA9E670130ACA6F4B9686A1 /* Pods-Full Battery Health.debug.xcconfig */,
+				E60D2D8DB2A97C803C6F387B /* Pods-Full Battery Health.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -774,12 +773,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C656BEA25EE7B3100EF896F /* Build configuration list for PBXNativeTarget "Full Battery Health" */;
 			buildPhases = (
-				1AA47C49641BCB4155E765B7 /* [CP] Check Pods Manifest.lock */,
+				E8FFE4AC790ED56BF4FF0345 /* [CP] Check Pods Manifest.lock */,
 				5C656BD225EE7B2E00EF896F /* Sources */,
 				5C656BD325EE7B2E00EF896F /* Frameworks */,
 				5C656BD425EE7B2E00EF896F /* Resources */,
 				5C46E54E2629A6F3004B48ED /* Embed App Extensions */,
-				ADECC4D0F67150D2FBD4CF0D /* [CP] Embed Pods Frameworks */,
+				018C9BC1ACBE45440183B0BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -874,7 +873,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1AA47C49641BCB4155E765B7 /* [CP] Check Pods Manifest.lock */ = {
+		018C9BC1ACBE45440183B0BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8FFE4AC790ED56BF4FF0345 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -894,23 +910,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ADECC4D0F67150D2FBD4CF0D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -984,6 +983,7 @@
 				B0ACC6CE2B279EB500F0FBC4 /* ProcessInfoController.m in Sources */,
 				B0ACC6B82B279EB500F0FBC4 /* SystemMonitor.m in Sources */,
 				5C656BDA25EE7B2E00EF896F /* AppDelegate.swift in Sources */,
+				B0AE02F22B399CAB00AFF1D9 /* WelcomeFirst.swift in Sources */,
 				B0ACC6D92B279F7800F0FBC4 /* CleanerViewController.swift in Sources */,
 				B0ACC6D62B279EB500F0FBC4 /* ALHardware.m in Sources */,
 				B0ACC6CA2B279EB500F0FBC4 /* RAMInfo.m in Sources */,
@@ -1206,7 +1206,7 @@
 		};
 		5C656BEB25EE7B3100EF896F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9121C540F6F818630BE6BF7D /* Pods-Full Battery Health.debug.xcconfig */;
+			baseConfigurationReference = 9AA9E670130ACA6F4B9686A1 /* Pods-Full Battery Health.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1214,7 +1214,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Full Battery Health.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -1239,7 +1239,7 @@
 		};
 		5C656BEC25EE7B3100EF896F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B470D66B49D76BC30226B88 /* Pods-Full Battery Health.release.xcconfig */;
+			baseConfigurationReference = E60D2D8DB2A97C803C6F387B /* Pods-Full Battery Health.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1247,7 +1247,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Full Battery Health.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";

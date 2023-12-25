@@ -63,8 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
             UIApplication.shared.registerForRemoteNotifications()
         }
         
-        if let _ = launchOptions?[.url] as? URL {
-            openAppAuto()
+        if let url = launchOptions?[.url] as? URL {
+            openAppAuto(url: url)
         }
         
         Apps15init.shared.start(id: "com.Full-Battery.Health")
@@ -99,13 +99,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
         //        }
         
         
-        openAppAuto()
+     
+      
+      if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+              // Extract the URL from the user activity
+              if let url = userActivity.webpageURL {
+                  // Handle the URL appropriately
+                  // For example, open it in a web view or process it as needed
+                 
+                  openAppAuto(url: url)
+                  return true
+              }
+          }
         
         return true
     }
     
     
-    func openAppAuto(){
+  func openAppAuto(url:URL){
+    
+//    guard url != URL(string: "space://open") else {
+//      return
+//    }
+    
+   // print(url)
         isOpenfromWidget = true
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: NSNotification.Name("fromWidget"), object: nil)

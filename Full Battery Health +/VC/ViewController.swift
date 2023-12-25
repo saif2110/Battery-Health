@@ -192,6 +192,9 @@ class ViewController: UIViewController {
     let usersStore = UserDefaultsStore<BatteryInfo>(uniqueIdentifier: "Batteryinfo")
     
     @IBAction func exitApp(_ sender: Any) {
+       
+        MPVolumeView.setVolume(volume)
+
         UIScreen.main.brightness = CGFloat(0.5)
         info.TimeEnded = Date().timeIntervalSince1970 * 1000
         info.lastBatteryPercentage = Int(getBatteyPercentage()) ?? 10
@@ -209,8 +212,11 @@ class ViewController: UIViewController {
                 NotificationofClosed()
             }
         }
-        
+       
+      DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.2) {
         exit(0)
+      }
+        
     }
     
     var mySound:Sound?

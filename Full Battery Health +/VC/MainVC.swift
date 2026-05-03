@@ -43,6 +43,11 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
       cell.selectionStyle = .none
       cell.backgroundColor = .secondarySystemBackground
+      if indexPath.row == 1 {
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+      } else {
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+      }
       cell.imageView?.clipsToBounds = true
       cell.imageView?.layer.cornerRadius = 8
       cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
@@ -65,8 +70,9 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       let  cell = Bundle.main.loadNibNamed("SetBattery", owner: self, options: nil)?.first as! SetBattery
       cell.selectionStyle = .none
       cell.backgroundColor = .secondarySystemBackground
+      cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
       cell.Note.text = "• When you’re recharging a phone, charge it to at least 20% or more before using it\n\n• Remove charger if your battery reaches 100% (Full Charge)."
-      
+
       return cell
       
     }else if indexPath.section == 2 {
@@ -297,11 +303,11 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     if section == 0 {
-      return 20
+      return 0
     }else{
-      return 50
+      return 36
     }
-    
+
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -321,14 +327,16 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    if section == 0 { return nil }
     return headerView(label: HeaderString[section])
   }
   
   func headerView(label:String) -> UIView {
-    let sectionHeader = UIView.init(frame: CGRect.init(x: 0, y: 0, width: myView.frame.width, height: 50))
+    let sectionHeader = UIView.init(frame: CGRect.init(x: 0, y: 0, width: myView.frame.width, height: 36))
     sectionHeader.backgroundColor = .black
     let sectionText = UILabel()
-    sectionText.frame = CGRect.init(x: 10, y: 15, width: sectionHeader.frame.width-10, height: sectionHeader.frame.height-10)
+    sectionText.frame = CGRect.init(x: 16, y: 8, width: sectionHeader.frame.width - 32, height: 22)
+    sectionText.autoresizingMask = [.flexibleWidth]
     sectionText.text = label
     sectionText.font = .systemFont(ofSize: 14, weight: .bold) // my custom font
     sectionText.textColor = neonClr
@@ -405,7 +413,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     
     
     batterytestOutlet.tintColor = neonClr
-    
+
     ButtonView.layer.cornerRadius = 20
     ButtonView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     ButtonView.shadow2()
@@ -577,7 +585,9 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     self.navigationController?.navigationBar.prefersLargeTitles = true
+    self.navigationItem.largeTitleDisplayMode = .always
     if UserDefaults.standard.bool(forKey: "pro"){
       self.navigationItem.leftBarButtonItem = nil
     }

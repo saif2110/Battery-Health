@@ -57,7 +57,6 @@
 		B0ACC6B62B279EB500F0FBC4 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6582B279EB500F0FBC4 /* NetworkInfo.m */; };
 		B0ACC6B72B279EB500F0FBC4 /* NetworkBandwidth.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6592B279EB500F0FBC4 /* NetworkBandwidth.m */; };
 		B0ACC6B82B279EB500F0FBC4 /* SystemMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC65F2B279EB500F0FBC4 /* SystemMonitor.m */; };
-		B0ACC6B92B279EB500F0FBC4 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0ACC6662B279EB500F0FBC4 /* libLumberjack.a */; };
 		B0ACC6BA2B279EB500F0FBC4 /* StorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6682B279EB500F0FBC4 /* StorageInfo.m */; };
 		B0ACC6BB2B279EB500F0FBC4 /* StorageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC66B2B279EB500F0FBC4 /* StorageInfoController.m */; };
 		B0ACC6BC2B279EB500F0FBC4 /* GLDataLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ACC6702B279EB500F0FBC4 /* GLDataLine.m */; };
@@ -95,6 +94,8 @@
 		B0B109412B38661A00FF7350 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B109402B38661A00FF7350 /* Welcome.storyboard */; };
 		B0B109432B38821700FF7350 /* WelcomeEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B109422B38821700FF7350 /* WelcomeEnd.swift */; };
 		B0B109452B38939400FF7350 /* Apps15init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B109442B38939300FF7350 /* Apps15init.swift */; };
+		B0C1NR012B28A98200F0FBC5 /* CleanerScanLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C1NR002B28A98200F0FBC5 /* CleanerScanLoadingView.swift */; };
+		B0C1NR032B28A98200F0FBC6 /* CleanerHeaderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C1NR022B28A98200F0FBC6 /* CleanerHeaderCard.swift */; };
 		B0F826E62B0D1354003771E2 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B0F826E52B0D1354003771E2 /* Charts */; };
 		B0FBE2952B1F3BE8007FC0C0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B0FBE2942B1F3BE8007FC0C0 /* Lottie */; };
 		B0FBE2982B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBE2972B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift */; };
@@ -205,11 +206,6 @@
 		B0ACC65D2B279EB500F0FBC4 /* bsd_var.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bsd_var.h; sourceTree = "<group>"; };
 		B0ACC65E2B279EB500F0FBC4 /* AMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLogger.h; sourceTree = "<group>"; };
 		B0ACC65F2B279EB500F0FBC4 /* SystemMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMonitor.m; sourceTree = "<group>"; };
-		B0ACC6622B279EB500F0FBC4 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		B0ACC6632B279EB500F0FBC4 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		B0ACC6642B279EB500F0FBC4 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		B0ACC6652B279EB500F0FBC4 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		B0ACC6662B279EB500F0FBC4 /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLumberjack.a; sourceTree = "<group>"; };
 		B0ACC6682B279EB500F0FBC4 /* StorageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfo.m; sourceTree = "<group>"; };
 		B0ACC6692B279EB500F0FBC4 /* StorageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfoController.h; sourceTree = "<group>"; };
 		B0ACC66A2B279EB500F0FBC4 /* StorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfo.h; sourceTree = "<group>"; };
@@ -275,6 +271,8 @@
 		B0B109402B38661A00FF7350 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		B0B109422B38821700FF7350 /* WelcomeEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeEnd.swift; sourceTree = "<group>"; };
 		B0B109442B38939300FF7350 /* Apps15init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apps15init.swift; sourceTree = "<group>"; };
+		B0C1NR002B28A98200F0FBC5 /* CleanerScanLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanerScanLoadingView.swift; sourceTree = "<group>"; };
+		B0C1NR022B28A98200F0FBC6 /* CleanerHeaderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanerHeaderCard.swift; sourceTree = "<group>"; };
 		B0FBE2972B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatePhotosViewController.swift; sourceTree = "<group>"; };
 		B0FBE29C2B220265007FC0C0 /* DublicatesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DublicatesTableViewCell.swift; sourceTree = "<group>"; };
 		B0FBE2A02B2202D9007FC0C0 /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 				B0ACC6DF2B28A98200F0FBC4 /* MultiProgressView in Frameworks */,
 				B0F826E62B0D1354003771E2 /* Charts in Frameworks */,
 				B0FBE2952B1F3BE8007FC0C0 /* Lottie in Frameworks */,
-				B0ACC6B92B279EB500F0FBC4 /* libLumberjack.a in Frameworks */,
 				B0FBE2B02B220490007FC0C0 /* CocoaImageHashing in Frameworks */,
 				EC1AE90472CB244E50E53F11 /* Pods_Full_Battery_Health.framework in Frameworks */,
 			);
@@ -343,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				5CFA58672629EBFE00636988 /* StartWidgetExtension.entitlements */,
-				5C5B6DAE261E2C4E006723AF /* Full Battery Health.entitlements */,
 				5C656BD825EE7B2E00EF896F /* Full Battery Health + */,
 				5C46E5422629A6F3004B48ED /* StartWidget */,
 				5C656BD725EE7B2E00EF896F /* Products */,
@@ -427,7 +423,6 @@
 				B0ACC6542B279EB500F0FBC4 /* Network */,
 				B0ACC65E2B279EB500F0FBC4 /* AMLogger.h */,
 				B0ACC65F2B279EB500F0FBC4 /* SystemMonitor.m */,
-				B0ACC6602B279EB500F0FBC4 /* Lumberjack */,
 				B0ACC6672B279EB500F0FBC4 /* Storage */,
 				B0ACC66C2B279EB500F0FBC4 /* HardcodedDeviceData.h */,
 				B0ACC66D2B279EB500F0FBC4 /* GL */,
@@ -522,26 +517,6 @@
 				B0ACC65D2B279EB500F0FBC4 /* bsd_var.h */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		B0ACC6602B279EB500F0FBC4 /* Lumberjack */ = {
-			isa = PBXGroup;
-			children = (
-				B0ACC6612B279EB500F0FBC4 /* include */,
-				B0ACC6662B279EB500F0FBC4 /* libLumberjack.a */,
-			);
-			path = Lumberjack;
-			sourceTree = "<group>";
-		};
-		B0ACC6612B279EB500F0FBC4 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				B0ACC6622B279EB500F0FBC4 /* DDLog.h */,
-				B0ACC6632B279EB500F0FBC4 /* DDFileLogger.h */,
-				B0ACC6642B279EB500F0FBC4 /* DDTTYLogger.h */,
-				B0ACC6652B279EB500F0FBC4 /* DDASLLogger.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 		B0ACC6672B279EB500F0FBC4 /* Storage */ = {
@@ -687,6 +662,9 @@
 				B0FBE2972B21FE3F007FC0C0 /* DuplicatePhotosViewController.swift */,
 				B0ACC6E02B29A1F700F0FBC4 /* ScreenshotsViewController.swift */,
 				B0ACC6D82B279F7800F0FBC4 /* CleanerViewController.swift */,
+				B0C1NR002B28A98200F0FBC5 /* CleanerScanLoadingView.swift */,
+				B0C1NR022B28A98200F0FBC6 /* CleanerHeaderCard.swift */,
+				5C5B6DAE261E2C4E006723AF /* Full Battery Health.entitlements */,
 			);
 			path = Cleaner;
 			sourceTree = "<group>";
@@ -881,9 +859,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Full Battery Health/Pods-Full Battery Health-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -985,6 +967,8 @@
 				5C656BDA25EE7B2E00EF896F /* AppDelegate.swift in Sources */,
 				B0AE02F22B399CAB00AFF1D9 /* WelcomeFirst.swift in Sources */,
 				B0ACC6D92B279F7800F0FBC4 /* CleanerViewController.swift in Sources */,
+				B0C1NR012B28A98200F0FBC5 /* CleanerScanLoadingView.swift in Sources */,
+				B0C1NR032B28A98200F0FBC6 /* CleanerHeaderCard.swift in Sources */,
 				B0ACC6D62B279EB500F0FBC4 /* ALHardware.m in Sources */,
 				B0ACC6CA2B279EB500F0FBC4 /* RAMInfo.m in Sources */,
 				5C2F117F25FE74F800B5541C /* BatteryStateCell.swift in Sources */,
@@ -1045,7 +1029,7 @@
 				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = StartWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1071,7 +1055,7 @@
 				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = StartWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1218,20 +1202,16 @@
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Full\\ Battery\\ Health\\ +/Cleaner/System/SystemMonitor/Lumberjack",
 				);
 				MARKETING_VERSION = 5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/saif/Desktop/Full Battery Health +/Full Battery Health +/Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Full Battery Health +/Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1251,20 +1231,16 @@
 				DEVELOPMENT_TEAM = 959YZPX78D;
 				INFOPLIST_FILE = "Full Battery Health +/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Full\\ Battery\\ Health\\ +/Cleaner/System/SystemMonitor/Lumberjack",
 				);
 				MARKETING_VERSION = 5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Full-Battery.Health";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/saif/Desktop/Full Battery Health +/Full Battery Health +/Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Full Battery Health +/Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

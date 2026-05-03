@@ -175,21 +175,110 @@ func getDatefromMili(milisecond:Double) -> String {
     return dateFormatter.string(from: dateVar)
 }
 
+// MARK: - Modern Empty State
+
+private func makeModernEmptyState(message: String, in bounds: CGRect) -> UIView {
+    let container = UIView(frame: bounds)
+    container.backgroundColor = .clear
+
+    let accent = UIColor(red: 0.533, green: 0.698, blue: 0.278, alpha: 1)
+
+    // Split the message: first line is title, remainder is subtitle.
+    var title = message
+    var subtitle = ""
+    if let range = message.range(of: "\n") {
+        title = String(message[..<range.lowerBound])
+        subtitle = String(message[range.upperBound...])
+    }
+    title = title.trimmingCharacters(in: .whitespaces)
+    subtitle = subtitle.trimmingCharacters(in: .whitespaces)
+
+    // Strip any leading emoji from the title — we render an icon ourselves.
+    let trimmedTitle: String = {
+        let scalars = title.unicodeScalars
+        guard let first = scalars.first, first.properties.isEmojiPresentation || first.properties.generalCategory == .otherSymbol else {
+            return title
+        }
+        return String(title.dropFirst()).trimmingCharacters(in: .whitespaces)
+    }()
+
+    // Tinted circle with big SF Symbol.
+    let iconBg = UIView()
+    iconBg.backgroundColor = accent.withAlphaComponent(0.15)
+    iconBg.layer.cornerRadius = 44
+    iconBg.translatesAutoresizingMaskIntoConstraints = false
+
+    let iconConfig = UIImage.SymbolConfiguration(pointSize: 38, weight: .semibold)
+    let iconView = UIImageView(image: UIImage(systemName: "sparkles", withConfiguration: iconConfig))
+    iconView.tintColor = accent
+    iconView.contentMode = .scaleAspectFit
+    iconView.translatesAutoresizingMaskIntoConstraints = false
+    iconBg.addSubview(iconView)
+
+    let titleLabel = UILabel()
+    titleLabel.text = trimmedTitle.isEmpty ? "All clean!" : trimmedTitle
+    titleLabel.font = .systemFont(ofSize: 22, weight: .bold)
+    titleLabel.textColor = .label
+    titleLabel.textAlignment = .center
+    titleLabel.numberOfLines = 0
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+    let subtitleLabel = UILabel()
+    subtitleLabel.text = subtitle.isEmpty ? "Nothing to clean up here." : subtitle
+    subtitleLabel.font = .systemFont(ofSize: 14, weight: .regular)
+    subtitleLabel.textColor = .secondaryLabel
+    subtitleLabel.textAlignment = .center
+    subtitleLabel.numberOfLines = 0
+    subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+    container.addSubview(iconBg)
+    container.addSubview(titleLabel)
+    container.addSubview(subtitleLabel)
+
+    NSLayoutConstraint.activate([
+        iconBg.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+        iconBg.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: 40),
+        iconBg.widthAnchor.constraint(equalToConstant: 88),
+        iconBg.heightAnchor.constraint(equalToConstant: 88),
+
+        iconView.centerXAnchor.constraint(equalTo: iconBg.centerXAnchor),
+        iconView.centerYAnchor.constraint(equalTo: iconBg.centerYAnchor),
+        iconView.widthAnchor.constraint(equalToConstant: 42),
+        iconView.heightAnchor.constraint(equalToConstant: 42),
+
+        titleLabel.topAnchor.constraint(equalTo: iconBg.bottomAnchor, constant: 18),
+        titleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 32),
+        titleLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -32),
+
+        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+        subtitleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 36),
+        subtitleLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -36),
+    ])
+
+    // Subtle pop-in animation.
+    iconBg.alpha = 0
+    iconBg.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+    titleLabel.alpha = 0
+    subtitleLabel.alpha = 0
+    UIView.animate(withDuration: 0.45, delay: 0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.4, options: [.curveEaseOut], animations: {
+        iconBg.alpha = 1
+        iconBg.transform = .identity
+    })
+    UIView.animate(withDuration: 0.35, delay: 0.18, options: [.curveEaseOut], animations: {
+        titleLabel.alpha = 1
+        subtitleLabel.alpha = 1
+    })
+
+    return container
+}
+
 extension UITableView {
-    
+
     func setEmptyMessage(_ message: String) {
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
-        messageLabel.text = message
-        messageLabel.textColor = .lightGray
-        messageLabel.numberOfLines = 0
-        messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "TrebuchetMS", size: 15)
-        messageLabel.sizeToFit()
-        
-        self.backgroundView = messageLabel
+        self.backgroundView = makeModernEmptyState(message: message, in: bounds)
         self.separatorStyle = .none
     }
-    
+
     func restore() {
         self.backgroundView = nil
         self.separatorStyle = .singleLine
@@ -197,23 +286,13 @@ extension UITableView {
 }
 
 extension UICollectionView {
-    
+
     func setEmptyMessage(_ message: String) {
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
-        messageLabel.text = message
-        messageLabel.textColor = .lightGray
-        messageLabel.numberOfLines = 0
-        messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "TrebuchetMS", size: 15)
-        messageLabel.sizeToFit()
-        
-        self.backgroundView = messageLabel
-       // self.separatorStyle = .none
+        self.backgroundView = makeModernEmptyState(message: message, in: bounds)
     }
-    
+
     func restore() {
         self.backgroundView = nil
-       // self.separatorStyle = .singleLine
     }
 }
 

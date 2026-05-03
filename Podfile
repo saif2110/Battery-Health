@@ -18,6 +18,7 @@ target 'Full Battery Health' do
   pod 'Purchases'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SystemServices', '~> 2.0.1'
+  pod 'CocoaLumberjack', '~> 3.8'
 end
 
 post_install do |installer|

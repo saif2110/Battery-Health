@@ -14,7 +14,6 @@
 #import "GPUInfo.h"
 #import "GPUInfoController.h"
 #import "HardcodedDeviceData.h"
-#import "DDLog.h"
 
 @interface GPUInfoController()
 @property (nonatomic, strong) GPUInfo *gpuInfo;

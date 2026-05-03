@@ -18,12 +18,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O6d-F2-1Xk">
-                        <rect key="frame" x="10" y="10" width="320" height="32"/>
+                        <rect key="frame" x="10" y="10" width="320" height="35"/>
                         <segments>
                             <segment title="80%"/>
                             <segment title="90%"/>
                             <segment title="100%"/>
                         </segments>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="pSg-Ht-h35"/>
+                        </constraints>
                         <connections>
                             <action selector="percentageSegActio:" destination="KGk-i7-Jjw" eventType="valueChanged" id="iL2-IC-497"/>
                         </connections>

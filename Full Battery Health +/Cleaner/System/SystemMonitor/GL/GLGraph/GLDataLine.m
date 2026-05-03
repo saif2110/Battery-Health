@@ -11,7 +11,6 @@
 
 #import <OpenGLES/ES2/glext.h>
 #import "AMUtils.h"
-#import "DDLog.h"
 
 #import "GLCommon.h"
 #import "GLLineGraph.h"

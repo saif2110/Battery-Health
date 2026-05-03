@@ -16,7 +16,10 @@
  ===============================================================================
  */
 #import <UIKit/UIKit.h>
-#import "DDLog.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+// One definition per translation unit that includes this header; required for DDLog* / AMLog* macros.
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface AMLogger : NSObject
 + (AMLogger*)sharedLogger;

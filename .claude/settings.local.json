@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild -workspace \"Full Battery Health +.xcworkspace\" -scheme \"Full Battery Health +\" -destination \"platform=iOS Simulator,name=iPhone 16\" -configuration Debug build)",
+      "Bash(xcodebuild -workspace \"Full Battery Health +.xcworkspace\" -list)",
+      "Bash(xcodebuild -workspace \"Full Battery Health.xcworkspace\" -list)",
+      "Bash(xcodebuild -workspace \"Full Battery Health.xcworkspace\" -scheme \"Full Battery Health\" -destination \"platform=iOS Simulator,name=iPhone 16\" -configuration Debug build)",
+      "Bash(xcrun simctl *)",
+      "Bash(xcodebuild -workspace \"Full Battery Health.xcworkspace\" -scheme \"Full Battery Health\" -destination \"platform=iOS Simulator,name=iPhone 17 Pro\" -configuration Debug build)",
+      "Bash(sips -s format jpeg -Z 1600 \"/Users/saif.mukadam/Downloads/IMG_1033.HEIC\" --out \"/tmp/img_1033.jpg\")"
+    ]
+  }
+}

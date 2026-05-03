@@ -56,6 +56,9 @@ class VideosViewController: UIViewController, UICollectionViewDelegate, UICollec
         if bool {
           self.arrayOfRemoveVideos = []
           self.updateButton()
+          DispatchQueue.main.async {
+            self.takeAssets()
+          }
         }
       }
     }
@@ -95,12 +98,76 @@ class VideosViewController: UIViewController, UICollectionViewDelegate, UICollec
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.collectionView.delegate = self
-    self.collectionView.dataSource = self
-    
+    view.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .clear
+    collectionView.layer.cornerRadius = 16
+    collectionView.layer.masksToBounds = true
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    activityView?.isHidden = true
+
+    title = "Large Videos"
+    navigationItem.largeTitleDisplayMode = .never
+
+    installModernHeader()
+    installModernSelectionBar()
+
     photoLibraryAuthorization(success: { self.takeAssets() }, failed: { fatalError("You need to be authorized") })
-    self.updateButton()
+    updateButton()
+  }
+
+  private func installModernHeader() {
+    guard let headerView = saveSpaceUpto.superview else { return }
+    headerView.subviews.forEach { $0.removeFromSuperview() }
+    headerView.backgroundColor = .clear
+
+    if let h = headerView.constraints.first(where: { $0.firstAttribute == .height }) {
+      h.constant = 290
+    }
+
+    let card = CleanerHeaderCard(
+      icon: "play.rectangle.fill",
+      accent: .systemPurple,
+      title: "Large Videos",
+      countCaption: "Total Videos",
+      sizeCaption: "Save up to",
+      buttonTitle: "Remove All Videos",
+      helpText: "Above option will remove all the videos shown below",
+      onPrimary: { [weak self] in
+        guard let self = self else { return }
+        self.removeAll(self)
+      }
+    )
+    headerView.addSubview(card)
+    NSLayoutConstraint.activate([
+      card.topAnchor.constraint(equalTo: headerView.topAnchor),
+      card.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+      card.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+      card.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
+    ])
+
+    saveSpaceUpto = card.sizeLabel
+    duplicatesScreenShot = card.countLabel
+  }
+
+  private func installModernSelectionBar() {
+    guard let bar = counutLabelView.superview else { return }
+    bar.subviews.forEach { $0.removeFromSuperview() }
+    bar.backgroundColor = .clear
+
+    let selection = CleanerSelectionBar(
+      buttonTitle: "Delete Selected",
+      accent: .systemPurple,
+      onPrimary: { [weak self] in self?.removeAction() }
+    )
+    bar.addSubview(selection)
+    NSLayoutConstraint.activate([
+      selection.topAnchor.constraint(equalTo: bar.topAnchor),
+      selection.leadingAnchor.constraint(equalTo: bar.leadingAnchor),
+      selection.trailingAnchor.constraint(equalTo: bar.trailingAnchor),
+      selection.bottomAnchor.constraint(equalTo: bar.bottomAnchor),
+    ])
+    counutLabelView = selection.countLabel
   }
   
   func photoLibraryAuthorization(success: @escaping () -> Void, failed: @escaping () -> Void) {
@@ -175,17 +242,37 @@ class VideosViewController: UIViewController, UICollectionViewDelegate, UICollec
   
   func takeAssetsDataToModel() {
     guard let VideoAsset = VideoAsset else { return }
-    ImageManager.takeAllDataFromAssetFetchResult(fetchedResult: VideoAsset, mediaType: .video) { self.arrayOfVideos = $0; if $1 == true {
-      self.arrayOfVideos?.sort(by: { i1, i2 in i1.size > i2.size})
-      self.collectionView.reloadData()
-      //  self.activityView.isHidden = true
-    }
-      
-      self.duplicatesScreenShot.text = String(self.arrayOfVideos?.count ?? 0)
-      let totalSize = self.arrayOfVideos?.reduce(0) {$0 + $1.size}
-      self.saveSpaceUpto.text =  Formatter.humanReadableByteCount(bytes:  totalSize ?? 0 )
-      
-    }
+
+    let loading = CleanerScanLoadingView()
+    loading.configure(
+      title: "Loading videos",
+      detail: "Analyzing video file sizes. iCloud items may take longer."
+    )
+    loading.attach(to: navigationController?.view ?? view)
+    loading.setProgress(0, animated: false)
+
+    ImageManager.takeAllDataFromAssetFetchResult(
+      fetchedResult: VideoAsset,
+      mediaType: .video,
+      progress: { p in loading.setProgress(p) },
+      completion: { [weak self] data, isLast in
+        guard let self = self else {
+          if isLast { loading.dismiss() }
+          return
+        }
+        self.arrayOfVideos = data
+        if isLast {
+          self.arrayOfVideos?.sort(by: { i1, i2 in i1.size > i2.size })
+          self.collectionView.reloadData()
+        }
+        self.duplicatesScreenShot.text = String(self.arrayOfVideos?.count ?? 0)
+        let totalSize = self.arrayOfVideos?.reduce(0) { $0 + $1.size }
+        self.saveSpaceUpto.text = Formatter.humanReadableByteCount(bytes: totalSize ?? 0)
+        if isLast {
+          loading.dismiss()
+        }
+      }
+    )
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

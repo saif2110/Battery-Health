@@ -123,15 +123,82 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
   var screenshotAsset: PHFetchResult<PHAsset>?
   var arrayOfRemoveScreenshots: [ImageObject] = []
   var arrayOfScreenshots: [ImageObject]?
-  
+
+  private let detachedSaveLabel = UILabel()
+  private let detachedCountLabel = UILabel()
+  private let detachedSelectionLabel = UILabel()
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.collectionView.delegate = self
-    self.collectionView.dataSource = self
-    
+    view.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .clear
+    collectionView.layer.cornerRadius = 16
+    collectionView.layer.masksToBounds = true
+    collectionView.delegate = self
+    collectionView.dataSource = self
+
+    title = "Screenshots"
+    navigationItem.largeTitleDisplayMode = .never
+
+    installModernHeader()
+    installModernSelectionBar()
+
     photoLibraryAuthorization(success: { self.takeAssets() }, failed: { fatalError("You need to be authorized") })
-    self.updateButton()
+    updateButton()
+  }
+
+  private func installModernHeader() {
+    guard let headerView = saveSpaceUpto.superview else { return }
+    headerView.subviews.forEach { $0.removeFromSuperview() }
+    headerView.backgroundColor = .clear
+
+    if let h = headerView.constraints.first(where: { $0.firstAttribute == .height }) {
+      h.constant = 290
+    }
+
+    let card = CleanerHeaderCard(
+      icon: "camera.viewfinder",
+      accent: .systemBlue,
+      title: "Screenshot Cleaner",
+      countCaption: "Total Screenshots",
+      sizeCaption: "Save up to",
+      buttonTitle: "Remove All Screenshots",
+      helpText: "Above option will remove all the screenshots shown below",
+      onPrimary: { [weak self] in
+        guard let self = self else { return }
+        self.removeAll(self)
+      }
+    )
+    headerView.addSubview(card)
+    NSLayoutConstraint.activate([
+      card.topAnchor.constraint(equalTo: headerView.topAnchor),
+      card.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+      card.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+      card.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
+    ])
+
+    saveSpaceUpto = card.sizeLabel
+    duplicatesScreenShot = card.countLabel
+  }
+
+  private func installModernSelectionBar() {
+    guard let bar = counutLabelView.superview else { return }
+    bar.subviews.forEach { $0.removeFromSuperview() }
+    bar.backgroundColor = .clear
+
+    let selection = CleanerSelectionBar(
+      buttonTitle: "Delete Selected",
+      accent: .systemBlue,
+      onPrimary: { [weak self] in self?.removeAction() }
+    )
+    bar.addSubview(selection)
+    NSLayoutConstraint.activate([
+      selection.topAnchor.constraint(equalTo: bar.topAnchor),
+      selection.leadingAnchor.constraint(equalTo: bar.leadingAnchor),
+      selection.trailingAnchor.constraint(equalTo: bar.trailingAnchor),
+      selection.bottomAnchor.constraint(equalTo: bar.bottomAnchor),
+    ])
+    counutLabelView = selection.countLabel
   }
   
   func photoLibraryAuthorization(success: @escaping () -> Void, failed: @escaping () -> Void) {
@@ -164,19 +231,37 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
   
   func takeAssetsDataToModel() {
     guard let screenshotAsset = screenshotAsset else { return }
-    ImageManager.takeAllDataFromAssetFetchResult(fetchedResult: screenshotAsset, mediaType: .screenshots) { self.arrayOfScreenshots = $0; if $1 == true {
-      self.arrayOfScreenshots?.sort(by: { i1, i2 in i1.size > i2.size})
-      self.collectionView.reloadData()
-      //self.activityView.isHidden = true
-    }
-      
-      self.duplicatesScreenShot.text = String(self.arrayOfScreenshots?.count ?? 0)
-      let totalSize = self.arrayOfScreenshots?.reduce(0) {$0 + $1.size}
-      self.saveSpaceUpto.text =  Formatter.humanReadableByteCount(bytes:  totalSize ?? 0 )
-      
-    }
-    
-    
+
+    let loading = CleanerScanLoadingView()
+    loading.configure(
+      title: "Loading screenshots",
+      detail: "Reading sizes from your library. Please wait…"
+    )
+    loading.attach(to: navigationController?.view ?? view)
+    loading.setProgress(0, animated: false)
+
+    ImageManager.takeAllDataFromAssetFetchResult(
+      fetchedResult: screenshotAsset,
+      mediaType: .screenshots,
+      progress: { p in loading.setProgress(p) },
+      completion: { [weak self] data, isLast in
+        guard let self = self else {
+          if isLast { loading.dismiss() }
+          return
+        }
+        self.arrayOfScreenshots = data
+        if isLast {
+          self.arrayOfScreenshots?.sort(by: { i1, i2 in i1.size > i2.size })
+          self.collectionView.reloadData()
+        }
+        self.duplicatesScreenShot.text = String(self.arrayOfScreenshots?.count ?? 0)
+        let totalSize = self.arrayOfScreenshots?.reduce(0) { $0 + $1.size }
+        self.saveSpaceUpto.text = Formatter.humanReadableByteCount(bytes: totalSize ?? 0)
+        if isLast {
+          loading.dismiss()
+        }
+      }
+    )
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

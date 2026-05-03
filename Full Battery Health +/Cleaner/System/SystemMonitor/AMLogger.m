@@ -9,9 +9,6 @@
 //  Copyright (c) 2013 Arvydas Sidorenko
 //
 
-#import "DDASLLogger.h"
-#import "DDTTYLogger.h"
-#import "DDFileLogger.h"
 #import "AMLogger.h"
 
 /*
@@ -61,7 +58,7 @@
         [[self fileLogger] setMaximumFileSize:kLoggerMaxFileSize];
         [[self fileLogger] setRollingFrequency:kLoggerRollingFrequency];
         // Don't spam log file as it's for release builds only.
-        [DDLog addLogger:[self fileLogger] withLogLevel:LOG_LEVEL_WARN];
+        [DDLog addLogger:[self fileLogger] withLevel:DDLogLevelWarning];
     }
     return self;
 }

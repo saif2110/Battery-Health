@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.4.3)
+  - CocoaLumberjack (3.9.1):
+    - CocoaLumberjack/Core (= 3.9.1)
+  - CocoaLumberjack/Core (3.9.1)
   - InAppPurchase (2.3.1)
   - MBCircularProgressBar (0.3.5)
   - MeterGauge (0.0.6)
@@ -14,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.1)
+  - CocoaLumberjack (~> 3.8)
   - InAppPurchase
   - MBCircularProgressBar
   - MeterGauge
@@ -27,6 +31,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CocoaLumberjack
     - InAppPurchase
     - MBCircularProgressBar
     - MeterGauge
@@ -40,6 +45,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  CocoaLumberjack: e4ba3b414dfca8c1916c6303d37f63b3a95134c6
   InAppPurchase: 0a8e027080fb57556ca9e04768137d0d6971f87e
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MeterGauge: e3243120af0ca69f807e72d459707edc7d5447da
@@ -51,6 +57,6 @@ SPEC CHECKSUMS:
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   UserDefaultsStore: 2049df5d9096a43632c7ee2c3c2dbfe5c70d20ed
 
-PODFILE CHECKSUM: 778429a0da4c5b7d4abc82d3f4e509384b25ae08
+PODFILE CHECKSUM: 6f3f317f76d37622523ac99a1c5628b27c01d4fc
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2

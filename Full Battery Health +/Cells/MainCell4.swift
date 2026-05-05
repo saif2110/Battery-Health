@@ -13,8 +13,17 @@ class MainCell4: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        contentConfiguration = nil
+        backgroundConfiguration = nil
+        imageView?.image = nil
+    }
+
     @IBAction func TurningSwitch(_ sender: UISwitch) {
         
         if sender.tag == 1 {

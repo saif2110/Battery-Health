@@ -14,7 +14,8 @@ class MainCell3: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    
+    backgroundColor = .clear
+    contentView.backgroundColor = .clear
    
     NotificationCenter.default.addObserver(self, selector: #selector(Changed), name: Notification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"), object: nil)
     

@@ -16,11 +16,129 @@ import CoreLocation
 
 var info = BatteryInfo(id: 1, currentBatteryPercentage: 0, lastBatteryPercentage: 0, TimeStarted: 0, TimeEnded: 0)
 
+// MARK: - Battery Ring View (mirrors StorageRingView from CleanerViewController)
+
+private final class BatteryRingView: UIView {
+    private let trackRing = CAShapeLayer()
+    private let progressRing = CAShapeLayer()
+    private var trackColor: UIColor = .systemGray5
+    private var fillColor: UIColor = neonClr
+
+    var progress: CGFloat = 0 {
+        didSet { animateProgress() }
+    }
+
+    func setRingColor(_ color: UIColor) {
+        fillColor = color
+        progressRing.strokeColor = color.cgColor
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.addSublayer(trackRing)
+        layer.addSublayer(progressRing)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        layer.addSublayer(trackRing)
+        layer.addSublayer(progressRing)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        let radius = min(bounds.width, bounds.height) / 2 - 9
+        let start = -CGFloat.pi / 2
+        let path = UIBezierPath(arcCenter: center, radius: radius,
+                                startAngle: start, endAngle: start + 2 * .pi,
+                                clockwise: true).cgPath
+
+        trackRing.path = path
+        trackRing.fillColor = UIColor.clear.cgColor
+        trackRing.strokeColor = trackColor.cgColor
+        trackRing.lineWidth = 14
+        trackRing.lineCap = .round
+
+        progressRing.path = path
+        progressRing.fillColor = UIColor.clear.cgColor
+        progressRing.strokeColor = fillColor.cgColor
+        progressRing.lineWidth = 14
+        progressRing.lineCap = .round
+        progressRing.strokeEnd = progress
+    }
+
+    private func animateProgress() {
+        let anim = CABasicAnimation(keyPath: "strokeEnd")
+        anim.fromValue = progressRing.strokeEnd
+        anim.toValue = progress
+        anim.duration = 0.9
+        anim.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        anim.fillMode = .forwards
+        anim.isRemovedOnCompletion = false
+        progressRing.add(anim, forKey: "battProgress")
+        progressRing.strokeEnd = progress
+    }
+}
+
+/// Matches Cleaner cards + hero: `UIView` with `kChromeCornerRadius` and **continuous** corner curve.
+/// Bezier-path rounding looks different from `cornerCurve = .continuous` at the same pt value.
+private final class BatterySectionBackgroundView: UIView {
+  private let card = UIView()
+  private let maskedCorners: CACornerMask
+  private let horizontalInset: CGFloat
+
+  init(maskedCorners: CACornerMask, horizontalInset: CGFloat) {
+    self.maskedCorners = maskedCorners
+    self.horizontalInset = horizontalInset
+    super.init(frame: .zero)
+
+    backgroundColor = .clear
+    card.backgroundColor = .secondarySystemBackground
+    card.layer.cornerCurve = .continuous
+    card.clipsToBounds = true
+    addSubview(card)
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    card.frame = bounds.insetBy(dx: horizontalInset, dy: 0)
+
+    if maskedCorners.isEmpty {
+      card.layer.cornerRadius = 0
+      card.layer.maskedCorners = []
+    } else {
+      card.layer.cornerRadius = kChromeCornerRadius
+      card.layer.maskedCorners = maskedCorners
+    }
+  }
+}
+
 class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLLocationManagerDelegate
-  
+
+  private var chromeLayoutWidth: CGFloat = 0
+  /// Outer inset from screen edge for battery cards (matches hero `pad` and footers).
+  private let batteryCardHorizontalInset: CGFloat = 12
+  /// Inner padding from card edge to cell content.
+  private let batteryCardContentPadding: CGFloat = 10
+  /// Leading chrome size for table rows (smaller than Cleaner action cards).
+  private let tableSymbolPlate: CGFloat = 36
+  private weak var heroBatteryValueLabel: UILabel?
+  private weak var heroStateValueLabel: UILabel?
+  private weak var heroRingView: BatteryRingView?
+  private weak var heroPercentLabel: UILabel?
+  private weak var heroStateChipLabel: UILabel?
+  private weak var heroStateChipIcon: UIImageView?
+  private weak var heroStateChipIconChrome: UIView?
+  private weak var heroAlarmAtLabel: UILabel?
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if section == 0 {
-      return 2
+      return 0
     }else if section == 1 {
       return 1
     }
@@ -36,41 +154,121 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     return 1
   }
   
+  /// Inset-grouped section containers match the hero card radius.
+  private func applyInsetGroupedCellChrome(_ cell: UITableViewCell, verticalTop: CGFloat = 8, verticalBottom: CGFloat = 8) {
+    cell.backgroundConfiguration = .clear()
+    cell.backgroundColor = .clear
+    cell.contentView.backgroundColor = .clear
+    cell.backgroundView = nil
+    cell.selectedBackgroundView = nil
+
+    let horizontal = batteryCardHorizontalInset + batteryCardContentPadding
+    let margins = NSDirectionalEdgeInsets(top: verticalTop, leading: horizontal, bottom: verticalBottom, trailing: horizontal)
+    cell.preservesSuperviewLayoutMargins = false
+    cell.contentView.preservesSuperviewLayoutMargins = false
+    cell.directionalLayoutMargins = margins
+    cell.contentView.directionalLayoutMargins = margins
+  }
+
+  private func applyInsetGroupedSectionChrome(_ cell: UITableViewCell, at indexPath: IndexPath, in tableView: UITableView) {
+    let vt: CGFloat
+    let vb: CGFloat
+    if indexPath.section == 2 {
+      switch indexPath.row {
+      case 1: (vt, vb) = (4, 2)
+      case 2: (vt, vb) = (2, 8)
+      case 3: (vt, vb) = (2, 2)
+      default: (vt, vb) = (8, 8)
+      }
+    } else {
+      (vt, vb) = (8, 8)
+    }
+    applyInsetGroupedCellChrome(cell, verticalTop: vt, verticalBottom: vb)
+
+    let rowCount = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
+    let corners: CACornerMask
+    if rowCount == 1 {
+      corners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    } else if indexPath.row == 0 {
+      corners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    } else if indexPath.row == rowCount - 1 {
+      corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    } else {
+      corners = []
+    }
+
+    cell.backgroundView = makeBatterySectionBackground(maskedCorners: corners)
+  }
+
+  private func makeBatterySectionBackground(maskedCorners: CACornerMask) -> UIView {
+    BatterySectionBackgroundView(maskedCorners: maskedCorners, horizontalInset: batteryCardHorizontalInset)
+  }
+
+  private func cleanerChromeSymbolImage(symbolName: String, tint: UIColor) -> UIImage {
+    let plate = tableSymbolPlate
+    let plateCorner = max(8, kChromeCornerRadius * (plate / 48))
+    let cfg = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
+    guard let raw = UIImage(systemName: symbolName, withConfiguration: cfg) else {
+      return UIImage()
+    }
+    let symbolImage = raw.withTintColor(tint, renderingMode: .alwaysOriginal)
+    let format = UIGraphicsImageRendererFormat()
+    format.scale = UIScreen.main.scale
+    let renderer = UIGraphicsImageRenderer(size: CGSize(width: plate, height: plate), format: format)
+    return renderer.image { _ in
+      let bounds = CGRect(x: 0, y: 0, width: plate, height: plate)
+      let bg = UIBezierPath(roundedRect: bounds, cornerRadius: plateCorner)
+      tint.withAlphaComponent(0.12).setFill()
+      bg.fill()
+      let sz = symbolImage.size
+      let r = CGRect(
+        x: (plate - sz.width) / 2,
+        y: (plate - sz.height) / 2,
+        width: sz.width,
+        height: sz.height
+      )
+      symbolImage.draw(in: r)
+    }
+  }
+
+  private func applyValueListRow(_ cell: UITableViewCell, title: String, value: String?, symbolName: String, symbolTint: UIColor = neonClr) {
+    var content = UIListContentConfiguration.valueCell()
+    content.text = title
+    content.secondaryText = value
+    content.image = cleanerChromeSymbolImage(symbolName: symbolName, tint: symbolTint)
+    content.imageProperties.reservedLayoutSize = CGSize(width: tableSymbolPlate, height: tableSymbolPlate)
+    content.imageToTextPadding = 10
+    content.textProperties.font = .systemFont(ofSize: 15, weight: .regular)
+    content.secondaryTextProperties.font = .systemFont(ofSize: 17, weight: .medium)
+    content.secondaryTextProperties.color = .secondaryLabel
+    cell.contentConfiguration = content
+    cell.textLabel?.text = nil
+    cell.detailTextLabel?.text = nil
+    cell.imageView?.image = nil
+    applyInsetGroupedCellChrome(cell)
+  }
+
+  private func styleMainCell4Row(_ cell: MainCell4, title: String, symbolName: String, symbolTint: UIColor) {
+    cell.contentConfiguration = nil
+    cell.textLabel?.text = title
+    cell.textLabel?.font = .systemFont(ofSize: 15, weight: .regular)
+    cell.textLabel?.textColor = .label
+    cell.imageView?.image = cleanerChromeSymbolImage(symbolName: symbolName, tint: symbolTint)
+    cell.imageView?.clipsToBounds = false
+    cell.imageView?.layer.cornerRadius = 0
+    cell.imageView?.contentMode = .scaleAspectFit
+    applyInsetGroupedCellChrome(cell)
+  }
+
   //MARK: TableViewCell Setting
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     if indexPath.section == 0 {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
-      cell.selectionStyle = .none
-      cell.backgroundColor = .secondarySystemBackground
-      if indexPath.row == 1 {
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-      } else {
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-      }
-      cell.imageView?.clipsToBounds = true
-      cell.imageView?.layer.cornerRadius = 8
-      cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-      cell.detailTextLabel?.font = UIFont(name: "Arial", size: 15)
-      
-      if indexPath.row == 0 {
-        cell.imageView?.image = #imageLiteral(resourceName: "battery")
-        cell.detailTextLabel?.text = detailTextArray[indexPath.section][indexPath.row] + "%"
-      }else{
-        cell.imageView?.image = #imageLiteral(resourceName: "charging")
-        cell.detailTextLabel?.text = detailTextArray[indexPath.section][indexPath.row]
-      }
-      
-      cell.textLabel?.text = textLabelArray[indexPath.section][indexPath.row]
-      cell.accessoryType = .none
-      
-      return cell
-      
+      return UITableViewCell()
     }else if indexPath.section == 1 {
       let  cell = Bundle.main.loadNibNamed("SetBattery", owner: self, options: nil)?.first as! SetBattery
       cell.selectionStyle = .none
-      cell.backgroundColor = .secondarySystemBackground
-      cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+      applyInsetGroupedCellChrome(cell)
       cell.Note.text = "• When you’re recharging a phone, charge it to at least 20% or more before using it\n\n• Remove charger if your battery reaches 100% (Full Charge)."
 
       return cell
@@ -79,59 +277,31 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       if indexPath.row == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
         cell.selectionStyle = .none
-        cell.backgroundColor = .secondarySystemBackground
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        cell.textLabel?.font = UIFont(name: "Arial", size: 14)
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 15)
-        
-        cell.imageView?.image = #imageLiteral(resourceName: "ring")
-        cell.textLabel?.text = "Alarm Ringtone"
-        cell.detailTextLabel?.text = ""
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-        
+        applyValueListRow(cell, title: "Alarm Ringtone", value: nil, symbolName: "music.note.list", symbolTint: neonClr)
         return cell
         
       }else if indexPath.row == 1 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell2", for: indexPath) as! MainCell2
-        cell.backgroundColor = .secondarySystemBackground
+        applyInsetGroupedCellChrome(cell)
         cell.selectionStyle = .none
         
         return cell
       }else if indexPath.row == 2 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
         cell.selectionStyle = .none
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-        cell.selectionStyle = .none
-        cell.backgroundColor = .secondarySystemBackground
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 15)
-        
-        cell.imageView?.image = #imageLiteral(resourceName: "volume")
-        cell.textLabel?.text = "Alarm Volume"
-        cell.detailTextLabel?.text = volumePercentage
-        
+        applyValueListRow(cell, title: "Alarm Volume", value: volumePercentage, symbolName: "speaker.wave.3.fill", symbolTint: .systemOrange)
         return cell
         
       }else if indexPath.row == 3 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell3", for: indexPath) as! MainCell3
         cell.selectionStyle = .none
-        cell.backgroundColor = .secondarySystemBackground
+        applyInsetGroupedCellChrome(cell)
         return cell
         
       }else if indexPath.row == 4 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell4", for: indexPath) as! MainCell4
         cell.selectionStyle = .none
-        cell.backgroundColor = .secondarySystemBackground
-        cell.selectionStyle = .none
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        
-        cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-        cell.imageView?.image = #imageLiteral(resourceName: "vibe")
-        cell.textLabel?.text = "Alarm Vibration"
+        styleMainCell4Row(cell, title: "Alarm Vibration", symbolName: "iphone.radiowaves.left.and.right", symbolTint: neonClr)
         cell.turningSwitch.tag = 1
         
         if UserDefaults.standard.string(forKey: "vibration") != nil {
@@ -146,14 +316,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       }else if indexPath.row == 5 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell4", for: indexPath) as! MainCell4
         cell.selectionStyle = .none
-        cell.backgroundColor = .secondarySystemBackground
-        cell.selectionStyle = .none
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        
-        cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-        cell.imageView?.image = #imageLiteral(resourceName: "noti")
-        cell.textLabel?.text = "Alarm Notification"
+        styleMainCell4Row(cell, title: "Alarm Notification", symbolName: "bell.badge.fill", symbolTint: .systemRed)
         cell.turningSwitch.tag = 2
         
         if UserDefaults.standard.string(forKey: "notification") != nil {
@@ -173,27 +336,17 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       if indexPath.row == 0 {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell5", for: indexPath) as! MainCell5
-        cell.backgroundColor = .secondarySystemBackground
+        applyInsetGroupedCellChrome(cell)
         cell.selectionStyle = .none
         return cell
         
       }else{
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
-        cell.backgroundColor = .secondarySystemBackground
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 15)
-        if indexPath.row == 1 {
-          cell.imageView?.image = #imageLiteral(resourceName: "timeState")
-        }else if indexPath.row == 2 {
-          cell.imageView?.image = #imageLiteral(resourceName: "history")
-        }
-        
-        cell.detailTextLabel?.text = ""
-        cell.textLabel?.text = ChargingAnalysis[indexPath.row-1]
+        cell.selectionStyle = .default
+        let title = ChargingAnalysis[indexPath.row - 1]
+        let symbol = indexPath.row == 1 ? "list.bullet.rectangle.portrait" : "clock"
+        applyValueListRow(cell, title: title, value: nil, symbolName: symbol, symbolTint: indexPath.row == 1 ? .systemTeal : .systemBlue)
         cell.accessoryType = .disclosureIndicator
-        
         return cell
         
       }
@@ -202,14 +355,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       if indexPath.row == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell4", for: indexPath) as! MainCell4
         cell.selectionStyle = .none
-        cell.backgroundColor = .secondarySystemBackground
-        cell.selectionStyle = .none
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        
-        cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-        cell.imageView?.image = #imageLiteral(resourceName: "dim")
-        cell.textLabel?.text = "Always Dim  (Pro)"
+        styleMainCell4Row(cell, title: "Always Dim  (Pro)", symbolName: "moon.stars.fill", symbolTint: .systemIndigo)
         cell.turningSwitch.tag = 3
         
         if UserDefaults.standard.string(forKey: "dim") != nil {
@@ -225,14 +371,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       }else if indexPath.row == 1 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell4", for: indexPath) as! MainCell4
         cell.selectionStyle = .none
-        cell.backgroundColor = .secondarySystemBackground
-        cell.selectionStyle = .none
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        
-        cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-        cell.imageView?.image = #imageLiteral(resourceName: "UI")
-        cell.textLabel?.text = "Always Hide UI  (Pro)"
+        styleMainCell4Row(cell, title: "Always Hide UI  (Pro)", symbolName: "rectangle.slash", symbolTint: .systemCyan)
         cell.turningSwitch.tag = 4
         
         if UserDefaults.standard.string(forKey: "hideUI") != nil {
@@ -248,14 +387,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       }else if indexPath.row == 2 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell4", for: indexPath) as! MainCell4
         cell.selectionStyle = .none
-        cell.backgroundColor = .secondarySystemBackground
-        cell.selectionStyle = .none
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        
-        cell.textLabel?.font = UIFont(name: "Arial", size: 15.5)
-        cell.imageView?.image = #imageLiteral(resourceName: "background")
-        cell.textLabel?.text = UserDefaults.standard.string(forKey: "featureTitel") ?? "Alarm in lock  (Pro)"
+        styleMainCell4Row(cell, title: UserDefaults.standard.string(forKey: "featureTitel") ?? "Alarm in lock  (Pro)", symbolName: "lock.iphone", symbolTint: .systemBrown)
         cell.turningSwitch.tag = 5
         
         if UserDefaults.standard.string(forKey: "background") != nil {
@@ -271,18 +403,9 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       }else{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
-        cell.backgroundColor = .secondarySystemBackground
-        cell.imageView?.clipsToBounds = true
-        cell.imageView?.layer.cornerRadius = 8
-        cell.textLabel?.font = UIFont(name: "Arial", size: 13)
-        cell.textLabel?.minimumScaleFactor = 0.5
-        cell.textLabel?.clipsToBounds = true
-        cell.imageView?.image = #imageLiteral(resourceName: "auto")
-        
-        cell.textLabel?.text = "Auto Set Alarm When Charger Connected"
-        cell.detailTextLabel?.text = ""
+        cell.selectionStyle = .default
+        applyValueListRow(cell, title: "Auto Set Alarm", value: nil, symbolName: "bolt.horizontal.circle.fill", symbolTint: neonClr)
         cell.accessoryType = .disclosureIndicator
-        
         return cell
       }
     }
@@ -304,26 +427,36 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     if section == 0 {
       return 0
-    }else{
-      return 36
     }
-
+    return 32
   }
-  
+
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    let last = numberOfSections(in: tableView) - 1
+    if section == 0 || section == last {
+      return .leastNormalMagnitude
+    }
+    return 8
+  }
+
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.section == 0 {
-      return 50
-    }else if indexPath.section == 1 {
-      return 140
-    }else if indexPath.section == 3 {
+    if indexPath.section == 1 {
+      return 148
+    }
+    if indexPath.section == 2 {
+      switch indexPath.row {
+      case 1: return 44
+      case 3: return 38
+      default: break
+      }
+    }
+    if indexPath.section == 3 {
       if indexPath.row == 0 {
         return 125
-      }else{
-        return 50
       }
-    }else{
-      return 50
+      return 68
     }
+    return 68
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -331,19 +464,284 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     return headerView(label: HeaderString[section])
   }
   
-  func headerView(label:String) -> UIView {
-    let sectionHeader = UIView.init(frame: CGRect.init(x: 0, y: 0, width: myView.frame.width, height: 36))
-    sectionHeader.backgroundColor = .black
-    let sectionText = UILabel()
-    sectionText.frame = CGRect.init(x: 16, y: 8, width: sectionHeader.frame.width - 32, height: 22)
+  func headerView(label: String) -> UIView {
+    let w = max(myView.bounds.width, UIScreen.main.bounds.width)
+    let h: CGFloat = 32
+    let sectionHeader = UIView(frame: CGRect(x: 0, y: 0, width: w, height: h))
+    sectionHeader.backgroundColor = .clear
+    let side = batteryCardHorizontalInset + batteryCardContentPadding
+    let sectionText = UILabel(frame: CGRect(x: side, y: 0, width: w - 2 * side, height: h))
     sectionText.autoresizingMask = [.flexibleWidth]
-    sectionText.text = label
-    sectionText.font = .systemFont(ofSize: 14, weight: .bold) // my custom font
+    sectionText.text = label.uppercased(with: Locale.current)
+    sectionText.font = .systemFont(ofSize: 12, weight: .semibold)
     sectionText.textColor = neonClr
     sectionHeader.addSubview(sectionText)
     return sectionHeader
   }
-  
+
+  private func installBatteryHeroHeader() {
+    let w = max(view.bounds.width, UIScreen.main.bounds.width)
+    let pad = batteryCardHorizontalInset
+    let outer = UIView(frame: CGRect(x: 0, y: 0, width: w, height: 373))
+    outer.backgroundColor = .clear
+
+    var y: CGFloat = 4
+    let title = UILabel(frame: CGRect(x: pad, y: y, width: w - 2 * pad, height: 30))
+    title.font = .systemFont(ofSize: 28, weight: .bold)
+    title.textColor = .label
+    title.text = "Battery Alarm"
+    outer.addSubview(title)
+    y += 32
+
+    let subtitle = UILabel(frame: CGRect(x: pad, y: y, width: w - 2 * pad, height: 18))
+    subtitle.font = .systemFont(ofSize: 13, weight: .regular)
+    subtitle.textColor = .secondaryLabel
+    subtitle.numberOfLines = 1
+    subtitle.text = "Charge alerts, sounds & battery tools"
+    outer.addSubview(subtitle)
+    y = subtitle.frame.maxY + 12
+
+    // ── Hero card with circular battery ring ──────────
+    let cardW = w - 2 * pad
+    let card = UIView(frame: CGRect(x: pad, y: y, width: cardW, height: 303))
+    card.backgroundColor = .secondarySystemBackground
+    card.layer.cornerRadius = kChromeCornerRadius
+    card.layer.cornerCurve = .continuous
+    card.layer.shadowColor = UIColor.black.cgColor
+    card.layer.shadowOpacity = 0.08
+    card.layer.shadowOffset = CGSize(width: 0, height: 4)
+    card.layer.shadowRadius = 12
+    outer.addSubview(card)
+
+    // Ring (square gauge — width & height match)
+    let ringSize: CGFloat = 167
+    let ringTopPadding: CGFloat = 8
+    let ring = BatteryRingView(frame: CGRect(
+      x: (cardW - ringSize) / 2,
+      y: ringTopPadding,
+      width: ringSize,
+      height: ringSize
+    ))
+    card.addSubview(ring)
+    heroRingView = ring
+
+    // Big % centered slightly above ring centre
+    let percentHeight: CGFloat = 42
+    let percentLabel = UILabel(frame: CGRect(
+      x: ring.frame.minX,
+      y: ring.frame.midY - percentHeight / 2 - 4,
+      width: ringSize,
+      height: percentHeight
+    ))
+    percentLabel.font = .systemFont(ofSize: 32, weight: .bold)
+    percentLabel.textColor = .label
+    percentLabel.textAlignment = .center
+    percentLabel.adjustsFontSizeToFitWidth = true
+    percentLabel.minimumScaleFactor = 0.6
+    percentLabel.text = "0%"
+    card.addSubview(percentLabel)
+    heroPercentLabel = percentLabel
+
+    let captionLabel = UILabel(frame: CGRect(
+      x: ring.frame.minX,
+      y: percentLabel.frame.maxY,
+      width: ringSize,
+      height: 14
+    ))
+    captionLabel.font = .systemFont(ofSize: 11, weight: .medium)
+    captionLabel.textColor = .secondaryLabel
+    captionLabel.textAlignment = .center
+    captionLabel.text = "Battery"
+    card.addSubview(captionLabel)
+
+    // Stats strip below ring (2 cells: charging state, alarm threshold)
+    let gapBelowGauge: CGFloat = 6
+    let stripY: CGFloat = ring.frame.maxY + gapBelowGauge
+    let divider = UIView(frame: CGRect(x: 0, y: stripY, width: cardW, height: 0.5))
+    divider.backgroundColor = .separator
+    card.addSubview(divider)
+
+    let stripH: CGFloat = 103
+    let cellW = cardW / 2
+
+    let stateCell = makeBatteryStatCell(
+      frame: CGRect(x: 0, y: stripY, width: cellW, height: stripH),
+      iconName: "bolt.fill",
+      iconTint: neonClr,
+      caption: "Charging",
+      initialValue: "—"
+    )
+    card.addSubview(stateCell.cell)
+    heroStateChipIcon = stateCell.iconView
+    heroStateChipIconChrome = stateCell.iconChrome
+    heroStateChipLabel = stateCell.valueLabel
+    heroStateValueLabel = stateCell.valueLabel
+
+    let alarmCell = makeBatteryStatCell(
+      frame: CGRect(x: cellW, y: stripY, width: cellW, height: stripH),
+      iconName: "bell.badge.fill",
+      iconTint: .systemOrange,
+      caption: "Alarm at",
+      initialValue: "—"
+    )
+    card.addSubview(alarmCell.cell)
+    heroAlarmAtLabel = alarmCell.valueLabel
+
+    // Vertical separator between the 2 cells
+    let vDivider = UIView(frame: CGRect(x: cellW - 0.25, y: stripY + 6, width: 0.5, height: stripH - 12))
+    vDivider.backgroundColor = .separator
+    card.addSubview(vDivider)
+
+    let cardHeight = stripY + stripH + 4
+    card.frame.size.height = cardHeight
+    y += cardHeight + 4
+
+    outer.frame.size.height = y
+    myView.tableHeaderView = outer
+    refreshBatteryHeroLabels()
+  }
+
+  private func makeBatteryStatCell(frame: CGRect, iconName: String, iconTint: UIColor,
+                                   caption: String, initialValue: String)
+    -> (cell: UIView, iconView: UIImageView, valueLabel: UILabel, iconChrome: UIView) {
+    let cell = UIView(frame: frame)
+    cell.backgroundColor = .clear
+
+    let chromeSize: CGFloat = 40
+    let iconGlyph: CGFloat = 18
+    let chromeTop: CGFloat = 11
+    let iconChrome = UIView(frame: CGRect(
+      x: (frame.width - chromeSize) / 2,
+      y: chromeTop,
+      width: chromeSize,
+      height: chromeSize
+    ))
+    iconChrome.backgroundColor = iconTint.withAlphaComponent(0.12)
+    iconChrome.layer.cornerRadius = min(kChromeCornerRadius, chromeSize * 0.28)
+    iconChrome.layer.cornerCurve = .continuous
+    cell.addSubview(iconChrome)
+
+    let iconConfig = UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
+    let iconView = UIImageView(image: UIImage(systemName: iconName, withConfiguration: iconConfig))
+    iconView.tintColor = iconTint
+    iconView.contentMode = .scaleAspectFit
+    iconView.frame = CGRect(
+      x: (chromeSize - iconGlyph) / 2,
+      y: (chromeSize - iconGlyph) / 2,
+      width: iconGlyph,
+      height: iconGlyph
+    )
+    iconChrome.addSubview(iconView)
+
+    let captionToValueGap: CGFloat = 0
+
+    let captionLabel = UILabel(frame: CGRect(x: 4, y: iconChrome.frame.maxY + 4, width: frame.width - 8, height: 13))
+    captionLabel.text = caption
+    captionLabel.font = .systemFont(ofSize: 11, weight: .medium)
+    captionLabel.textColor = .secondaryLabel
+    captionLabel.textAlignment = .center
+    captionLabel.adjustsFontSizeToFitWidth = true
+    captionLabel.minimumScaleFactor = 0.85
+    cell.addSubview(captionLabel)
+
+    let valueTop = captionLabel.frame.maxY + captionToValueGap
+    let valueH = max(0, frame.height - valueTop)
+    let valueLabel = UILabel(frame: CGRect(x: 6, y: valueTop, width: frame.width - 12, height: valueH))
+    valueLabel.text = initialValue
+    valueLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+    valueLabel.textColor = .label
+    valueLabel.textAlignment = .center
+    valueLabel.adjustsFontSizeToFitWidth = true
+    valueLabel.minimumScaleFactor = 0.65
+    valueLabel.numberOfLines = 2
+    valueLabel.lineBreakMode = .byWordWrapping
+    cell.addSubview(valueLabel)
+
+    return (cell, iconView, valueLabel, iconChrome)
+  }
+
+  private func refreshBatteryHeroLabels() {
+    let pctString = getBatteyPercentage()
+    let pct = Int(pctString) ?? 0
+    let fraction = max(0, min(1, CGFloat(pct) / 100))
+    heroPercentLabel?.text = "\(pct)%"
+    heroBatteryValueLabel?.text = "\(pct)%"
+    heroRingView?.progress = fraction
+
+    // Tint the ring + state chip based on level/state.
+    let state = getBattryState()
+    let charging = state.lowercased().contains("charg") || state.lowercased().contains("full")
+    let lowBattery = pct <= 20 && !charging
+    let ringColor: UIColor
+    if charging { ringColor = neonClr }
+    else if lowBattery { ringColor = .systemRed }
+    else { ringColor = .systemBlue }
+    heroRingView?.setRingColor(ringColor)
+
+    heroStateChipLabel?.text = state
+    let chipTint = charging ? neonClr : (lowBattery ? .systemRed : .systemBlue)
+    heroStateChipIcon?.tintColor = chipTint
+    heroStateChipIconChrome?.backgroundColor = chipTint.withAlphaComponent(0.12)
+
+    let threshold = UserDefaults.standard.integer(forKey: "percentage")
+    heroAlarmAtLabel?.text = threshold > 0 ? "\(threshold)%" : "Not set"
+  }
+
+  private func installBatteryFooter() {
+    let w = max(view.bounds.width, UIScreen.main.bounds.width)
+    let pad = batteryCardHorizontalInset
+    let footerTopPadding: CGFloat = 16
+    let cardWidth = w - pad * 2
+    let copy = "Automatically set an alarm when the charger is connected. Tap the option above to enable this automation."
+    let font = UIFont.systemFont(ofSize: 13, weight: .regular)
+    let textRect = (copy as NSString).boundingRect(
+      with: CGSize(width: max(1, cardWidth - 28), height: .greatestFiniteMagnitude),
+      options: [.usesLineFragmentOrigin, .usesFontLeading],
+      attributes: [.font: font],
+      context: nil
+    )
+    let textH = ceil(textRect.height)
+    let cardH = min(160, max(72, textH + 28))
+    let outerH = cardH + 24 + footerTopPadding
+    let outer = UIView(frame: CGRect(x: 0, y: 0, width: w, height: outerH))
+    outer.backgroundColor = .clear
+    let cardShell = UIView(frame: CGRect(x: pad, y: footerTopPadding, width: cardWidth, height: cardH))
+    cardShell.backgroundColor = .secondarySystemBackground
+    cardShell.layer.cornerRadius = kChromeCornerRadius
+    cardShell.layer.cornerCurve = .continuous
+    cardShell.layer.shadowColor = UIColor.black.cgColor
+    cardShell.layer.shadowOpacity = 0.08
+    cardShell.layer.shadowOffset = CGSize(width: 0, height: 4)
+    cardShell.layer.shadowRadius = 12
+    let label = UILabel(frame: CGRect(x: 14, y: 14, width: cardShell.bounds.width - 28, height: cardShell.bounds.height - 28))
+    label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    label.text = copy
+    label.font = font
+    label.textColor = .secondaryLabel
+    label.numberOfLines = 0
+    cardShell.addSubview(label)
+    outer.addSubview(cardShell)
+    myView.tableFooterView = outer
+  }
+
+  private func ensureBatteryChromeLayout() {
+    let w = myView.bounds.width
+    guard w > 0 else { return }
+    if abs(w - chromeLayoutWidth) < 0.5 { return }
+    chromeLayoutWidth = w
+    installBatteryHeroHeader()
+    installBatteryFooter()
+  }
+
+  private func styleBottomChromeLabels() {
+    for sub in ButtonView.subviews {
+      guard let label = sub as? UILabel else { continue }
+      label.font = .preferredFont(forTextStyle: .footnote)
+      label.textColor = .secondaryLabel
+      label.numberOfLines = 0
+    }
+  }
+
   @IBOutlet weak var myView: UITableView!
   
   @IBOutlet weak var ButtonView: UIView!
@@ -389,7 +787,13 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       UIApplication.shared.open(URL(string: "https://www.youtube.com/watch?v=cWbpY7vcW68")!, completionHandler: nil)
     }
   }
-  
+
+  /// Re-apply after the system finishes grouped styling so section corners match the hero card.
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    guard indexPath.section >= 1 else { return }
+    applyInsetGroupedSectionChrome(cell, at: indexPath, in: tableView)
+  }
+
   //MARK: viewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -414,10 +818,24 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     
     batterytestOutlet.tintColor = neonClr
 
-    ButtonView.layer.cornerRadius = 20
+    view.backgroundColor = .systemGroupedBackground
+    myView.backgroundColor = .systemGroupedBackground
+    myView.separatorStyle = .none
+    myView.showsVerticalScrollIndicator = true
+    if #available(iOS 15.0, *) {
+      myView.sectionHeaderTopPadding = 20
+    }
+
+    ButtonView.backgroundColor = .secondarySystemBackground
+    ButtonView.layer.cornerRadius = kChromeCornerRadius
     ButtonView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    ButtonView.layer.cornerCurve = .continuous
+    ButtonView.layer.shadowColor = UIColor.black.cgColor
+    ButtonView.layer.shadowOpacity = 0.08
+    ButtonView.layer.shadowOffset = CGSize(width: 0, height: -4)
+    ButtonView.layer.shadowRadius = 12
     ButtonView.shadow2()
-    
+
     let volumeView = MPVolumeView(frame: .null)
     view.addSubview(volumeView)
     
@@ -447,21 +865,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     let mySound = Sound(url: Bundle.main.url(forResource: "bell", withExtension: "mp3")!)
     mySound?.play()
     mySound?.stop()
-    
-    
-    let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: 120))
-    view.backgroundColor = .black
-    let sectionText = UILabel()
-    sectionText.frame = CGRect.init(x: 0, y: 0, width: view.frame.width, height: 70)
-    sectionText.text = "Automatically open app & set alarm as soon as you connect charger to the phone (Click on above option)"
-    sectionText.textAlignment = .center
-    sectionText.minimumScaleFactor = 0.5
-    sectionText.numberOfLines = 0
-    sectionText.font = .systemFont(ofSize: 11.5, weight: .regular) // my custom font
-    sectionText.textColor = .lightGray
-    view.addSubview(sectionText)
-    self.myView.tableFooterView = view
-    
+
     let iap = InAppPurchase.default
     iap.set(shouldAddStorePaymentHandler: { (product) -> Bool in
       return true
@@ -475,12 +879,17 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     })
     
     
-    stateofBattery()
-    
     self.myView.delegate = self
     self.myView.dataSource = self
+
+    installBatteryHeroHeader()
+    installBatteryFooter()
+    chromeLayoutWidth = myView.bounds.width
+
+    stateofBattery()
+    styleBottomChromeLabels()
     self.myView.reloadData()
-    
+
     DispatchQueue.main.async {
       if !UserDefaults.standard.bool(forKey: "pro") && UserDefaults.standard.integer(forKey: "AppLaunch") > 1{
         let vc = InAppVC()
@@ -508,6 +917,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     updateMainTableBottomInset()
+    ensureBatteryChromeLayout()
   }
 
   /// Extra bottom inset so the last rows can scroll clear of the tab bar (and home indicator).
@@ -599,44 +1009,48 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     }
     
     stateofBattery()
-    
-    self.myView.delegate = self
-    self.myView.dataSource = self
+
     self.myView.reloadData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.navigationController?.navigationBar.prefersLargeTitles = true
-    self.navigationItem.largeTitleDisplayMode = .always
+    navigationController?.navigationBar.prefersLargeTitles = false
+    navigationItem.largeTitleDisplayMode = .never
+    navigationItem.title = nil
+    navigationItem.titleView = UIView()
     if UserDefaults.standard.bool(forKey: "pro"){
       self.navigationItem.leftBarButtonItem = nil
     }
   }
   
   
-  func stateofBattery(){
-    if (UIDevice.current.batteryState == .charging) {
-      setAlaram.backgroundColor = neonClr
-      setAlaram.isEnabled = true
-      setAlaram.setTitle("Set Alarm", for: .normal)
-      
-    }else if (UIDevice.current.batteryState == .unplugged) {
-      setAlaram.backgroundColor = diableClr
-      setAlaram.isEnabled = false
-      setAlaram.setTitle("Connect Charger", for: .normal)
-      
-    }else if (UIDevice.current.batteryState == .full) {
-      setAlaram.backgroundColor = diableClr
-      setAlaram.isEnabled = false
-      setAlaram.setTitle("Connect Charger", for: .normal)
-      
-    }else{
-      setAlaram.backgroundColor = diableClr
-      setAlaram.isEnabled = false
-      setAlaram.setTitle("Connect Charger", for: .normal)
+  func stateofBattery() {
+    refreshBatteryHeroLabels()
+
+    var cfg = UIButton.Configuration.filled()
+    cfg.cornerStyle = .large
+    cfg.buttonSize = .large
+    cfg.background.cornerRadius = kChromeCornerRadius
+    cfg.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+      var o = incoming
+      o.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+      return o
     }
-    
+
+    switch UIDevice.current.batteryState {
+    case .charging:
+      cfg.title = "Set Alarm"
+      cfg.baseForegroundColor = .white
+      cfg.baseBackgroundColor = neonClr
+      setAlaram.isEnabled = true
+    default:
+      cfg.title = "Connect Charger"
+      cfg.baseForegroundColor = .white
+      cfg.baseBackgroundColor = diableClr
+      setAlaram.isEnabled = false
+    }
+    setAlaram.configuration = cfg
   }
   
 }

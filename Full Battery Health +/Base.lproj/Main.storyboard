@@ -893,7 +893,7 @@
             </objects>
             <point key="canvasLocation" x="-3512" y="37"/>
         </scene>
-        <!--Battery Health-->
+        <!--Battery Alarm-->
         <scene sceneID="Z9v-QM-0X9">
             <objects>
                 <viewController storyboardIdentifier="MainVC" id="D6h-gO-D6G" customClass="MainVC" customModule="Full_Battery_Health" customModuleProvider="target" sceneMemberID="viewController">
@@ -901,26 +901,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="629"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S5j-NG-dUW">
-                                <rect key="frame" x="0.0" y="10" width="414" height="510"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S5j-NG-dUW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="520"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell" textLabel="5HZ-9i-vvh" detailTextLabel="phR-RZ-VHe" rowHeight="67" style="IBUITableViewCellStyleValue1" id="cE0-dh-vra" customClass="MainCell" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell" textLabel="5HZ-9i-vvh" detailTextLabel="phR-RZ-VHe" rowHeight="55" style="IBUITableViewCellStyleValue1" id="cE0-dh-vra" customClass="MainCell" customModule="Full_Battery_Health" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cE0-dh-vra" id="2kf-ko-rdZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5HZ-9i-vvh">
-                                                    <rect key="frame" x="20" y="24" width="33" height="20.5"/>
+                                                    <rect key="frame" x="20" y="18" width="33" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="phR-RZ-VHe">
-                                                    <rect key="frame" x="350" y="24" width="44" height="20.5"/>
+                                                    <rect key="frame" x="350" y="18" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -929,17 +929,17 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell2" rowHeight="85" id="2JI-bJ-hgF" customClass="MainCell2" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="117" width="414" height="85"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell2" rowHeight="65" id="2JI-bJ-hgF" customClass="MainCell2" customModule="Full_Battery_Health" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="105" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2JI-bJ-hgF" id="oPe-8k-JDO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DO0-al-gBg">
-                                                    <rect key="frame" x="8" y="0.0" width="398" height="36"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DO0-al-gBg">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="41"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="bCN-x5-GAT"/>
+                                                        <constraint firstAttribute="height" constant="40" id="bCN-x5-GAT"/>
                                                     </constraints>
                                                     <segments>
                                                         <segment title="Bell"/>
@@ -952,24 +952,24 @@
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DO0-al-gBg" firstAttribute="top" secondItem="oPe-8k-JDO" secondAttribute="top" id="339-4I-ACE"/>
-                                                <constraint firstItem="DO0-al-gBg" firstAttribute="leading" secondItem="oPe-8k-JDO" secondAttribute="leading" constant="8" id="BJO-7m-TiS"/>
-                                                <constraint firstAttribute="trailing" secondItem="DO0-al-gBg" secondAttribute="trailing" constant="8" id="OCZ-rM-nbd"/>
+                                                <constraint firstItem="DO0-al-gBg" firstAttribute="top" secondItem="oPe-8k-JDO" secondAttribute="top" id="6g1-Im-StN"/>
+                                                <constraint firstItem="DO0-al-gBg" firstAttribute="leading" secondItem="oPe-8k-JDO" secondAttribute="leadingMargin" id="BJO-7m-TiS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DO0-al-gBg" secondAttribute="trailing" id="OCZ-rM-nbd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="soundSegment" destination="DO0-al-gBg" id="Wu4-q6-GOg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell3" rowHeight="67" id="h8V-07-y5G" customClass="MainCell3" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="202" width="414" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell3" rowHeight="30" id="h8V-07-y5G" customClass="MainCell3" customModule="Full_Battery_Health" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="170" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h8V-07-y5G" id="wta-Tu-z2D">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EEg-C6-lt6">
-                                                    <rect key="frame" x="20" y="15" width="374" height="34"/>
+                                                    <rect key="frame" x="28" y="0.0" width="358" height="34"/>
                                                     <color key="tintColor" red="0.4682161212" green="0.74420207739999999" blue="0.27869808670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="sliderAction:" destination="h8V-07-y5G" eventType="valueChanged" id="APL-CU-Dgu"/>
@@ -977,25 +977,24 @@
                                                 </slider>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="EEg-C6-lt6" firstAttribute="leading" secondItem="wta-Tu-z2D" secondAttribute="leading" constant="20" id="I0p-4L-82s"/>
-                                                <constraint firstAttribute="trailing" secondItem="EEg-C6-lt6" secondAttribute="trailing" constant="20" id="UvN-kE-BqR"/>
-                                                <constraint firstItem="EEg-C6-lt6" firstAttribute="top" secondItem="wta-Tu-z2D" secondAttribute="topMargin" id="cYL-go-2Ge"/>
-                                                <constraint firstItem="EEg-C6-lt6" firstAttribute="centerX" secondItem="wta-Tu-z2D" secondAttribute="centerX" id="ehf-eh-qmN"/>
+                                                <constraint firstItem="EEg-C6-lt6" firstAttribute="leading" secondItem="wta-Tu-z2D" secondAttribute="leadingMargin" constant="8" id="I0p-4L-82s"/>
+                                                <constraint firstItem="EEg-C6-lt6" firstAttribute="top" secondItem="wta-Tu-z2D" secondAttribute="top" id="KJu-gg-r55"/>
+                                                <constraint firstItem="EEg-C6-lt6" firstAttribute="trailing" secondItem="wta-Tu-z2D" secondAttribute="trailingMargin" constant="-8" id="UvN-kE-BqR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="slider" destination="EEg-C6-lt6" id="vR7-lA-KCS"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell4" rowHeight="67" id="2KL-bn-eOY" customClass="MainCell4" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="269" width="414" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell4" rowHeight="55" id="2KL-bn-eOY" customClass="MainCell4" customModule="Full_Battery_Health" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="200" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2KL-bn-eOY" id="JlL-TN-Crf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="On / Off" translatesAutoresizingMaskIntoConstraints="NO" id="5dt-uz-hJf">
-                                                    <rect key="frame" x="333" y="19.5" width="63" height="28"/>
+                                                    <rect key="frame" x="333" y="13.5" width="63" height="28"/>
                                                     <color key="onTintColor" red="0.4682161212" green="0.74420207739999999" blue="0.27869808670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="TurningSwitch:" destination="2KL-bn-eOY" eventType="valueChanged" id="vxd-fj-L45"/>
@@ -1012,7 +1011,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell5" rowHeight="125" id="9Y8-ht-x0a" customClass="MainCell5" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="336" width="414" height="125"/>
+                                        <rect key="frame" x="0.0" y="255" width="414" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Y8-ht-x0a" id="Llf-Fd-yS9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
@@ -1085,9 +1084,9 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YqS-TE-xmX"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="S5j-NG-dUW" firstAttribute="top" secondItem="3qr-fv-atE" secondAttribute="top" constant="10" id="DWe-p9-f67"/>
+                            <constraint firstItem="S5j-NG-dUW" firstAttribute="top" secondItem="YqS-TE-xmX" secondAttribute="top" id="DWe-p9-f67"/>
                             <constraint firstItem="S5j-NG-dUW" firstAttribute="trailing" secondItem="YqS-TE-xmX" secondAttribute="trailing" id="OCI-xd-QDz"/>
                             <constraint firstItem="S5j-NG-dUW" firstAttribute="leading" secondItem="YqS-TE-xmX" secondAttribute="leading" id="QWa-oL-NO2"/>
                             <constraint firstItem="xdU-Ls-R3e" firstAttribute="leading" secondItem="YqS-TE-xmX" secondAttribute="leading" id="RjJ-l4-aoJ"/>
@@ -1097,7 +1096,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Battery Alarm" image="Battery_icon" id="pd7-7G-7S8"/>
-                    <navigationItem key="navigationItem" title="Battery Health" id="ASM-hu-6jb">
+                    <navigationItem key="navigationItem" title="Battery Alarm" id="ASM-hu-6jb">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="pro1" id="Dio-1B-rwu">
                             <color key="tintColor" red="0.53333333333333333" green="0.69803921568627447" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -1176,7 +1175,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1DR-hR-LCf">
-                                <rect key="frame" x="0.0" y="256" width="414" height="640"/>
+                                <rect key="frame" x="0.0" y="256" width="414" height="572"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BatteryStateCell" textLabel="C7j-yn-EXU" detailTextLabel="dRF-VU-qGN" imageView="3Ky-aE-iea" rowHeight="72" style="IBUITableViewCellStyleSubtitle" id="9ay-jb-Mpb" customClass="BatteryStateCell" customModule="Full_Battery_Health" customModuleProvider="target">
@@ -2032,7 +2031,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CPA-cP-8pV">
-                                <rect key="frame" x="0.0" y="279" width="414" height="500"/>
+                                <rect key="frame" x="0.0" y="267" width="414" height="432"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VNi-zk-Bbz">
                                     <size key="itemSize" width="160" height="230"/>
@@ -2091,10 +2090,10 @@
                                 </cells>
                             </collectionView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="to3-31-RoK">
-                                <rect key="frame" x="16" y="703" width="382" height="60"/>
+                                <rect key="frame" x="10" y="699" width="394" height="64"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIq-bu-g0V" customClass="DesignableUIView" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="1" width="366" height="58"/>
+                                        <rect key="frame" x="4" y="3" width="386" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4g-8U-NwW">
                                                 <rect key="frame" x="14" y="10" width="10.5" height="21"/>
@@ -2103,7 +2102,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove selected" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4W-dg-kwI">
-                                                <rect key="frame" x="235.5" y="0.0" width="116.5" height="58"/>
+                                                <rect key="frame" x="255.5" y="0.0" width="116.5" height="58"/>
                                                 <fontDescription key="fontDescription" name="Exo2-SemiBold" family="Exo 2" pointSize="15"/>
                                                 <color key="textColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2115,7 +2114,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-hi-6j5">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="58"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="386" height="58"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title=" "/>
                                                 <connections>
@@ -2299,7 +2298,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bOQ-lq-bKk">
-                                <rect key="frame" x="0.0" y="279" width="414" height="500"/>
+                                <rect key="frame" x="0.0" y="267" width="414" height="432"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nJ9-8l-c9x">
                                     <size key="itemSize" width="160" height="230"/>
@@ -2358,10 +2357,10 @@
                                 </cells>
                             </collectionView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MuQ-hy-DH8">
-                                <rect key="frame" x="16" y="703" width="382" height="60"/>
+                                <rect key="frame" x="10" y="699" width="394" height="64"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2DE-sf-tuo" customClass="DesignableUIView" customModule="Full_Battery_Health" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="1" width="366" height="58"/>
+                                        <rect key="frame" x="4" y="3" width="386" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGj-lr-7d0">
                                                 <rect key="frame" x="14" y="10" width="10.5" height="21"/>
@@ -2370,7 +2369,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove selected" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2e-ET-b9k">
-                                                <rect key="frame" x="235.5" y="0.0" width="116.5" height="58"/>
+                                                <rect key="frame" x="255.5" y="0.0" width="116.5" height="58"/>
                                                 <fontDescription key="fontDescription" name="Exo2-SemiBold" family="Exo 2" pointSize="15"/>
                                                 <color key="textColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2382,7 +2381,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wR7-ep-Phq">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="58"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="386" height="58"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title=" "/>
                                                 <connections>

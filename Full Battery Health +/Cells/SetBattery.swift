@@ -13,6 +13,15 @@ class SetBattery: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .clear
+        contentView.backgroundColor = .secondarySystemBackground
+        percentageSegment.selectedSegmentTintColor = neonClr
+        percentageSegment.backgroundColor = .tertiarySystemFill
+        let segFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        percentageSegment.setTitleTextAttributes([.font: segFont], for: .normal)
+        percentageSegment.setTitleTextAttributes([.font: segFont], for: .selected)
+        Note.font = .preferredFont(forTextStyle: .footnote)
+        Note.textColor = .secondaryLabel
         if UserDefaults.standard.integer(forKey: "percentage") != 0 {
             if UserDefaults.standard.integer(forKey: "percentage") == 80{
                 percentageSegment.selectedSegmentIndex = 0

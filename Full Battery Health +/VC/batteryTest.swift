@@ -44,7 +44,7 @@ class batteryTest: UIViewController {
     
     override func viewDidLoad() {
         note.clipsToBounds = true
-        note.layer.cornerRadius = 8
+        note.layer.cornerRadius = kChromeCornerRadius
         noteLabel.textColor = .white
         
         
@@ -56,7 +56,7 @@ class batteryTest: UIViewController {
         stepsLabel.text = arraySteps[0]
         stepsLabel.textColor = neonClr
         
-        ResultBox.layer.cornerRadius = 8
+        ResultBox.layer.cornerRadius = kChromeCornerRadius
         ResultBox.shadow2()
         
     }

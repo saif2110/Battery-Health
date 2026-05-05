@@ -35,7 +35,7 @@ final class DublicateCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         keeperRing.frame = contentView.bounds
         keeperRing.path = UIBezierPath(roundedRect: contentView.bounds.insetBy(dx: 1.5, dy: 1.5),
-                                       cornerRadius: 8).cgPath
+                                       cornerRadius: kChromeCornerRadius).cgPath
     }
 
     private func setupOverlay() {

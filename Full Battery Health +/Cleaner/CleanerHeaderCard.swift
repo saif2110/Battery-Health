@@ -47,7 +47,7 @@ final class CleanerHeaderCard: UIView {
         backgroundColor = .clear
 
         card.backgroundColor = .secondarySystemBackground
-        card.layer.cornerRadius = 20
+        card.layer.cornerRadius = kChromeCornerRadius
         card.layer.cornerCurve = .continuous
         card.layer.shadowColor = UIColor.black.cgColor
         card.layer.shadowOpacity = 0.08
@@ -59,7 +59,7 @@ final class CleanerHeaderCard: UIView {
         // Icon badge
         let iconBg = UIView()
         iconBg.backgroundColor = accent.withAlphaComponent(0.12)
-        iconBg.layer.cornerRadius = 12
+        iconBg.layer.cornerRadius = kChromeCornerRadius
         iconBg.layer.cornerCurve = .continuous
         iconBg.translatesAutoresizingMaskIntoConstraints = false
 
@@ -97,7 +97,7 @@ final class CleanerHeaderCard: UIView {
         primaryButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         primaryButton.setTitleColor(.white, for: .normal)
         primaryButton.backgroundColor = accent
-        primaryButton.layer.cornerRadius = 14
+        primaryButton.layer.cornerRadius = kChromeCornerRadius
         primaryButton.layer.cornerCurve = .continuous
         primaryButton.translatesAutoresizingMaskIntoConstraints = false
         primaryButton.addTarget(self, action: #selector(primaryTapped), for: .touchUpInside)
@@ -162,7 +162,7 @@ final class CleanerHeaderCard: UIView {
                           captionText: String, accent: UIColor) -> UIView {
         let cell = UIView()
         cell.backgroundColor = UIColor.tertiarySystemBackground
-        cell.layer.cornerRadius = 14
+        cell.layer.cornerRadius = kChromeCornerRadius
         cell.layer.cornerCurve = .continuous
         cell.translatesAutoresizingMaskIntoConstraints = false
 
@@ -217,7 +217,7 @@ final class CleanerSelectionBar: UIView {
     private func build(buttonTitle: String, accent: UIColor) {
         let card = UIView()
         card.backgroundColor = .secondarySystemBackground
-        card.layer.cornerRadius = 16
+        card.layer.cornerRadius = kChromeCornerRadius
         card.layer.cornerCurve = .continuous
         card.layer.shadowColor = UIColor.black.cgColor
         card.layer.shadowOpacity = 0.10
@@ -229,7 +229,7 @@ final class CleanerSelectionBar: UIView {
         // Selection badge
         let badge = UIView()
         badge.backgroundColor = accent.withAlphaComponent(0.15)
-        badge.layer.cornerRadius = 11
+        badge.layer.cornerRadius = kChromeCornerRadius
         badge.layer.cornerCurve = .continuous
         badge.translatesAutoresizingMaskIntoConstraints = false
 
@@ -258,7 +258,7 @@ final class CleanerSelectionBar: UIView {
         deleteConfig.baseBackgroundColor = .systemRed
         deleteConfig.baseForegroundColor = .white
         deleteConfig.cornerStyle = .fixed
-        deleteConfig.background.cornerRadius = 10
+        deleteConfig.background.cornerRadius = kChromeCornerRadius
         let trashImage = UIImage(systemName: "trash", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12, weight: .semibold))
         deleteConfig.image = trashImage
         deleteConfig.title = buttonTitle

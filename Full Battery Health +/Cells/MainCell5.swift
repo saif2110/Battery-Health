@@ -13,6 +13,10 @@ class MainCell5: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 12, weight: .regular)
         label.text =  "• Charging History - Charging history will display 30 days charging state of your phone. It may help you to learn about battery charge and battery discharge rate.\n\n• Charger Time State - Charger Time State will help to understand how many percentage of battery charge on particular time. It may help you understand battery charging speed."
     }
 

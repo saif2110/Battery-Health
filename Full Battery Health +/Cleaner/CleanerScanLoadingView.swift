@@ -17,7 +17,7 @@ final class CleanerScanLoadingView: UIView {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = UIColor.secondarySystemGroupedBackground
-        v.layer.cornerRadius = 20
+        v.layer.cornerRadius = kChromeCornerRadius
         v.layer.cornerCurve = .continuous
         v.layer.shadowColor = UIColor.black.cgColor
         v.layer.shadowOpacity = 0.12

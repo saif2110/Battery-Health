@@ -17,6 +17,12 @@ import AppTrackingTransparency
 let neonClr = #colorLiteral(red: 0.4682161212, green: 0.7442020774, blue: 0.2786980867, alpha: 1)
 let diableClr = #colorLiteral(red: 0.1784194794, green: 0.1792542546, blue: 0.1919928113, alpha: 1)
 
+/// Shared card chrome corner radius (Cleaner + Battery Alarm hero/footer/buttons).
+let kChromeCornerRadius: CGFloat = 12
+
+/// Slightly smaller radius for inset-grouped table rows (Battery Alarm list).
+let kInsetGroupedListCornerRadius: CGFloat = 10
+
 func getBattryState() -> String {
      UIDevice.current.isBatteryMonitoringEnabled = true
     if (UIDevice.current.batteryState == .charging) {

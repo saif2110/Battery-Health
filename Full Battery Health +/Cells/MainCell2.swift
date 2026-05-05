@@ -18,6 +18,13 @@ class MainCell2: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        soundSegment.selectedSegmentTintColor = neonClr
+        soundSegment.backgroundColor = .tertiarySystemFill
+        let segFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        soundSegment.setTitleTextAttributes([.font: segFont], for: .normal)
+        soundSegment.setTitleTextAttributes([.font: segFont], for: .selected)
         if UserDefaults.standard.string(forKey: "ring") != nil {
             if UserDefaults.standard.string(forKey: "ring") == "bell"{
                 soundSegment.selectedSegmentIndex = 0

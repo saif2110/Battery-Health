@@ -67,7 +67,7 @@ final class DublicatesTableViewCell: UITableViewCell, UICollectionViewDataSource
         // ── Card ──────────────────────────────────────────
         let card = UIView()
         card.backgroundColor = .secondarySystemBackground
-        card.layer.cornerRadius = 24
+        card.layer.cornerRadius = kChromeCornerRadius
         card.layer.cornerCurve = .continuous
         card.layer.shadowColor = UIColor.black.cgColor
         card.layer.shadowOpacity = 0.10
@@ -83,7 +83,7 @@ final class DublicatesTableViewCell: UITableViewCell, UICollectionViewDataSource
         groupLabel.translatesAutoresizingMaskIntoConstraints = false
 
         savingsPill.backgroundColor = accent.withAlphaComponent(0.15)
-        savingsPill.layer.cornerRadius = 12
+        savingsPill.layer.cornerRadius = kChromeCornerRadius
         savingsPill.layer.cornerCurve = .continuous
         savingsPill.translatesAutoresizingMaskIntoConstraints = false
 
@@ -118,7 +118,7 @@ final class DublicatesTableViewCell: UITableViewCell, UICollectionViewDataSource
         let hero = UIImageView()
         hero.contentMode = .scaleAspectFill
         hero.clipsToBounds = true
-        hero.layer.cornerRadius = 18
+        hero.layer.cornerRadius = kChromeCornerRadius
         hero.layer.cornerCurve = .continuous
         hero.backgroundColor = .tertiarySystemBackground
         hero.translatesAutoresizingMaskIntoConstraints = false
@@ -126,7 +126,7 @@ final class DublicatesTableViewCell: UITableViewCell, UICollectionViewDataSource
 
         // ── Keeper badge overlay on hero (bottom-left) ──
         keeperBadge.backgroundColor = accent
-        keeperBadge.layer.cornerRadius = 16
+        keeperBadge.layer.cornerRadius = kChromeCornerRadius
         keeperBadge.layer.cornerCurve = .continuous
         keeperBadge.layer.shadowColor = UIColor.black.cgColor
         keeperBadge.layer.shadowOpacity = 0.20
@@ -174,7 +174,7 @@ final class DublicatesTableViewCell: UITableViewCell, UICollectionViewDataSource
         keepButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         keepButton.setTitleColor(.white, for: .normal)
         keepButton.backgroundColor = accent
-        keepButton.layer.cornerRadius = 14
+        keepButton.layer.cornerRadius = kChromeCornerRadius
         keepButton.layer.cornerCurve = .continuous
         keepButton.translatesAutoresizingMaskIntoConstraints = false
         keepButton.addTarget(self, action: #selector(saveThisAction), for: .touchUpInside)

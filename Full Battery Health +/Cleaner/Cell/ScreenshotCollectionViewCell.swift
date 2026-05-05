@@ -50,7 +50,7 @@ final class ScreenshotCollectionViewCell: UICollectionViewCell {
 
         // ── Card ──────────────────────────────────────────
         card.backgroundColor = .secondarySystemBackground
-        card.layer.cornerRadius = 20
+        card.layer.cornerRadius = kChromeCornerRadius
         card.layer.cornerCurve = .continuous
         card.layer.shadowColor = UIColor.black.cgColor
         card.layer.shadowOpacity = 0.08
@@ -62,7 +62,7 @@ final class ScreenshotCollectionViewCell: UICollectionViewCell {
         // ── Thumbnail ────────────────────────────────────
         thumb.contentMode = .scaleAspectFill
         thumb.clipsToBounds = true
-        thumb.layer.cornerRadius = 10
+        thumb.layer.cornerRadius = kChromeCornerRadius
         thumb.layer.cornerCurve = .continuous
         thumb.backgroundColor = .tertiarySystemBackground
         thumb.translatesAutoresizingMaskIntoConstraints = false

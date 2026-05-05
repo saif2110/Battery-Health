@@ -288,7 +288,7 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
 
-            storageCard.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20),
+            storageCard.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 12),
             storageCard.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: hp),
             storageCard.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -hp),
 
@@ -314,7 +314,7 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
         // Ring + center labels
         ringView.translatesAutoresizingMaskIntoConstraints = false
 
-        percentLabel.font = .systemFont(ofSize: 38, weight: .bold)
+        percentLabel.font = .systemFont(ofSize: 34, weight: .bold)
         percentLabel.textColor = .label
         percentLabel.textAlignment = .center
         percentLabel.text = "0%"
@@ -330,9 +330,9 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
         statStrip.distribution = .fillEqually
         statStrip.translatesAutoresizingMaskIntoConstraints = false
 
-        let usedStat = makeStatCell(icon: "internaldrive.fill", color: accentColor, title: "Used", valueLabel: usedStatLabel)
-        let totalStat = makeStatCell(icon: "externaldrive.fill", color: .systemBlue, title: "Total", valueLabel: totalStatLabel)
-        let freeStat = makeStatCell(icon: "checkmark.seal.fill", color: .systemTeal, title: "Free", valueLabel: freeStatLabel)
+        let usedStat = makeStatCell(icon: "internaldrive.fill", color: accentColor, title: "Used", valueLabel: usedStatLabel, iconTopOffset: 8)
+        let totalStat = makeStatCell(icon: "externaldrive.fill", color: .systemBlue, title: "Total", valueLabel: totalStatLabel, iconTopOffset: 8)
+        let freeStat = makeStatCell(icon: "checkmark.seal.fill", color: .systemTeal, title: "Free", valueLabel: freeStatLabel, iconTopOffset: 8)
 
         statStrip.addArrangedSubview(usedStat)
         statStrip.addArrangedSubview(totalStat)
@@ -357,21 +357,22 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
         }
 
         NSLayoutConstraint.activate([
-            ringView.topAnchor.constraint(equalTo: wrapper.topAnchor, constant: 28),
+            ringView.topAnchor.constraint(equalTo: wrapper.topAnchor, constant: 16),
             ringView.centerXAnchor.constraint(equalTo: wrapper.centerXAnchor),
-            ringView.widthAnchor.constraint(equalToConstant: 180),
-            ringView.heightAnchor.constraint(equalToConstant: 180),
+            ringView.bottomAnchor.constraint(equalTo: statStrip.topAnchor, constant: -8),
+            ringView.widthAnchor.constraint(equalToConstant: 175),
+            ringView.heightAnchor.constraint(equalToConstant: 175),
 
             percentLabel.centerXAnchor.constraint(equalTo: ringView.centerXAnchor),
-            percentLabel.centerYAnchor.constraint(equalTo: ringView.centerYAnchor, constant: -10),
+            percentLabel.centerYAnchor.constraint(equalTo: ringView.centerYAnchor, constant: -8),
 
             usedRingLabel.topAnchor.constraint(equalTo: percentLabel.bottomAnchor, constant: 2),
             usedRingLabel.centerXAnchor.constraint(equalTo: ringView.centerXAnchor),
 
-            statStrip.topAnchor.constraint(equalTo: ringView.bottomAnchor, constant: 16),
+            statStrip.bottomAnchor.constraint(equalTo: statDivider.topAnchor, constant: -8),
             statStrip.leadingAnchor.constraint(equalTo: wrapper.leadingAnchor),
             statStrip.trailingAnchor.constraint(equalTo: wrapper.trailingAnchor),
-            statStrip.heightAnchor.constraint(equalToConstant: 92),
+            statStrip.heightAnchor.constraint(equalToConstant: 84),
 
             statDivider.topAnchor.constraint(equalTo: statStrip.bottomAnchor),
             statDivider.leadingAnchor.constraint(equalTo: wrapper.leadingAnchor),
@@ -380,8 +381,8 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
             mediaStrip.topAnchor.constraint(equalTo: statDivider.bottomAnchor),
             mediaStrip.leadingAnchor.constraint(equalTo: wrapper.leadingAnchor),
             mediaStrip.trailingAnchor.constraint(equalTo: wrapper.trailingAnchor),
-            mediaStrip.heightAnchor.constraint(equalToConstant: 92),
-            mediaStrip.bottomAnchor.constraint(equalTo: wrapper.bottomAnchor),
+            mediaStrip.heightAnchor.constraint(equalToConstant: 84),
+            mediaStrip.bottomAnchor.constraint(equalTo: wrapper.bottomAnchor,constant : -10),
         ])
 
         return wrapper
@@ -392,7 +393,7 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
     private func makeCard() -> UIView {
         let card = UIView()
         card.backgroundColor = .secondarySystemBackground
-        card.layer.cornerRadius = 20
+        card.layer.cornerRadius = kChromeCornerRadius
         card.layer.cornerCurve = .continuous
         card.layer.shadowColor = UIColor.black.cgColor
         card.layer.shadowOpacity = 0.08
@@ -411,7 +412,7 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
         return l
     }
 
-    private func makeStatCell(icon: String, color: UIColor, title: String, valueLabel: UILabel) -> UIView {
+    private func makeStatCell(icon: String, color: UIColor, title: String, valueLabel: UILabel, iconTopOffset: CGFloat = 12) -> UIView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
 
@@ -435,7 +436,7 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
         [iconView, titleLabel, valueLabel].forEach { container.addSubview($0) }
 
         NSLayoutConstraint.activate([
-            iconView.topAnchor.constraint(equalTo: container.topAnchor, constant: 12),
+            iconView.topAnchor.constraint(equalTo: container.topAnchor, constant: iconTopOffset),
             iconView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             iconView.widthAnchor.constraint(equalToConstant: 31),
             iconView.heightAnchor.constraint(equalToConstant: 31),
@@ -478,7 +479,7 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
 
         let iconBg = UIView()
         iconBg.backgroundColor = iconColor.withAlphaComponent(0.12)
-        iconBg.layer.cornerRadius = 12
+        iconBg.layer.cornerRadius = kChromeCornerRadius
         iconBg.layer.cornerCurve = .continuous
         iconBg.translatesAutoresizingMaskIntoConstraints = false
         iconBg.addSubview(iconView)
@@ -491,7 +492,7 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
         button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         button.backgroundColor = iconColor
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 14
+        button.layer.cornerRadius = kChromeCornerRadius
         button.layer.cornerCurve = .continuous
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: action, for: .touchUpInside)

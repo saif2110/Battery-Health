@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         self.MBView.addGestureRecognizer(tap)
         self.view.addGestureRecognizer(tap)
         
-        tabBar.layer.cornerRadius = 30
+        tabBar.layer.cornerRadius = kChromeCornerRadius
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         tabBar.shadow()
         

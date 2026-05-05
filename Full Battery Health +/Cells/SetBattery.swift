@@ -52,6 +52,7 @@ class SetBattery: UITableViewCell {
             UserDefaults(suiteName:
             "group.com.Full-Battery.Health.percentage")!.set(100, forKey: "percentage")
         }
+        NotificationCenter.default.post(name: .batteryAlarmThresholdDidChange, object: nil)
         
     }
     

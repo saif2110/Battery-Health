@@ -20,6 +20,11 @@ let diableClr = #colorLiteral(red: 0.1784194794, green: 0.1792542546, blue: 0.19
 /// Shared card chrome corner radius (Cleaner + Battery Alarm hero/footer/buttons).
 let kChromeCornerRadius: CGFloat = 12
 
+extension Notification.Name {
+  /// Posted when the Set Battery alarm threshold (80/90/100%) changes.
+  static let batteryAlarmThresholdDidChange = Notification.Name("batteryAlarmThresholdDidChange")
+}
+
 /// Slightly smaller radius for inset-grouped table rows (Battery Alarm list).
 let kInsetGroupedListCornerRadius: CGFloat = 10
 
@@ -81,8 +86,25 @@ func backgroundAudioPermission(){
     }
 }
 
+private let kCachedBatteryPercentForUIDisplay = "BatteryAlarm.cachedBatteryPercent"
+
+/// String for UI (0...100). Enables battery monitoring before read. Uses rounded percent to match system.
+/// If level is unavailable (`-1`), returns the last known good value when possible (e.g. Simulator).
 func getBatteyPercentage() -> String {
-    return String(Int(Double(UIDevice.current.batteryLevel) * 100))
+    UIDevice.current.isBatteryMonitoringEnabled = true
+    let raw = UIDevice.current.batteryLevel
+    guard raw >= 0, raw <= 1 else {
+        guard UserDefaults.standard.object(forKey: kCachedBatteryPercentForUIDisplay) != nil else {
+            return "0"
+        }
+        let cached = UserDefaults.standard.integer(forKey: kCachedBatteryPercentForUIDisplay)
+        let clamped = min(100, max(0, cached))
+        return "\(clamped)"
+    }
+    let pct = Int((Double(raw) * 100).rounded(.toNearestOrAwayFromZero))
+    let clamped = min(100, max(0, pct))
+    UserDefaults.standard.set(clamped, forKey: kCachedBatteryPercentForUIDisplay)
+    return "\(clamped)"
 }
 
 func Notification() {

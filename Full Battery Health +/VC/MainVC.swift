@@ -861,7 +861,9 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
       object: nil)
     
     NotificationCenter.default.addObserver(self, selector: #selector(Changed), name: Notification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"), object: nil)
-    
+
+    NotificationCenter.default.addObserver(self, selector: #selector(alarmThresholdDidChange), name: .batteryAlarmThresholdDidChange, object: nil)
+
     let mySound = Sound(url: Bundle.main.url(forResource: "bell", withExtension: "mp3")!)
     mySound?.play()
     mySound?.stop()
@@ -998,6 +1000,11 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
   }
   
   
+  @objc private func alarmThresholdDidChange() {
+    stateofBattery()
+    myView.reloadData()
+  }
+
   var volumePercentage = "100%"
   @objc func Changed(_ notification: Notification) {
     detailTextArray[0][0] = getBatteyPercentage()
@@ -1019,6 +1026,8 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     navigationItem.largeTitleDisplayMode = .never
     navigationItem.title = nil
     navigationItem.titleView = UIView()
+    refreshBatteryHeroLabels()
+
     if UserDefaults.standard.bool(forKey: "pro"){
       self.navigationItem.leftBarButtonItem = nil
     }

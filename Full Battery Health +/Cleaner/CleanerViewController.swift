@@ -201,6 +201,7 @@ class CleanerViewController: UIViewController, StorageInfoControllerDelegate {
     private func push(storyboardId: String) {
         guard let sb = storyboard,
               let vc = sb.instantiateViewController(withIdentifier: storyboardId) as UIViewController? else { return }
+        vc.hidesBottomBarWhenPushed = true
         if let nav = navigationController {
             nav.pushViewController(vc, animated: true)
         } else {

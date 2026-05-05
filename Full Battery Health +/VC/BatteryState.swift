@@ -104,6 +104,27 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
         myView.dataSource = self
         myView.tableFooterView = UIView()
         myView.reloadData()
+        updateTableBottomInset()
+    }
+
+    private var lastTableBottomInset: CGFloat = -1
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateTableBottomInset()
+    }
+
+    private func updateTableBottomInset() {
+        let padding: CGFloat = 20
+        var bottom = padding
+        if let tab = tabBarController, !tab.tabBar.isHidden {
+            let tabFrame = tab.tabBar.convert(tab.tabBar.bounds, to: view)
+            bottom += max(0, view.bounds.maxY - tabFrame.minY)
+        }
+        guard abs(bottom - lastTableBottomInset) > 0.5 else { return }
+        lastTableBottomInset = bottom
+        myView.contentInset.bottom = bottom
+        myView.verticalScrollIndicatorInsets.bottom = bottom
     }
     
     override func viewWillAppear(_ animated: Bool) {

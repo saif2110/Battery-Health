@@ -499,8 +499,29 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
         self.present(vc, animated: false)
       }
     }
-    
-    
+
+    updateMainTableBottomInset()
+  }
+
+  private var lastAppliedTableBottomContentInset: CGFloat = -1
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    updateMainTableBottomInset()
+  }
+
+  /// Extra bottom inset so the last rows can scroll clear of the tab bar (and home indicator).
+  private func updateMainTableBottomInset() {
+    let padding: CGFloat = 28
+    var bottomInset = padding
+    if let tab = tabBarController, !tab.tabBar.isHidden {
+      let tabFrame = tab.tabBar.convert(tab.tabBar.bounds, to: view)
+      bottomInset += max(0, view.bounds.maxY - tabFrame.minY)
+    }
+    guard abs(bottomInset - lastAppliedTableBottomContentInset) > 0.5 else { return }
+    lastAppliedTableBottomContentInset = bottomInset
+    myView.contentInset.bottom = bottomInset
+    myView.verticalScrollIndicatorInsets.bottom = bottomInset
   }
   
   @objc func forcepro(){

@@ -18,6 +18,7 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
 
   private var scanLoadingView: CleanerScanLoadingView?
   private var modernHeader: CleanerHeaderCard?
+  private var lastDuplicateTableBottomInset: CGFloat = -1
   // Detached labels keep the storyboard outlets alive after we strip the legacy header.
   private let detachedSaveLabel = UILabel()
   private let detachedStatusLabel = UILabel()
@@ -40,13 +41,14 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    hidesBottomBarWhenPushed = true
     view.backgroundColor = .systemGroupedBackground
     tableView.dataSource = self
     tableView.separatorStyle = .none
     tableView.backgroundColor = .clear
     tableView.estimatedRowHeight = 363
     tableView.rowHeight = UITableView.automaticDimension
-    tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
+    tableView.contentInset = .zero
     activityIndicator?.isHidden = true
 
     title = "Duplicate Photos"
@@ -59,6 +61,17 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     sizeModernHeader()
+    let padding: CGFloat = 24
+    var bottom = padding
+    if let tab = tabBarController, !tab.tabBar.isHidden {
+      let tabFrame = tab.tabBar.convert(tab.tabBar.bounds, to: view)
+      bottom += max(0, view.bounds.maxY - tabFrame.minY)
+    }
+    if abs(bottom - lastDuplicateTableBottomInset) > 0.5 {
+      lastDuplicateTableBottomInset = bottom
+      tableView.contentInset.bottom = bottom
+      tableView.verticalScrollIndicatorInsets.bottom = bottom
+    }
   }
 
   private func installModernHeader() {
@@ -149,14 +162,12 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
         PHPhotoLibrary.shared().performChanges({
           PHAssetChangeRequest.deleteAssets(dups as NSArray)
         }) { bool, error in
-          if bool {
+          guard bool else { return }
+          DispatchQueue.main.async {
             self.duplicates?.removeAll()
-            DispatchQueue.main.async {
-              self.saveupto.text = "0 MB"
-              self.statusLabel.text = "0"
-              self.tableView.reloadData()
-            }
-            
+            self.saveupto.text = "0 MB"
+            self.statusLabel.text = "0"
+            self.tableView.reloadData()
           }
         }
     //  }
@@ -278,7 +289,8 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
       PHPhotoLibrary.shared().performChanges({
         PHAssetChangeRequest.deleteAssets(toDelete as NSArray)
       }) { bool, error in
-        if bool {
+        guard bool else { return }
+        DispatchQueue.main.async {
           if let duplicates = self.duplicates {
             for (indexi, i) in duplicates.enumerated() {
               if i.contains(toDelete.first!) {
@@ -286,14 +298,12 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
               }
             }
           }
-          DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.statusLabel.text = "\(self.duplicates?.count ?? 0)"
-            
-            guard self.duplicates?.count != 0 else {return}
-            let numberoDups = self.duplicates?.count ?? 0
-            self.saveupto.text = "\(Double(numberoDups) * 1.5) MB"
-          }
+          self.tableView.reloadData()
+          self.statusLabel.text = "\(self.duplicates?.count ?? 0)"
+          
+          guard self.duplicates?.count != 0 else { return }
+          let numberoDups = self.duplicates?.count ?? 0
+          self.saveupto.text = "\(Double(numberoDups) * 1.5) MB"
         }
       }
     }
@@ -311,7 +321,8 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
     PHPhotoLibrary.shared().performChanges({
       PHAssetChangeRequest.deleteAssets(toDelete as NSArray)
     }) { bool, error in
-      if bool {
+      guard bool else { return }
+      DispatchQueue.main.async {
         if let duplicates = self.duplicates {
           for (indexi, i) in duplicates.enumerated() {
             if i.contains(toDelete.first!) {
@@ -319,14 +330,12 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
             }
           }
         }
-        DispatchQueue.main.async {
-          self.tableView.reloadData()
-          self.statusLabel.text = "\(self.duplicates?.count ?? 0)"
-          
-          guard self.duplicates?.count != 0 else {return}
-          let numberoDups = self.duplicates?.count ?? 0
-          self.saveupto.text = "\(Double(numberoDups) * 1.5) MB"
-        }
+        self.tableView.reloadData()
+        self.statusLabel.text = "\(self.duplicates?.count ?? 0)"
+        
+        guard self.duplicates?.count != 0 else { return }
+        let numberoDups = self.duplicates?.count ?? 0
+        self.saveupto.text = "\(Double(numberoDups) * 1.5) MB"
       }
     }
   }

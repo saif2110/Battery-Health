@@ -26,20 +26,23 @@ final class CleanerHeaderCard: UIView {
          sizeCaption: String,
          buttonTitle: String,
          helpText: String,
+         compactMetrics: Bool = false,
          onPrimary: @escaping () -> Void) {
         super.init(frame: .zero)
         primaryAction = onPrimary
         translatesAutoresizingMaskIntoConstraints = false
         build(icon: icon, accent: accent, title: title,
               countCaption: countCaption, sizeCaption: sizeCaption,
-              buttonTitle: buttonTitle, helpText: helpText)
+              buttonTitle: buttonTitle, helpText: helpText,
+              compactMetrics: compactMetrics)
     }
 
     required init?(coder: NSCoder) { fatalError("init(coder:) not supported") }
 
     private func build(icon: String, accent: UIColor, title: String,
                        countCaption: String, sizeCaption: String,
-                       buttonTitle: String, helpText: String) {
+                       buttonTitle: String, helpText: String,
+                       compactMetrics: Bool) {
 
         backgroundColor = .clear
 
@@ -108,6 +111,14 @@ final class CleanerHeaderCard: UIView {
         helpLabel.textAlignment = .center
         helpLabel.translatesAutoresizingMaskIntoConstraints = false
 
+        let iconTop: CGFloat = compactMetrics ? 14 : 18
+        let iconToStats: CGFloat = compactMetrics ? 12 : 16
+        let statsHeight: CGFloat = compactMetrics ? 58 : 64
+        let statsToButton: CGFloat = compactMetrics ? 10 : 14
+        let buttonHeight: CGFloat = compactMetrics ? 46 : 50
+        let buttonToHelp: CGFloat = compactMetrics ? 6 : 10
+        let helpBottom: CGFloat = compactMetrics ? 10 : 16
+
         [iconBg, titleLabel, statsStack, primaryButton, helpLabel].forEach { card.addSubview($0) }
 
         NSLayoutConstraint.activate([
@@ -116,7 +127,7 @@ final class CleanerHeaderCard: UIView {
             card.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             card.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
 
-            iconBg.topAnchor.constraint(equalTo: card.topAnchor, constant: 18),
+            iconBg.topAnchor.constraint(equalTo: card.topAnchor, constant: iconTop),
             iconBg.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
             iconBg.widthAnchor.constraint(equalToConstant: 48),
             iconBg.heightAnchor.constraint(equalToConstant: 48),
@@ -130,20 +141,20 @@ final class CleanerHeaderCard: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: iconBg.trailingAnchor, constant: 14),
             titleLabel.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -16),
 
-            statsStack.topAnchor.constraint(equalTo: iconBg.bottomAnchor, constant: 16),
+            statsStack.topAnchor.constraint(equalTo: iconBg.bottomAnchor, constant: iconToStats),
             statsStack.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
             statsStack.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -16),
-            statsStack.heightAnchor.constraint(equalToConstant: 64),
+            statsStack.heightAnchor.constraint(equalToConstant: statsHeight),
 
-            primaryButton.topAnchor.constraint(equalTo: statsStack.bottomAnchor, constant: 14),
+            primaryButton.topAnchor.constraint(equalTo: statsStack.bottomAnchor, constant: statsToButton),
             primaryButton.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
             primaryButton.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -16),
-            primaryButton.heightAnchor.constraint(equalToConstant: 50),
+            primaryButton.heightAnchor.constraint(equalToConstant: buttonHeight),
 
-            helpLabel.topAnchor.constraint(equalTo: primaryButton.bottomAnchor, constant: 10),
+            helpLabel.topAnchor.constraint(equalTo: primaryButton.bottomAnchor, constant: buttonToHelp),
             helpLabel.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 20),
             helpLabel.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -20),
-            helpLabel.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -16),
+            helpLabel.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -helpBottom),
         ])
     }
 
@@ -206,7 +217,7 @@ final class CleanerSelectionBar: UIView {
     private func build(buttonTitle: String, accent: UIColor) {
         let card = UIView()
         card.backgroundColor = .secondarySystemBackground
-        card.layer.cornerRadius = 20
+        card.layer.cornerRadius = 16
         card.layer.cornerCurve = .continuous
         card.layer.shadowColor = UIColor.black.cgColor
         card.layer.shadowOpacity = 0.10
@@ -218,65 +229,117 @@ final class CleanerSelectionBar: UIView {
         // Selection badge
         let badge = UIView()
         badge.backgroundColor = accent.withAlphaComponent(0.15)
-        badge.layer.cornerRadius = 14
+        badge.layer.cornerRadius = 11
         badge.layer.cornerCurve = .continuous
         badge.translatesAutoresizingMaskIntoConstraints = false
 
-        countLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        countLabel.font = .systemFont(ofSize: 22, weight: .bold)
         countLabel.textColor = accent
         countLabel.text = "0"
         countLabel.textAlignment = .center
+        countLabel.adjustsFontSizeToFitWidth = true
+        countLabel.minimumScaleFactor = 0.65
         countLabel.translatesAutoresizingMaskIntoConstraints = false
         badge.addSubview(countLabel)
 
         let badgeCaption = UILabel()
         badgeCaption.text = "selected"
-        badgeCaption.font = .systemFont(ofSize: 13, weight: .medium)
+        badgeCaption.font = .systemFont(ofSize: 17, weight: .semibold)
         badgeCaption.textColor = .secondaryLabel
+        badgeCaption.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         badgeCaption.translatesAutoresizingMaskIntoConstraints = false
 
-        primaryButton.setTitle(buttonTitle, for: .normal)
-        primaryButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
-        primaryButton.setTitleColor(.white, for: .normal)
-        primaryButton.backgroundColor = .systemRed
-        primaryButton.layer.cornerRadius = 14
-        primaryButton.layer.cornerCurve = .continuous
         primaryButton.translatesAutoresizingMaskIntoConstraints = false
+        primaryButton.setContentHuggingPriority(.required, for: .horizontal)
+        primaryButton.setContentCompressionResistancePriority(.required, for: .horizontal)
         primaryButton.addTarget(self, action: #selector(primaryTapped), for: .touchUpInside)
 
-        let trashConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .semibold)
-        primaryButton.setImage(UIImage(systemName: "trash", withConfiguration: trashConfig), for: .normal)
-        primaryButton.tintColor = .white
-        primaryButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -6, bottom: 0, right: 6)
-        primaryButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: -6)
+        var deleteConfig = UIButton.Configuration.filled()
+        deleteConfig.baseBackgroundColor = .systemRed
+        deleteConfig.baseForegroundColor = .white
+        deleteConfig.cornerStyle = .fixed
+        deleteConfig.background.cornerRadius = 10
+        let trashImage = UIImage(systemName: "trash", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12, weight: .semibold))
+        deleteConfig.image = trashImage
+        deleteConfig.title = buttonTitle
+        deleteConfig.imagePlacement = .leading
+        deleteConfig.imagePadding = 4
+        deleteConfig.contentInsets = NSDirectionalEdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8)
+        deleteConfig.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+            return outgoing
+        }
+        primaryButton.configuration = deleteConfig
 
         [badge, badgeCaption, primaryButton].forEach { card.addSubview($0) }
 
+        let barHeight: CGFloat = 56
+        let badgeSize: CGFloat = 40
+        let primaryH: CGFloat = 36
+
         NSLayoutConstraint.activate([
             card.topAnchor.constraint(equalTo: topAnchor),
-            card.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            card.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            card.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            card.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
             card.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            badge.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 14),
+            badge.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 6),
             badge.centerYAnchor.constraint(equalTo: card.centerYAnchor),
-            badge.widthAnchor.constraint(equalToConstant: 50),
-            badge.heightAnchor.constraint(equalToConstant: 50),
+            badge.widthAnchor.constraint(greaterThanOrEqualToConstant: 38),
+            badge.heightAnchor.constraint(equalToConstant: badgeSize),
 
-            countLabel.centerXAnchor.constraint(equalTo: badge.centerXAnchor),
+            countLabel.leadingAnchor.constraint(equalTo: badge.leadingAnchor, constant: 3),
+            countLabel.trailingAnchor.constraint(equalTo: badge.trailingAnchor, constant: -3),
             countLabel.centerYAnchor.constraint(equalTo: badge.centerYAnchor),
 
-            badgeCaption.leadingAnchor.constraint(equalTo: badge.trailingAnchor, constant: 10),
-            badgeCaption.centerYAnchor.constraint(equalTo: badge.centerYAnchor),
+            badgeCaption.leadingAnchor.constraint(equalTo: badge.trailingAnchor, constant: 5),
+            badgeCaption.centerYAnchor.constraint(equalTo: card.centerYAnchor),
 
-            primaryButton.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -14),
+            primaryButton.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -6),
             primaryButton.centerYAnchor.constraint(equalTo: card.centerYAnchor),
-            primaryButton.heightAnchor.constraint(equalToConstant: 46),
-            primaryButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 130),
+            primaryButton.heightAnchor.constraint(equalToConstant: primaryH),
+            primaryButton.leadingAnchor.constraint(greaterThanOrEqualTo: badgeCaption.trailingAnchor, constant: 6),
 
-            card.heightAnchor.constraint(equalToConstant: 78),
+            card.heightAnchor.constraint(equalToConstant: barHeight),
         ])
     }
 
     @objc private func primaryTapped() { primaryAction?() }
+}
+
+// MARK: - List section header (Screenshots & Large Videos)
+
+final class CleanerListSectionHeader: UICollectionReusableView {
+
+    static let reuseId = "CleanerListSectionHeader"
+
+    private let label: UILabel = {
+        let l = UILabel()
+        l.font = .systemFont(ofSize: 16.5, weight: .semibold)
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .clear
+        addSubview(label)
+        let g = layoutMarginsGuide
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: g.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: g.trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -14),
+        ])
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure(title: String, accent: UIColor) {
+        label.text = title
+        label.textColor = accent
+        directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+    }
 }

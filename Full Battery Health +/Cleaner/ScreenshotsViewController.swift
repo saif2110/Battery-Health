@@ -11,7 +11,7 @@ import Photos
 //import SPStorkController
 
 
-class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
   @IBOutlet weak var saveSpaceUpto: UILabel!
   @IBOutlet weak var duplicatesScreenShot: UILabel!
@@ -48,7 +48,8 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
       PHPhotoLibrary.shared().performChanges({
         PHAssetChangeRequest.deleteAssets(toDelete as NSArray)
       }) { bool, error in
-        if bool {
+        guard bool else { return }
+        DispatchQueue.main.async {
           self.arrayOfRemoveScreenshots = []
           self.updateButton()
           self.takeAssets()
@@ -73,6 +74,8 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
       }
       UIView.animate(withDuration: 0.3) {
         self.view.layoutIfNeeded()
+      } completion: { _ in
+        self.updateCollectionBottomInset()
       }
     }
   }
@@ -95,16 +98,14 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
         PHPhotoLibrary.shared().performChanges({
           PHAssetChangeRequest.deleteAssets(phpAssets as NSArray)
         }) { bool, error in
-          if bool {
+          guard bool else { return }
+          DispatchQueue.main.async {
             self.arrayOfRemoveScreenshots = []
             self.updateButton()
             self.arrayOfScreenshots?.removeAll()
-            DispatchQueue.main.async {
-              self.saveSpaceUpto.text = "0 MB"
-              self.duplicatesScreenShot.text = "0"
-              self.collectionView.reloadData()
-            }
-            
+            self.saveSpaceUpto.text = "0 MB"
+            self.duplicatesScreenShot.text = "0"
+            self.collectionView.reloadData()
           }
         }
       }
@@ -128,14 +129,39 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
   private let detachedCountLabel = UILabel()
   private let detachedSelectionLabel = UILabel()
 
+  /// Storyboard header container (`bNU-K8-OME`) — kept so we can fix z-order above the list.
+  private weak var screenshotHeaderContainer: UIView?
+  /// Bottom selection chrome (`to3-31-RoK`); kept above the collection view.
+  private weak var selectionChromeView: UIView?
+
+  private var lastCollectionBottomInset: CGFloat = -1
+
+  private static let listSectionTitle = "Manual selection"
+  private static let listAccentColor: UIColor = .systemBlue
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    hidesBottomBarWhenPushed = true
     view.backgroundColor = .systemGroupedBackground
     collectionView.backgroundColor = .clear
-    collectionView.layer.cornerRadius = 16
-    collectionView.layer.masksToBounds = true
+    collectionView.layer.cornerRadius = 0
+    collectionView.layer.masksToBounds = false
+    collectionView.contentInset = .zero
+    collectionView.contentInsetAdjustmentBehavior = .never
     collectionView.delegate = self
     collectionView.dataSource = self
+    collectionView.register(
+      CleanerListSectionHeader.self,
+      forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+      withReuseIdentifier: CleanerListSectionHeader.reuseId
+    )
+    if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+      flow.scrollDirection = .vertical
+      flow.minimumLineSpacing = 8
+      flow.minimumInteritemSpacing = 0
+      flow.estimatedItemSize = .zero
+      flow.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 28, right: 16)
+    }
 
     title = "Screenshots"
     navigationItem.largeTitleDisplayMode = .never
@@ -147,8 +173,33 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
     updateButton()
   }
 
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    if let header = screenshotHeaderContainer {
+      view.bringSubviewToFront(header)
+    }
+    if let chrome = selectionChromeView {
+      view.bringSubviewToFront(chrome)
+    }
+    updateCollectionBottomInset()
+  }
+
+  /// Footer scroll padding so the last row can scroll up with a large bottom margin (200 pt).
+  private static let collectionBottomFooterInset: CGFloat = 200
+
+  private func updateCollectionBottomInset() {
+    let bottom = Self.collectionBottomFooterInset
+    guard abs(bottom - lastCollectionBottomInset) > 0.5 else { return }
+    lastCollectionBottomInset = bottom
+    var inset = collectionView.contentInset
+    inset.bottom = bottom
+    collectionView.contentInset = inset
+    collectionView.verticalScrollIndicatorInsets.bottom = bottom
+  }
+
   private func installModernHeader() {
     guard let headerView = saveSpaceUpto.superview else { return }
+    screenshotHeaderContainer = headerView
     headerView.subviews.forEach { $0.removeFromSuperview() }
     headerView.backgroundColor = .clear
 
@@ -179,10 +230,14 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
 
     saveSpaceUpto = card.sizeLabel
     duplicatesScreenShot = card.countLabel
+
+    view.layoutIfNeeded()
+    view.bringSubviewToFront(headerView)
   }
 
   private func installModernSelectionBar() {
     guard let bar = counutLabelView.superview else { return }
+    selectionChromeView = bar.superview
     bar.subviews.forEach { $0.removeFromSuperview() }
     bar.backgroundColor = .clear
 
@@ -280,20 +335,63 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
     if let image = arrayOfScreenshots?[indexPath.row] {
       cell.photoAsset = image
       cell.reload()
+      cell.configureSelectionState(isMarkedForDeletion(image))
     }
     return cell
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    if let image = arrayOfScreenshots?[indexPath.row] {
-      self.arrayOfRemoveScreenshots.append(image)
-      updateButton()
+    guard let image = arrayOfScreenshots?[indexPath.row] else { return }
+
+    if let existingIdx = arrayOfRemoveScreenshots.firstIndex(where: { $0.localId == image.localId }) {
+      arrayOfRemoveScreenshots.remove(at: existingIdx)
+    } else {
+      arrayOfRemoveScreenshots.append(image)
     }
-    collectionView.performBatchUpdates({
-      arrayOfScreenshots?.remove(at: indexPath.row)
-      collectionView.deleteItems(at: [indexPath])
-    }, completion: nil)
-    
+
+    if let cell = collectionView.cellForItem(at: indexPath) as? ScreenshotCollectionViewCell {
+      let nowSelected = isMarkedForDeletion(image)
+      UIView.animate(withDuration: 0.10, animations: {
+        cell.contentView.transform = CGAffineTransform(scaleX: 0.94, y: 0.94)
+      }) { _ in
+        cell.configureSelectionState(nowSelected)
+        UIView.animate(withDuration: 0.18) {
+          cell.contentView.transform = .identity
+        }
+      }
+    }
+    updateButton()
+  }
+
+  private func isMarkedForDeletion(_ image: ImageObject) -> Bool {
+    return arrayOfRemoveScreenshots.contains(where: { $0.localId == image.localId })
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    guard section == 0, (arrayOfScreenshots?.count ?? 0) > 0 else { return .zero }
+    let w = collectionView.bounds.width > 0 ? collectionView.bounds.width : view.bounds.width
+    return CGSize(width: w, height: 46)
+  }
+
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    guard kind == UICollectionView.elementKindSectionHeader else {
+      return UICollectionReusableView()
+    }
+    let header = collectionView.dequeueReusableSupplementaryView(
+      ofKind: kind,
+      withReuseIdentifier: CleanerListSectionHeader.reuseId,
+      for: indexPath
+    ) as! CleanerListSectionHeader
+    header.configure(title: Self.listSectionTitle, accent: Self.listAccentColor)
+    return header
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let flow = collectionViewLayout as? UICollectionViewFlowLayout
+    let insetH = (flow?.sectionInset.left ?? 0) + (flow?.sectionInset.right ?? 0)
+    let w = collectionView.bounds.width > 0 ? collectionView.bounds.width : view.bounds.width
+    let width = w - insetH
+    return CGSize(width: max(width, 0), height: 122)
   }
   
   //    func showSubscription() {

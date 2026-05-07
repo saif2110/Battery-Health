@@ -205,7 +205,7 @@ func getDatefromMili(milisecond:Double) -> String {
 
 // MARK: - Modern Empty State
 
-private func makeModernEmptyState(message: String, in bounds: CGRect) -> UIView {
+private func makeModernEmptyState(message: String, in bounds: CGRect, alignNearTop: Bool = false, nearTopInset: CGFloat = 28) -> UIView {
     let container = UIView(frame: bounds)
     container.backgroundColor = .clear
 
@@ -252,7 +252,8 @@ private func makeModernEmptyState(message: String, in bounds: CGRect) -> UIView 
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
     let subtitleLabel = UILabel()
-    subtitleLabel.text = subtitle.isEmpty ? "Nothing to clean up here." : subtitle
+    let hasSubtitle = !subtitle.isEmpty
+    subtitleLabel.text = hasSubtitle ? subtitle : nil
     subtitleLabel.font = .systemFont(ofSize: 14, weight: .regular)
     subtitleLabel.textColor = .secondaryLabel
     subtitleLabel.textAlignment = .center
@@ -263,9 +264,8 @@ private func makeModernEmptyState(message: String, in bounds: CGRect) -> UIView 
     container.addSubview(titleLabel)
     container.addSubview(subtitleLabel)
 
-    NSLayoutConstraint.activate([
+    var constraints: [NSLayoutConstraint] = [
         iconBg.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-        iconBg.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: 40),
         iconBg.widthAnchor.constraint(equalToConstant: 88),
         iconBg.heightAnchor.constraint(equalToConstant: 88),
 
@@ -278,10 +278,19 @@ private func makeModernEmptyState(message: String, in bounds: CGRect) -> UIView 
         titleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 32),
         titleLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -32),
 
-        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: hasSubtitle ? 8 : 0),
         subtitleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 36),
         subtitleLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -36),
-    ])
+    ]
+    if alignNearTop {
+        constraints.append(iconBg.topAnchor.constraint(equalTo: container.topAnchor, constant: nearTopInset))
+    } else {
+        constraints.append(iconBg.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: 40))
+    }
+    if !hasSubtitle {
+        constraints.append(subtitleLabel.heightAnchor.constraint(equalToConstant: 0))
+    }
+    NSLayoutConstraint.activate(constraints)
 
     // Subtle pop-in animation.
     iconBg.alpha = 0
@@ -302,8 +311,11 @@ private func makeModernEmptyState(message: String, in bounds: CGRect) -> UIView 
 
 extension UITableView {
 
-    func setEmptyMessage(_ message: String) {
-        self.backgroundView = makeModernEmptyState(message: message, in: bounds)
+    /// - Parameters:
+    ///   - alignNearTop: Use for short tables embedded mid-screen so the empty state sits near the list top instead of vertically centered.
+    ///   - nearTopInset: Top padding under the table’s top edge when `alignNearTop` is true (increase if the empty state crowds content above the table, e.g. a chart).
+    func setEmptyMessage(_ message: String, alignNearTop: Bool = false, nearTopInset: CGFloat = 28) {
+        self.backgroundView = makeModernEmptyState(message: message, in: bounds, alignNearTop: alignNearTop, nearTopInset: nearTopInset)
         self.separatorStyle = .none
     }
 
@@ -315,8 +327,8 @@ extension UITableView {
 
 extension UICollectionView {
 
-    func setEmptyMessage(_ message: String) {
-        self.backgroundView = makeModernEmptyState(message: message, in: bounds)
+    func setEmptyMessage(_ message: String, alignNearTop: Bool = false, nearTopInset: CGFloat = 28) {
+        self.backgroundView = makeModernEmptyState(message: message, in: bounds, alignNearTop: alignNearTop, nearTopInset: nearTopInset)
     }
 
     func restore() {

@@ -15,7 +15,8 @@ class BatteryState: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if usersStore.objectsCount == 0 {
-            self.myView.setEmptyMessage("Data will be displayed once you charged phone for more than 10 minutes using this app.")
+            // Table sits tight under chart; inset clears the section header (~50pt) so the glyph doesn’t read as overlapping the chart.
+            self.myView.setEmptyMessage("Data will be displayed once you charged phone for more than 10 minutes using this app.", alignNearTop: true, nearTopInset: 72)
         }else{
             self.myView.restore()
         }

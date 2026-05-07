@@ -45,7 +45,7 @@ class VideosViewController: UIViewController, UICollectionViewDelegate, UICollec
   func deleteAssetes(toDelete: [PHAsset]) {
     
     if !UserDefaults.standard.bool(forKey: "pro"){
-        let vc = InAppVC()
+        let vc = Apps15init.shared.makeIAPVC()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
       return
@@ -251,7 +251,7 @@ class VideosViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     
     if !UserDefaults.standard.bool(forKey: "pro"){
-        let vc = InAppVC()
+        let vc = Apps15init.shared.makeIAPVC()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
       return

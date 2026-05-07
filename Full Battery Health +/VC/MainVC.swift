@@ -753,7 +753,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
   @IBOutlet weak var pro: UIBarButtonItem!
   
   @IBAction func proAction(_ sender: Any) {
-    let vc = InAppVC()
+    let vc = Apps15init.shared.makeIAPVC()
     vc.modalPresentationStyle = .fullScreen
     self.present(vc, animated: true, completion: nil)
   }
@@ -894,7 +894,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
 
     DispatchQueue.main.async {
       if !UserDefaults.standard.bool(forKey: "pro") && UserDefaults.standard.integer(forKey: "AppLaunch") > 1{
-        let vc = InAppVC()
+        let vc = Apps15init.shared.makeIAPVC()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
       }
@@ -969,7 +969,7 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
   }
   
   @objc func Showinapp(notification:Notification) {
-    let vc = InAppVC()
+    let vc = Apps15init.shared.makeIAPVC()
     vc.modalPresentationStyle = .fullScreen
     self.present(vc, animated: true, completion: nil)
   }
@@ -1041,25 +1041,42 @@ class MainVC: UIViewController,UITableViewDelegate,UITableViewDataSource { //CLL
     cfg.cornerStyle = .large
     cfg.buttonSize = .large
     cfg.background.cornerRadius = kChromeCornerRadius
+    cfg.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 22, bottom: 16, trailing: 22)
+    cfg.imagePadding = 10
+    cfg.imagePlacement = .leading
     cfg.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
       var o = incoming
-      o.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+      o.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+      o.kern = 1.6
       return o
     }
 
+    let glyphConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .bold)
+
     switch UIDevice.current.batteryState {
     case .charging:
-      cfg.title = "Set Alarm"
+      let title = "SET ALARM"
+      var attr = AttributedString(title)
+      attr.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+      attr.kern = 1.6
+      cfg.attributedTitle = attr
+      cfg.image = UIImage(systemName: "bolt.fill", withConfiguration: glyphConfig)
       cfg.baseForegroundColor = .white
       cfg.baseBackgroundColor = neonClr
       setAlaram.isEnabled = true
     default:
-      cfg.title = "Connect Charger"
+      let title = "CONNECT CHARGER"
+      var attr = AttributedString(title)
+      attr.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+      attr.kern = 1.6
+      cfg.attributedTitle = attr
+      cfg.image = UIImage(systemName: "powerplug.fill", withConfiguration: glyphConfig)
       cfg.baseForegroundColor = .white
       cfg.baseBackgroundColor = diableClr
       setAlaram.isEnabled = false
     }
     setAlaram.configuration = cfg
+    setAlaram.layer.shadowOpacity = 0
   }
   
 }

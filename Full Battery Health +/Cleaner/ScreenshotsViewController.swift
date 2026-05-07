@@ -35,7 +35,7 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
   func deleteAssetes(toDelete: [PHAsset]) {
     
     if !UserDefaults.standard.bool(forKey: "pro"){
-      let vc = InAppVC()
+      let vc = Apps15init.shared.makeIAPVC()
       vc.modalPresentationStyle = .fullScreen
       self.present(vc, animated: true, completion: nil)
       return
@@ -84,7 +84,7 @@ class ScreenshotsViewController: UIViewController, UICollectionViewDelegate, UIC
   @IBAction func removeAll(_ sender: Any) {
     
     if !UserDefaults.standard.bool(forKey: "pro"){
-      let vc = InAppVC()
+      let vc = Apps15init.shared.makeIAPVC()
       vc.modalPresentationStyle = .fullScreen
       self.present(vc, animated: true, completion: nil)
       return

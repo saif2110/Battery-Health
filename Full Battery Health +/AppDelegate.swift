@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,URLSessionDelegate {
     
     let iap = InAppPurchase.default
     iap.addTransactionObserver(fallbackHandler: {_ in
-      // Handle the result of payment added by Store
+      // Handle the result of payment added by Storeasd
       // See also `InAppPurchase#purchase`
     })
     

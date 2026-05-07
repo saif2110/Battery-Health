@@ -17,9 +17,7 @@ class WelcomeEnd: UIViewController {
   
   @IBAction func next(_ sender: Any) {
     DispatchQueue.main.async {
-      //  let selfVC = UIApplication.topViewController()
-      let vc = InAppVC()
-      vc.modalPresentationStyle = .fullScreen
+      let vc = WelcomeQuestions()
       self.navigationController?.pushViewController(vc, animated: true)
     }
   }

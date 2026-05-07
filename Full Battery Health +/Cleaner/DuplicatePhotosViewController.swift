@@ -122,7 +122,7 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
   @IBAction func removeAllduplicate(_ sender: Any) {
     
     if !UserDefaults.standard.bool(forKey: "pro"){
-        let vc = InAppVC()
+        let vc = Apps15init.shared.makeIAPVC()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
       return
@@ -276,7 +276,7 @@ class DuplicatePhotosViewController:UIViewController, UITableViewDataSource, Dub
   func deleteAssetes(toDelete: [PHAsset]) {
     
     if !UserDefaults.standard.bool(forKey: "pro"){
-        let vc = InAppVC()
+        let vc = Apps15init.shared.makeIAPVC()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
       return

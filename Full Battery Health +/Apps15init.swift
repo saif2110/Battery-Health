@@ -6,10 +6,26 @@
 //
 
 import Foundation
-
+import UIKit
 class Apps15init {
     static var shared = Apps15init()
-    var HSB = false
+
+    private static let hsbKey = "Apps15init.HSB"
+    private static let iapTypeKey = "Apps15init.IAPTYPE"
+
+    var HSB: Bool {
+        didSet { UserDefaults.standard.set(HSB, forKey: Apps15init.hsbKey) }
+    }
+    var IAPTYPE: Int {
+        didSet { UserDefaults.standard.set(IAPTYPE, forKey: Apps15init.iapTypeKey) }
+    }
+
+    private init() {
+        let d = UserDefaults.standard
+        self.HSB = d.bool(forKey: Apps15init.hsbKey)
+        self.IAPTYPE = d.integer(forKey: Apps15init.iapTypeKey)
+    }
+
     func start(id:String){
         let params = ["id":id] as Dictionary<String, Any>
 
@@ -25,8 +41,16 @@ class Apps15init {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
 
-                self.HSB = json["HSB"] as! Bool
-                //completion(true, json["result"] as! String)
+                if let hsb = json["HSB"] as? Bool {
+                    self.HSB = hsb
+                }
+                if let raw = json["IAPTYPE"] {
+                    if let i = raw as? Int {
+                        self.IAPTYPE = i
+                    } else if let s = raw as? String, let i = Int(s) {
+                        self.IAPTYPE = i
+                    }
+                }
             } catch {
                // completion(true, "NA")
             }
@@ -34,6 +58,10 @@ class Apps15init {
 
         task.resume()
     }
-    
-    
+
+    /// Returns the IAP screen to show based on remote `IAPTYPE` flag.
+    /// 0 → existing storyboard-backed `InAppVC`, 1 → new `InAppVC2`.
+    func makeIAPVC() -> UIViewController {
+        return IAPTYPE == 1 ? InAppVC2() : InAppVC()
+    }
 }

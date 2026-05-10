@@ -131,7 +131,7 @@ class InAppVC2: UIViewController {
             ("trash.circle.fill", "Junk file & cache cleanup"),
             ("photo.on.rectangle.angled", "Duplicate photo cleaner"),
             ("waveform.path.ecg.rectangle", "Battery health analytics"),
-            //("nosign", "No ads, all features unlocked")
+            ("nosign", "No ads, all features unlocked")
         ]
         let featuresStack = UIStackView()
         featuresStack.translatesAutoresizingMaskIntoConstraints = false
@@ -150,10 +150,10 @@ class InAppVC2: UIViewController {
         contentView.addSubview(trialCard)
 
         NSLayoutConstraint.activate([
-            heroImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            heroImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             heroImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            heroImage.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1),
-            heroImage.heightAnchor.constraint(equalToConstant: 240),
+            heroImage.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.1),
+            heroImage.heightAnchor.constraint(equalToConstant: 235),
 
             titleLabel.topAnchor.constraint(equalTo: heroImage.bottomAnchor, constant: 12),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
